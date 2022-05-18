@@ -13,6 +13,7 @@ const Menu = () => {
             <ul>
                 <li> <Link to="/dashboard" className="btn btn-primary">Dashboard</Link></li>
                 <li> <Link to="/transactions" className="btn btn-primary">Transactions</Link></li>
+                <li> <Link to="/categories" className="btn btn-primary">Categories</Link></li>
                 <li>Reports</li>
                 <li>Profile</li>
                 <li>Settings</li>

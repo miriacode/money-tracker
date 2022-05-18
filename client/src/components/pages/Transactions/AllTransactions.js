@@ -1,15 +1,13 @@
 // import React, {useEffect, useState} from "react";
 // import axios from "axios";
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import React from "react";
 
 const AllTransactions = () => {
     return (
         <div>
             <h2>---AllTransactions---</h2>
-            <p>%buttons%</p>
-            <p>Add New</p>
-
+            <Link to="/transactions/new">Add New</Link>
             <table>
                 <tr>
                     <th>Type</th>
@@ -18,9 +16,11 @@ const AllTransactions = () => {
                     <th>Category</th>
                     <th>Actions</th>
                 </tr>
+
                 <tr>
                     <td>Row1</td>
                 </tr>
+                
             </table>
         </div>
     )

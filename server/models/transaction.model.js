@@ -2,8 +2,12 @@ const mongoose = require("mongoose");
 
 const TransactionSchema = new mongoose.Schema({
     type: {
-        type: Boolean,
-        default: false,
+        type: String,
+        default: 'expense',
+        enum: {
+            values: ['expense','income'],
+            // message: "Please, choose a Crew Position",
+        },
     },
     title: {
         type: String,

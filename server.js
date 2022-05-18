@@ -18,6 +18,8 @@ require("./server/config/mongoose.config");
 //To import routes
 const myRoutes = require("./server/routes/transaction.routes");
 myRoutes(app);
+const myCategoriesRoutes = require("./server/routes/category.routes");
+myCategoriesRoutes(app);
 
 //To execute server
 app.listen(8000, () => console.log("Server is ready!"));
