@@ -77,6 +77,7 @@ const NewTransaction = () => {
                     <label>
                     Category:
                         <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                            <option>-----</option>
                             {type==="expense"?categoryList.filter(category=>category.type==="expense").map((category,index)=>(
                                 <option key={index} value={category.categoryName}>{category.categoryName}</option>
                             )):categoryList.filter(category=>category.type==="income").map((category,index)=>(

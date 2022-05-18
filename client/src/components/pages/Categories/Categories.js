@@ -33,13 +33,23 @@ const Categories = () => {
             </ul>
 
             <h4>All Categories</h4>
-            {categoryList.map((category, index) => (
+
+            <h5>Expenses Category</h5>
+            {categoryList.filter(category=>category.type==="expense").map((category, index) => (
                 <div className="container border border-dark" key={index}>
-                    <p>{category.type}</p>
+                    {/* <p>{category.type}</p> */}
                     <p>{category.categoryName}</p>
                 </div>
             ))
-        }
+            }
+
+            <h5>Income Category</h5>
+            {categoryList.filter(category=>category.type==="income").map((category, index) => (
+                <div className="container border border-dark" key={index}>
+                    <p>{category.categoryName}</p>
+                </div>
+            ))
+            }
             
        
         </div>
