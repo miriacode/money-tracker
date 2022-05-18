@@ -1,8 +1,8 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-// import './App.css';
-import Menu from './components/menu/Menu'
-import SideMenu from "./components/sideMenu/sideMenu";
+import './App.css';
+import Menu from './components/Menu/Menu'
+import SideMenu from "./components/sideMenu/SideMenu";
 
 import Dashboard from './components/pages/Dashboard/Dashboard'
 import AllTransactions from './components/pages/Transactions/AllTransactions'

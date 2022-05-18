@@ -7,9 +7,12 @@ import GraphicSection from "./GraphicSection/GraphicSection"
 import Calendar from "./Calendar/Calendar";
 import LastTransactions from "./LastTransactions/LastTransactions";
 
+//CSS
+import './Dashboard.css'
+
 const Dashboard = () => {
     return (
-        <div>
+        <div className="dashboard">
             <h2>---Dashboard---</h2>
             <StadisticSection/>
             <GraphicSection/>

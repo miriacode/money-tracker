@@ -3,9 +3,12 @@
 // import {Link} from "react-router-dom";
 import React from "react";
 
+//CSS
+import './SideMenu.css'
+
 const SideMenu = () => {
     return (
-        <div>
+        <div className="side-menu">
             <div>Luna/Sol</div>
             <h2>Miriam</h2>
             <div>Pic</div>

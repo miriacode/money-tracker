@@ -3,10 +3,13 @@
 import {Link} from "react-router-dom";
 import React from "react";
 
+//CSS
+import './Menu.css'
+
 const Menu = () => {
     return (
-        <div>
-            <h3>Name Of The App</h3>
+        <div className="menu">
+            <h3>MoneyTracker</h3>
             <ul>
                 <li> <Link to="/dashboard" className="btn btn-primary">Dashboard</Link></li>
                 <li> <Link to="/transactions" className="btn btn-primary">Transactions</Link></li>
