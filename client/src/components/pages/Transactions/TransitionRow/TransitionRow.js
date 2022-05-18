@@ -1,11 +1,18 @@
-// import React, {useEffect, useState} from "react";
+import React from "react";
 // import axios from "axios";
 
-import React from "react";
+// import React from "react";
 
 
-const TransactionRow = ({transaction}) => {
-  let { type, title, amount, category } = transaction;
+const TransactionRow = ({transaction, deleteTransaction}) => {
+  let { _id, type, title, amount, category } = transaction;
+
+//   const [transactionObject, setTransactionObject] = useState("");
+  const viewTransaction = () => {
+    // () => setTransactionToView(transaction)
+    //REDIRIGIR A VIEW ONE TRANSACTION
+    //CORREGIR EN APP EL ID DE TRANSACTION 1
+  }
 
   return (
     <tr>
@@ -13,10 +20,12 @@ const TransactionRow = ({transaction}) => {
       <td>{title}</td>
       <td>$ {amount}</td>
       <td>{category}</td>
-      <td>Actions</td>
+      <td>
+        <button onClick={viewTransaction()}>View</button>
+        <button onClick={() => deleteTransaction(_id)}>Delete</button>
+     </td>
       {/* <td>
-        <button onClick={() => setDataToEdit(el)}>Editar</button>
-        <button onClick={() => deleteData(id)}>Eliminar</button>
+        
       </td> */}
     </tr>
   );

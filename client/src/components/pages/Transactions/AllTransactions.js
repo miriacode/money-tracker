@@ -16,6 +16,14 @@ const AllTransactions = () => {
             .catch(error => console.log(error));
     }, [])
 
+    const deleteTransaction = (_id) =>{
+        axios.delete("http://localhost:8000/api/transactions/"+_id)
+                .then(res => {
+                    let newList = transactionList.filter(transaction => transaction._id !== _id);
+                    setTransactionList(newList);
+                })
+    }
+
     return (
         <div>
             <h2>---AllTransactions---</h2>
@@ -37,7 +45,7 @@ const AllTransactions = () => {
                             key={transaction.id}
                             transaction={transaction}
                             // setDataToEdit={setDataToEdit}
-                            // deleteData={deleteData}
+                            deleteTransaction={deleteTransaction}
                         />
                         ))
                     ) : (
