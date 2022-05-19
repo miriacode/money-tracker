@@ -23,7 +23,7 @@ function App() {
           <Route path="/transactions" exact render={() => <AllTransactions/>} />
           <Route path="/categories" exact render={() => <Categories/>} />
           <Route path="/categories/new" exact render={() => <NewCategory/>} />
-          <Route path="/transaction" exact render={()=> <Transaction />} />
+          <Route path="/transaction/:id" exact render={()=> <Transaction />} />
           <Route path="/transactions/new" exact render={()=> <NewTransaction />} />
         </Switch>
       </BrowserRouter>

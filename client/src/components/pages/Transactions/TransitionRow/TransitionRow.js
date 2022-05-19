@@ -2,17 +2,14 @@ import React from "react";
 // import axios from "axios";
 
 // import React from "react";
+import { Link } from "react-router-dom";
+
 
 
 const TransactionRow = ({transaction, deleteTransaction}) => {
   let { _id, type, title, amount, category } = transaction;
 
-//   const [transactionObject, setTransactionObject] = useState("");
-  const viewTransaction = () => {
-    // () => setTransactionToView(transaction)
-    //REDIRIGIR A VIEW ONE TRANSACTION
-    //CORREGIR EN APP EL ID DE TRANSACTION 1
-  }
+
 
   return (
     <tr>
@@ -21,7 +18,8 @@ const TransactionRow = ({transaction, deleteTransaction}) => {
       <td>$ {amount}</td>
       <td>{category}</td>
       <td>
-        <button onClick={viewTransaction()}>View</button>
+        {/* <button onClick={viewTransaction()>View</button> */}
+        <Link to={"/transaction/"+_id}>View</Link>
         <button onClick={() => deleteTransaction(_id)}>Delete</button>
      </td>
       {/* <td>
