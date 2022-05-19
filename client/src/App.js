@@ -15,7 +15,7 @@ import NewCategory from "./components/pages/NewCategory/NewCategory";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter forceRefresh={true}>
+      <BrowserRouter>
         <Menu />
         <SideMenu />
         <Switch>
@@ -28,7 +28,6 @@ function App() {
         </Switch>
       </BrowserRouter>
     </div>
-  );
-}
+  )}
 
 export default App;

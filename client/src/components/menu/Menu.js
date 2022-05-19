@@ -11,9 +11,12 @@ const Menu = () => {
         <div className="menu">
             <h3>MoneyTracker</h3>
             <ul>
-                <li> <Link to="/dashboard" className="btn btn-primary">Dashboard</Link></li>
-                <li> <Link to="/transactions" className="btn btn-primary">Transactions</Link></li>
-                <li> <Link to="/categories" className="btn btn-primary">Categories</Link></li>
+                {/* <li> <button component={Link} to="/dashboard">Dashboard</button></li>
+                <li> <button component={Link} to="/transactions">Transactions</button></li>
+                <li> <button component={Link} to="/categories">Categories</button></li> */}
+                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><Link to="/transactions">Transactions</Link></li>
+                <li><Link to="/categories">Categories</Link></li>
                 <li>Reports</li>
                 <li>Profile</li>
                 <li>Settings</li>
