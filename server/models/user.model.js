@@ -23,6 +23,12 @@ const UserSchema = new mongoose.Schema( {
         type: String,
         required: [true, "Password is required"],
         minlength: [8, "Password must have at least 8 characters long."]
+    },
+    categories:{
+        type: Array,
+    },
+    transactions:{
+        type: Array,
     }
 }, {timestamps: true, versionKey: false})
 
