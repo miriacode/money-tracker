@@ -13,7 +13,7 @@ const ButtonLogout = () => {
 
 
     return(
-        <button className='btn btn-danger float-right' onClick={logOut}>Cerrar Sesión</button>
+        <button className='btn btn-danger float-right' onClick={logOut}>Log Out</button>
     )
 
 }

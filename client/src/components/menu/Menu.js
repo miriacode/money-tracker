@@ -20,7 +20,7 @@ const Menu = () => {
                 <li>Reports</li>
                 <li>Profile</li>
                 <li>Settings</li>
-                <li>LogOut</li>
+                <li><Link to="/logout">LogOut</Link></li>
             </ul>
         </div>
     )
