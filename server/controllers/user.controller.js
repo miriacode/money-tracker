@@ -1,4 +1,4 @@
-const Usuario = require("../models/user.model");
+const User = require("../models/user.model");
 //(Session) To save session (It'll be put inside a cookie)
 const jwt = require("jsonwebtoken");
 //(Session) The cookie needs a secret key
@@ -6,7 +6,7 @@ const secret_key = "This is my secret key";
 const bcrypt = require("bcrypt");
 
 module.exports.register = (req, res) => {
-    const user = new Usuario(req.body);
+    const user = new User(req.body);
     user.save()
         .then(usuario => {
             /*res.json(usuario);*/
@@ -35,10 +35,10 @@ module.exports.register = (req, res) => {
 }
 
 module.exports.login = (req, res) => {
-    Usuario.findOne({email: req.body.email})
+    User.findOne({email: req.body.email})
         .then(user => {
             if(user === null){
-                res.json({error: true, message: "El correo electrónico es incorrecto."});
+                res.json({error: true, message: "Email is incorrect."});
             } else {
                 bcrypt.compare(req.body.password, user.password)
                     .then(passwordValid => {
@@ -53,14 +53,14 @@ module.exports.login = (req, res) => {
                                 .cookie("usertoken", myJWT, secret_key, {
                                     httpOnly: true
                                 })
-                                .json({ error:false, message:"Inicio de sesión correcto" })
+                                .json({ error:false, message:"Sign In was successful." })
 
 
                         } else {
-                            res.json({error: true, message:"La contraseña es incorrecta."})
+                            res.json({error: true, message:"Password is incorrect."})
                         }
                     })
-                    .catch(err => res.json({error: true, message: "Inicio de sesión inválido."}))
+                    .catch(err => res.json({error: true, message: "Sign In was invalid."}))
             }
         })
         .catch( err => res.json(err));
@@ -68,5 +68,12 @@ module.exports.login = (req, res) => {
 
 module.exports.logout = (req, res) => {
     res.clearCookie('usertoken');
-    res.status(200).json({message: "Salimos de sesión!"});
+    res.status(200).json({message: "LogOut successful!"});
 }
+
+// module.exports.get_user = (req, res) => {
+//     // return res.send(req.userId)
+//     User.findOne({_id: req.params.id})
+//         .then(user => res.json(user))
+//         .catch(error => res.status(400).json(error));
+// }

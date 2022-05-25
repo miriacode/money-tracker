@@ -10,10 +10,14 @@ import LastTransactions from "./LastTransactions/LastTransactions";
 //CSS
 import './Dashboard.css'
 
-const Dashboard = () => {
+// import { useCookies } from "react-cookie";
+// import jwt_decode from "jwt-decode";
+
+const Dashboard = ({userId}) => {
     return (
         <div className="dashboard">
             <h2>---Dashboard---</h2>
+            <p>uu{console.log(userId)}</p>
             <StadisticSection/>
             <GraphicSection/>
             <Calendar/>

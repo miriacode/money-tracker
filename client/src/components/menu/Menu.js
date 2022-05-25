@@ -3,6 +3,8 @@
 import {Link} from "react-router-dom";
 import React from "react";
 
+import ButtonLogout from "./ButtonLogOut/ButtonLogout";
+
 //CSS
 import './Menu.css'
 
@@ -20,7 +22,8 @@ const Menu = () => {
                 <li>Reports</li>
                 <li>Profile</li>
                 <li>Settings</li>
-                <li><Link to="/logout">LogOut</Link></li>
+                <li><ButtonLogout></ButtonLogout></li>
+                {/* <li><Link to="/logout">LogOut</Link></li> */}
             </ul>
         </div>
     )

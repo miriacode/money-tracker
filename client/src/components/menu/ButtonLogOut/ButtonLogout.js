@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const ButtonLogout = () => {
 
@@ -7,7 +7,10 @@ const ButtonLogout = () => {
 
     const logOut = () => {
         axios.get('http://localhost:8000/api/logout', {withCredentials:true})
-            .then(res => history.push("/login"))
+            .then(res => {
+                history.push("/")
+                console.log("Cookie was cleared")
+        })
             .catch(err => console.log(err));
     }
 

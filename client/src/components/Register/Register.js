@@ -28,7 +28,7 @@ const Register = () => {
         }, {withCredentials: true})
             .then( res => {
                 console.log(res);
-                history.push("/");
+                history.push("/dashboard");
             })
             .catch( err => {setErrors(err.response.data.errors)
             console.log(err)});
@@ -68,7 +68,7 @@ const Register = () => {
                     <input type="submit" value="Register" className="btn btn-primary" />
                 </form>
             </div>
-            <p>If you have an account</p><Link to="/login">Login</Link>
+            <p>If you have an account</p><Link to="/">Login</Link>
         </div>
     )
 

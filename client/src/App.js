@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Menu from './components/Menu/Menu'
@@ -13,17 +13,41 @@ import NewCategory from "./components/pages/NewCategory/NewCategory";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 
+//To get and decodify
+import { useCookies } from "react-cookie";
+import jwt_decode from "jwt-decode";
 
 function App() {
+
+  const[cookiess, setCookiess] = useCookies(['usertoken'])
+  const[userId, setUserId] = useState(null)
+
+  // useEffect(() => {
+  //   console.log(cookiess)
+  // }, []);
+
+  useEffect(() => {
+       console.log(cookiess.usertoken)
+      //  
+    if(cookiess.usertoken!==undefined){
+      console.log(jwt_decode(cookiess.usertoken)._id)
+      setUserId(jwt_decode(cookiess.usertoken)._id)
+    }
+    //else{
+    //   setCookiess(1)
+    // }
+    
+  }, [cookiess.usertoken]);
+  
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter forceRefresh={true}>
         <Menu />
         <SideMenu />
         <Switch>
+          <Route path="/" exact render={()=> <Login />} />
           <Route path="/register" exact render={()=> <Register />} />
-          <Route path="/login" exact render={()=> <Login />} />
-          <Route path="/dashboard" exact render={()=> <Dashboard />} />
+          <Route path="/dashboard" exact  render={()=><Dashboard userId={1}/>} />
           <Route path="/transactions" exact render={() => <AllTransactions/>} />
           <Route path="/categories" exact render={() => <Categories/>} />
           <Route path="/categories/new" exact render={() => <NewCategory/>} />
@@ -32,6 +56,7 @@ function App() {
         </Switch>
       </BrowserRouter>
     </div>
-  )}
+  )
+}
 
 export default App;
