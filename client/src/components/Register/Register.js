@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import {useHistory, Link} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 
 const Register = () => {
 
@@ -12,7 +12,7 @@ const Register = () => {
 
     const [errors, setErrors] = useState({});
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const register = e => {
         e.preventDefault();
@@ -28,7 +28,8 @@ const Register = () => {
         }, {withCredentials: true})
             .then( res => {
                 console.log(res);
-                history.push("/dashboard");
+                navigate("/dashboard");
+                document.location.reload()
             })
             .catch( err => {setErrors(err.response.data.errors)
             console.log(err)});

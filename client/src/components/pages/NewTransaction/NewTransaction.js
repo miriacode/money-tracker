@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 //CSS
 import './NewTransaction.css'
@@ -16,7 +16,7 @@ const NewTransaction = () => {
 
     const [categoryList, setCategoryList] = useState([]);
     const [errors, setErrors] = useState({});
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const NewTransaction = () => {
             amount: amount,
             category: category,
         })
-            .then(res => history.push("/transactions"))
+            .then(res => navigate("/transactions"))
             .catch(error => setErrors(error.response.data.errors));
     }
 

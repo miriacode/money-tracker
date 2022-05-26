@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 //CSS
 // import './NewCategory.css'
@@ -10,7 +10,7 @@ const NewCategory = () => {
     const [categoryName, setCategoryName] = useState("");
 
     const [errors, setErrors] = useState({});
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const saveCategory = (e) =>{
         e.preventDefault();
@@ -20,7 +20,7 @@ const NewCategory = () => {
         })
             .then(res => {
                 console.log(res.data)
-                history.push("/categories")}
+                navigate("/categories")}
             )
             .catch(error => setErrors(error.response.data.errors));
     }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import './App.css';
 import Menu from './components/Menu/Menu'
 import SideMenu from "./components/sideMenu/SideMenu";
@@ -36,21 +36,20 @@ function App() {
   }, [cookies.usertoken]);
   
   return (
-    
-<div className="App">
-      <BrowserRouter forceRefresh={true}>
+    <div className="App">
+      <BrowserRouter>
         {userId?<Menu />:null}
         {userId?<SideMenu userId={userId} />:null}
-        <Switch>
-          <Route exact path="/" render={()=> <Login />} />
-          <Route exact path="/register" render={()=> <Register />} />
-          <Route exact path="/dashboard" render={()=> userId?<Dashboard userId={userId}/>:<AuthenticationError/>} />
-          <Route exact path="/transactions" render={() => userId?<AllTransactions/>:<AuthenticationError/>} />
-          <Route exact path="/categories" render={() => userId?<Categories/>:<AuthenticationError/>} />
-          <Route exact path="/categories/new" render={() => userId?<NewCategory/>:<AuthenticationError/>} />
-          <Route exact path="/transaction/:id" render={()=> userId?<Transaction />:<AuthenticationError/>} />
-          <Route exact path="/transactions/new" render={()=> userId?<NewTransaction />:<AuthenticationError/>} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={userId?<Navigate to="/dashboard"/>:<Login />} />
+          <Route exact path="/register" element={userId?<Navigate to="/dashboard"/>:<Register />} />
+          <Route exact path="/dashboard" element={userId?<Dashboard userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/transactions" element={userId?<AllTransactions/>:<AuthenticationError/>} />
+          <Route exact path="/categories" element={userId?<Categories/>:<AuthenticationError/>} />
+          <Route exact path="/categories/new" element={userId?<NewCategory/>:<AuthenticationError/>} />
+          <Route exact path="/transaction/:id"element={userId?<Transaction />:<AuthenticationError/>} />
+          <Route exact path="/transactions/new"element={userId?<NewTransaction />:<AuthenticationError/>} />
+        </Routes>
       </BrowserRouter>
     </div>
   )

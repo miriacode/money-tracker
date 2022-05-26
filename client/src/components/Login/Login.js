@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import {useHistory, Link} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 
 const Login = () => {
 
@@ -9,12 +9,12 @@ const Login = () => {
 
     const [errors, setErrors] = useState("");
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     const login = (e) => {
         e.preventDefault();
-
+        
         axios.post('http://localhost:8000/api/login', {
             email: email,
             password: password
@@ -25,7 +25,9 @@ const Login = () => {
                 if(res.data.error){
                     setErrors(res.data.message);
                 } else {
-                    history.push("/dashboard");
+                    //navigate("/");
+                    navigate("/dashboard");
+                    document.location.reload()
                 }
             })
             .catch(err => console.log(err));
