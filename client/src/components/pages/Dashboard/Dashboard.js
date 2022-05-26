@@ -10,8 +10,6 @@ import LastTransactions from "./LastTransactions/LastTransactions";
 //CSS
 import './Dashboard.css'
 
-// import { useCookies } from "react-cookie";
-// import jwt_decode from "jwt-decode";
 
 const Dashboard = ({userId}) => {
     return (

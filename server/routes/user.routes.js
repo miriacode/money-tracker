@@ -9,5 +9,5 @@ module.exports = app => {
 
     app.get("/api/logout", UserController.logout);
 
-    // app.get("/api/users/:id", authenticate, UserController.get_user)
+    app.get("/api/users/:id", authenticate, UserController.get_user)
 }
