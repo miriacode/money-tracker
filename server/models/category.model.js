@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const CategorySchema = new mongoose.Schema({
+    userId: {
+        type: String,
+    },
     type: {
         type: String,
         default: 'expense',

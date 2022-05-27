@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 //CSS
 // import './NewCategory.css'
 
-const NewCategory = () => {
+const NewCategory = ({userId}) => {
     const [type, setType] = useState("expense");
     const [categoryName, setCategoryName] = useState("");
 
@@ -15,9 +15,10 @@ const NewCategory = () => {
     const saveCategory = (e) =>{
         e.preventDefault();
         axios.post("http://localhost:8000/api/categories",{
+            userId: userId,
             type: type,
             categoryName: categoryName,
-        })
+        }, {withCredentials: true})
             .then(res => {
                 console.log(res.data)
                 navigate("/categories")}

@@ -3,19 +3,25 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 
-const Categories = () => {
-    const [categoryList, setCategoryList] = useState([]);
-    
-    // const [type, setType] = useState("expense");
+const Categories = ({userId}) => {
 
+    // const [allCategoriesList, setAllCategoriesList] = useState([]);
+    const [incomeCategoryList, setIncomeCategoryList] = useState([]);
+    const [expensesCategoryList, setExpensesCategoryList] = useState([]);
+    
     useEffect(() =>{
-        axios.get("http://localhost:8000/api/categories")
+        axios.get("http://localhost:8000/api/categories/find/"+userId,{withCredentials: true})
             .then(res => {
-                setCategoryList(res.data)
-                // console.log(categoryList)
+                // setAllCategoriesList(res.data)
+                
+                setIncomeCategoryList(res.data.filter(category=>category.type==="income"))
+                setExpensesCategoryList(res.data.filter(category=>category.type==="expense"))
+                // console.log(incomeCategoryList)
+                // console.log(expensesCategoryList)
+                // console.log(allCategoriesList.filter(category=>category.type==="income"))
             })
             .catch(error => console.log(error));
-    }, [])
+    }, [userId])
     
     return (
         <div>
@@ -35,23 +41,20 @@ const Categories = () => {
             <h4>All Categories</h4>
 
             <h5>Expenses Category</h5>
-            {categoryList.filter(category=>category.type==="expense").map((category, index) => (
+            {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
                 <div className="container border border-dark" key={index}>
-                    {/* <p>{category.type}</p> */}
                     <p>{category.categoryName}</p>
                 </div>
             ))
             }
 
             <h5>Income Category</h5>
-            {categoryList.filter(category=>category.type==="income").map((category, index) => (
+            {incomeCategoryList.length===0?<p>You don't have any expenses categories yet</p>:incomeCategoryList.map((category, index) => (
                 <div className="container border border-dark" key={index}>
                     <p>{category.categoryName}</p>
                 </div>
             ))
-            }
-            
-       
+            }       
         </div>
     )
 }
