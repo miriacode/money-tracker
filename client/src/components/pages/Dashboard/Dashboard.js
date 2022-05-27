@@ -15,8 +15,8 @@ const Dashboard = ({userId}) => {
     return (
         <div className="dashboard">
             <h2>---Dashboard---</h2>
-            <p>uu{console.log(userId)}</p>
-            <StadisticSection/>
+            <p>{console.log(userId)}</p>
+            <StadisticSection userId={userId}/>
             <GraphicSection/>
             <Calendar/>
             <LastTransactions/>
