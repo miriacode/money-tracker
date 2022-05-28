@@ -48,7 +48,7 @@ const Categories = ({userId}) => {
             {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
                 <div className="container border border-dark" key={index}>
                     <p>{category.categoryName}</p>
-                    <Link to={"/categories/update"}>Edit</Link> 
+                    <Link to={"/categories/update/"+category._id}>Edit</Link> 
                     <button onClick={() => deleteCategory(category._id)}>Delete</button>
                 </div>
             ))
