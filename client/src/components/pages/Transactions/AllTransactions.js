@@ -16,7 +16,7 @@ const AllTransactions = ({userId}) => {
     }, [userId])
 
     const deleteTransaction = (_id) =>{
-        axios.delete("http://localhost:8000/api/transactions/"+_id)
+        axios.delete("http://localhost:8000/api/transactions/"+_id,{withCredentials: true})
             .then(res => {
                 let newList = transactionList.filter(transaction => transaction._id !== _id);
                 setTransactionList(newList);

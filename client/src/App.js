@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/transactions" element={userId?<AllTransactions userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/categories" element={userId?<Categories userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/categories/new" element={userId?<NewCategory userId={userId}/>:<AuthenticationError/>} />
-          <Route exact path="/transaction/:id"element={userId?<Transaction />:<AuthenticationError/>} />
+          <Route exact path="/transactions/:id"element={userId?<Transaction />:<AuthenticationError/>} />
           <Route exact path="/transactions/new"element={userId?<NewTransaction userId={userId}/>:<AuthenticationError/>} />
         </Routes>
       </BrowserRouter>

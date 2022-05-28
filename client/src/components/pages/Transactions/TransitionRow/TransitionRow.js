@@ -12,7 +12,7 @@ const TransactionRow = ({transaction, deleteTransaction}) => {
       <td>{category}</td>
       <td>
         {/* <button onClick={viewTransaction()>View</button> */}
-        <Link to={"/transaction/"+_id}>View</Link>
+        <Link to={"/transactions/"+_id}>View</Link>
         <button onClick={() => deleteTransaction(_id)}>Delete</button>
      </td>
     </tr>
