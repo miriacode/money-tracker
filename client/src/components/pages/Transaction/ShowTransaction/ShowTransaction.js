@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 
 const ShowTransaction = () => {
     
@@ -24,18 +24,24 @@ const ShowTransaction = () => {
     return (
         <div>
             <h2>Show Transaction</h2>
-            <p>Type:</p>
-            <p> {transaction.type}</p>
-            <p>Category:</p> 
-            <p>{transaction.category}</p>
-            <p>Title:</p>
-            <p>{transaction.title}</p> 
-            <p>Description:</p>  
-            <p>{transaction.description}</p>
-            <p>Amount:</p>  
-            <p>{transaction.amount}</p>
-            <p>Date</p>
-            <p>{date}</p>
+            <div>
+                <div>
+                    <Link to={"/transactions/update/"+id}>Update</Link>
+                </div>
+                <p>Type:</p>
+                <p> {transaction.type}</p>
+                <p>Category:</p> 
+                <p>{transaction.category}</p>
+                <p>Title:</p>
+                <p>{transaction.title}</p> 
+                <p>Description:</p>  
+                <p>{transaction.description}</p>
+                <p>Amount:</p>  
+                <p>{transaction.amount}</p>
+                <p>Date</p>
+                <p>{date}</p>
+            </div>
+            
         </div>
     )
 }

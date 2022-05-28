@@ -8,6 +8,7 @@ import Dashboard from './components/pages/Dashboard/Dashboard'
 import AllTransactions from './components/pages/Transactions/AllTransactions'
 import Transaction from './components/pages/Transaction/Transaction'
 import NewTransaction from "./components/pages/NewTransaction/NewTransaction";
+import UpdateTransaction from "./components/pages/UpdateTransaction/UpdateTransaction";
 import Categories from "./components/pages/Categories/Categories";
 import NewCategory from "./components/pages/NewCategory/NewCategory";
 import Login from "./components/Login/Login";
@@ -49,6 +50,7 @@ function App() {
           <Route exact path="/categories/new" element={userId?<NewCategory userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/transactions/:id"element={userId?<Transaction />:<AuthenticationError/>} />
           <Route exact path="/transactions/new"element={userId?<NewTransaction userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/transactions/update/:id"element={userId?<UpdateTransaction userId={userId}/>:<AuthenticationError/>} />
         </Routes>
       </BrowserRouter>
     </div>
