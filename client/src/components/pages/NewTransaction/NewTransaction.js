@@ -5,14 +5,13 @@ import {useNavigate} from "react-router-dom";
 //CSS
 import './NewTransaction.css'
 
-const NewTransaction = () => {
+const NewTransaction = ({userId}) => {
     const [type, setType] = useState("expense");
-
-
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState("");
     const [category, setCategory] = useState("");
+    const [date, setDate] = useState("");
 
     const [categoryList, setCategoryList] = useState([]);
     const [errors, setErrors] = useState({});
@@ -20,22 +19,28 @@ const NewTransaction = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/categories")
+        axios.get("http://localhost:8000/api/categories/find/"+userId,{withCredentials: true})
             .then(res => {
                 setCategoryList(res.data);
+                // let today = new Date()
+                // let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
+                // setDate(date)
+                
             })
             .catch(error => console.log(error));
-    }, []);
+    }, [userId]);
 
     const saveTransaction = (e) =>{
         e.preventDefault();
         axios.post("http://localhost:8000/api/transactions",{
+            userId: userId,
             type: type,
             title: title,
             description: description,
             amount: amount,
             category: category,
-        })
+            date:date,
+        }, {withCredentials: true})
             .then(res => navigate("/transactions"))
             .catch(error => setErrors(error.response.data.errors));
     }
@@ -88,6 +93,11 @@ const NewTransaction = () => {
                     </label>
                     {errors.category ? <span className="text-danger">{errors.category.message}</span> : null}
 
+                </div>
+                <div className="form-check">
+                    <label>Date</label>
+                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
+                    {errors.date ? <span className="text-danger">{errors.date.message}</span> : null}
                 </div>
 
                 

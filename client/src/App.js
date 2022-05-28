@@ -44,11 +44,11 @@ function App() {
           <Route exact path="/" element={userId?<Navigate to="/dashboard"/>:<Login />} />
           <Route exact path="/register" element={userId?<Navigate to="/dashboard"/>:<Register />} />
           <Route exact path="/dashboard" element={userId?<Dashboard userId={userId}/>:<AuthenticationError/>} />
-          <Route exact path="/transactions" element={userId?<AllTransactions/>:<AuthenticationError/>} />
+          <Route exact path="/transactions" element={userId?<AllTransactions userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/categories" element={userId?<Categories userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/categories/new" element={userId?<NewCategory userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/transaction/:id"element={userId?<Transaction />:<AuthenticationError/>} />
-          <Route exact path="/transactions/new"element={userId?<NewTransaction />:<AuthenticationError/>} />
+          <Route exact path="/transactions/new"element={userId?<NewTransaction userId={userId}/>:<AuthenticationError/>} />
         </Routes>
       </BrowserRouter>
     </div>

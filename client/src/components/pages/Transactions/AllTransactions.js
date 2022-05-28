@@ -5,23 +5,24 @@ import {Link} from "react-router-dom";
 
 import TransitionRow from "./TransitionRow/TransitionRow";
 
-const AllTransactions = () => {
+const AllTransactions = ({userId}) => {
     const [transactionList, setTransactionList] = useState([]);
 
     useEffect(() =>{
-        axios.get("http://localhost:8000/api/transactions")
+        axios.get("http://localhost:8000/api/transactions/find/"+userId,{withCredentials: true})
             .then(res => {
                 setTransactionList(res.data)
+                
             })
-            .catch(error => console.log(error));
-    }, [])
+            .catch(error => {console.log(error)});
+    }, [userId])
 
     const deleteTransaction = (_id) =>{
         axios.delete("http://localhost:8000/api/transactions/"+_id)
-                .then(res => {
-                    let newList = transactionList.filter(transaction => transaction._id !== _id);
-                    setTransactionList(newList);
-                })
+            .then(res => {
+                let newList = transactionList.filter(transaction => transaction._id !== _id);
+                setTransactionList(newList);
+            })
     }
 
     return (
@@ -50,7 +51,7 @@ const AllTransactions = () => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="5">You haven't registered any transa yet.</td>
+                            <td colSpan="5">You haven't registered any transaction yet.</td>
                         </tr>
                     )}
                 </tbody>

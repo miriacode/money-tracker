@@ -3,13 +3,14 @@ const TransactionController = require("../controllers/transaction.controller");
 const {authenticate} = require("../config/jwt.config");
 
 module.exports = app => {
-    app.post("/api/transactions", authenticate, TransactionController.create_transaction);
+    app.post("/api/transactions", authenticate, TransactionController.createTransaction);
 
-    app.get("/api/transactions", authenticate, TransactionController.get_all);
+    // 
+    app.get("/api/transactions/find/:userId", authenticate, TransactionController.getAllByUser);
 
-    app.get("/api/transactions/:id", authenticate, TransactionController.get_transaction);
+    app.get("/api/transactions/:id", authenticate, TransactionController.getTransaction);
 
-    app.put("/api/transactions/:id", authenticate, TransactionController.update_transaction);
+    app.put("/api/transactions/:id", authenticate, TransactionController.updateTransaction);
 
-    app.delete("/api/transactions/:id", authenticate, TransactionController.delete_transaction);
+    app.delete("/api/transactions/:id", authenticate, TransactionController.deleteTransaction);
 }
