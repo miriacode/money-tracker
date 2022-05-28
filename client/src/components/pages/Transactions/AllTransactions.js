@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
-
 import TransitionRow from "./TransitionRow/TransitionRow";
 
 const AllTransactions = ({userId}) => {
@@ -12,7 +11,6 @@ const AllTransactions = ({userId}) => {
         axios.get("http://localhost:8000/api/transactions/find/"+userId,{withCredentials: true})
             .then(res => {
                 setTransactionList(res.data)
-                
             })
             .catch(error => {console.log(error)});
     }, [userId])
@@ -55,10 +53,6 @@ const AllTransactions = ({userId}) => {
                         </tr>
                     )}
                 </tbody>
-                
-
-               
-                
             </table>
         </div>
     )

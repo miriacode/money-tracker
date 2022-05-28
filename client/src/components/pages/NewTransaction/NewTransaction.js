@@ -22,10 +22,6 @@ const NewTransaction = ({userId}) => {
         axios.get("http://localhost:8000/api/categories/find/"+userId,{withCredentials: true})
             .then(res => {
                 setCategoryList(res.data);
-                // let today = new Date()
-                // let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
-                // setDate(date)
-                
             })
             .catch(error => console.log(error));
     }, [userId]);
@@ -65,8 +61,6 @@ const NewTransaction = ({userId}) => {
                     {errors.title? <span className="text-danger">{errors.title.message}</span> : null}
                 </div>
 
-
-
                 <div className="form-group">
                     <label htmlFor="description">Description:</label>
                     <input type="text" id="description" name="description" value={description} onChange={(e) => setDescription(e.target.value)} className="form-control" />
@@ -100,7 +94,6 @@ const NewTransaction = ({userId}) => {
                     {errors.date ? <span className="text-danger">{errors.date.message}</span> : null}
                 </div>
 
-                
                 <input type="submit" value="Add" className="btn btn-success" />
             </form>
         </div>
