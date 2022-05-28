@@ -12,30 +12,34 @@ const Categories = ({userId}) => {
     useEffect(() =>{
         axios.get("http://localhost:8000/api/categories/find/"+userId,{withCredentials: true})
             .then(res => {
-                // setAllCategoriesList(res.data)
-                
                 setIncomeCategoryList(res.data.filter(category=>category.type==="income"))
                 setExpensesCategoryList(res.data.filter(category=>category.type==="expense"))
-                // console.log(incomeCategoryList)
-                // console.log(expensesCategoryList)
-                // console.log(allCategoriesList.filter(category=>category.type==="income"))
             })
             .catch(error => console.log(error));
     }, [userId])
+
+    const deleteCategory = (_id) =>{
+        axios.delete("http://localhost:8000/api/categories/"+_id,{withCredentials: true})
+            .then(res => {
+                console.log(res)
+                axios.get("http://localhost:8000/api/categories/find/"+userId,{withCredentials: true})
+                    .then(res => {
+                        setIncomeCategoryList(res.data.filter(category=>category.type==="income"))
+                        setExpensesCategoryList(res.data.filter(category=>category.type==="expense"))
+                    })
+                    .catch(error => console.log(error));
+            })
+    }
     
     return (
         <div>
             <h2>Categories</h2>
             <Link to="/categories/new">Add Category</Link>
-            <p>Favorite Income Categories</p>
+            <p>Favorite Categories</p>
             <ul>
                 <li>3</li>
                 <li>7</li>
-            </ul>
-            <p>Favorite Expense Categories</p>
-            <ul>
-                <li>3</li>
-                <li>7</li>
+                <li>8</li>
             </ul>
 
             <h4>All Categories</h4>
@@ -44,6 +48,8 @@ const Categories = ({userId}) => {
             {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
                 <div className="container border border-dark" key={index}>
                     <p>{category.categoryName}</p>
+                    <Link to={"/categories/update"}>Edit</Link> 
+                    <button onClick={() => deleteCategory(category._id)}>Delete</button>
                 </div>
             ))
             }
