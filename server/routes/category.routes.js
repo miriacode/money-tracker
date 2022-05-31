@@ -6,7 +6,7 @@ module.exports = app => {
     
     app.post("/api/categories",  authenticate, CategoryController.createCategory);
 
-    app.get("/api/categories",  authenticate, CategoryController.getAll);
+    // app.get("/api/categories",  authenticate, CategoryController.getAll);
 
     //MOD
     //app.get("/api/categories/type/:type",  authenticate, CategoryController.get_all_by_type);
