@@ -14,7 +14,7 @@ const ShowTransaction = () => {
             .then(res => {
                 console.log(res.data)
                 setTransaction(res.data)
-                let date = new Date("2022-05-24T00:00:00.000Z").toUTCString().split(" ")
+                let date = new Date(res.data.date).toUTCString().split(" ")
                 setDate(`${date[2]} ${date[1]}, ${date[3]}`)
             })
             .catch(error => console.log(error));

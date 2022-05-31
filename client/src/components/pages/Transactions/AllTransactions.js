@@ -34,6 +34,7 @@ const AllTransactions = ({userId}) => {
                         <th>Title</th>
                         <th>Amount</th>
                         <th>Category</th>
+                        <th>Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
