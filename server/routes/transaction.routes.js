@@ -7,6 +7,8 @@ module.exports = app => {
 
     app.get("/api/transactions/find/:userId", authenticate, TransactionController.getAllByUser);
 
+    app.post("/api/transactions/period", authenticate, TransactionController.getAmountByUserByPeriod);
+
     app.get("/api/transactions/:id", authenticate, TransactionController.getTransaction);
 
     app.put("/api/transactions/:id", authenticate, TransactionController.updateTransaction);

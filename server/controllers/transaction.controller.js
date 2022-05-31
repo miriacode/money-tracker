@@ -6,6 +6,11 @@ module.exports.getAllByUser = (req, res) => {
         .catch(error => res.status(400).json(error));
 }
 
+module.exports.getAmountByUserByPeriod = (req, res) => {
+    Transaction.find(req.body,{_id: 0, userId: 0, type:0, title:0, description:0, category:0, date:0, createdAt:0, updatedAt:0 })
+        .then(transactions => res.json(transactions))
+        .catch(error => res.status(400).json(error));
+}
 
 module.exports.createTransaction = (req, res) => {
     Transaction.create(req.body)

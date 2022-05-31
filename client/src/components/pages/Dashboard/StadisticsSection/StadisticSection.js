@@ -1,62 +1,96 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import { set } from "mongoose";
 
 const StadisticsSection = ({userId}) => {
 
-    const [totalIncome, setTotalIncome] = useState(0);
-    const [totalExpenses, setTotalExpenses] = useState(0)
-    const [dateFilter,setDateFilter] = useState("yearly");
-    
-    // const [type, setType] = useState("expense");
+    const [totalIncome, setTotalIncome] = useState();
+    const [totalExpenses, setTotalExpenses] = useState();
 
-    useEffect(() =>{
-        axios.get("http://localhost:8000/api/users/"+userId,{withCredentials: true})
+    const getAmount = (type,startDate,endDate) =>{
+        axios.post("http://localhost:8000/api/transactions/period",{
+            userId: userId,
+            date: {$gte: new Date(startDate), $lt: new Date(endDate)},
+            type: type,
+        }, {withCredentials: true})
             .then(res => {
-                // setTotalIncome(res.data)
-                // console.log(categoryList)
-                console.log(res.data)
-                console.log(res.data.transactions)
-
-                //Transactions
-                let transactionsList = res.data.transactions
-                
-                //Income
-                let incomeList = transactionsList.filter(transaction=>transaction.type==="income")
-                let incomeAmount = incomeList.map(transaction=>transaction.amount)
-                let totalIncome_ = incomeAmount.reduce((a,b)=>a+b)
-                setTotalIncome(totalIncome_)
-
-                //Expenses
-                let expensesList = transactionsList.filter(transaction=>transaction.type==="expense")
-                let expensesAmount = expensesList.map(transaction=>transaction.amount)
-                let totalExpenses_ = expensesAmount.reduce((a,b)=>a+b)
-                setTotalExpenses(totalExpenses_)
-                
+                let response = res.data
+                let array = [0]
+                response.map(el=>array.push(el.amount))
+                let totalAmount = array.reduce((a,b)=>a+b)
+                if(type==='expense'){      
+                    setTotalExpenses(totalAmount)
+                }else{
+                    setTotalIncome(totalAmount)
+                }
             })
             .catch(error => console.log(error));
-    }, [userId])
+    }
 
-    const handleDateFilter = (e) =>{
-        setDateFilter(e.target.value);
+    const handleDateYearly = (e) =>{
+        setTotalIncome(0)
+        setTotalExpenses(0)
+        e.preventDefault()
+        let todayArray = new Date().toDateString().split(" ")
+        //['Tue', 'May', '31', '2022']
+        let beginningOfThisYear = `${todayArray[3]}-01-01`
+        let beginningOfNextYear = `${todayArray[3]+1}-01-01`
+        getAmount('income',beginningOfThisYear,beginningOfNextYear)
+        getAmount('expense',beginningOfThisYear,beginningOfNextYear)
+    }
+
+    const handleDateMonthly = (e) =>{
+        setTotalIncome(0)
+        setTotalExpenses(0)
+        e.preventDefault()
+        let todayArray = new Date().toDateString().split(" ")
+        console.log(todayArray)
+        let monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
+        //This month
+        let monthNumber = "";
+        monthArray.forEach((m,i)=>(m===todayArray[1])?monthNumber=i+1:null)
+        if(monthNumber<10){
+            monthNumber="0"+monthNumber;
+        }
+        let beginningOfThisMonth = `${todayArray[3]}-${monthNumber}-01`
+        console.log(beginningOfThisMonth)
+        //Next Month
+        let beginningOfNextMonth = "";
+        if(monthNumber<12){
+
+            console.log(monthNumber)
+            let nextNumber = monthNumber.split("").slice(-1).reduce((a,b)=>a+b)
+            nextNumber++
+            if(nextNumber<10){
+                nextNumber="0"+nextNumber;
+            }
+            beginningOfNextMonth = `${todayArray[3]}-${nextNumber}-01`
+        }else{
+            beginningOfNextMonth = `${todayArray[3]+1}-01-01`
+        }
+       
+        console.log(beginningOfNextMonth)
+
+        getAmount('income',beginningOfThisMonth,beginningOfNextMonth)
+        getAmount('expense',beginningOfThisMonth,beginningOfNextMonth)
+    }
+
+    const handleDateWeekly = (e) =>{
+        //setDateFilter(e.target.value);
+    }
+
+    const handleDateDaily = (e) =>{
+        //setDateFilter(e.target.value);
     }
 
     return (
         <div>
             <h2>Stadistics Section</h2>
-            {/* <p>%buttons%</p> */}
             <div>
-                <label>
-                    Y<input type="radio" name="date-filter-stadistic-section" value="yearly" onChange={handleDateFilter} defaultChecked/>
-                </label>
-                <label>
-                    M<input type="radio" name="date-filter-stadistic-section" value="monthly" onChange={handleDateFilter}/>
-                </label>
-                <label>
-                    W<input type="radio" name="date-filter-stadistic-section" value="weekly" onChange={handleDateFilter}/>
-                </label>
-                <label>
-                    D<input type="radio" name="date-filter-stadistic-section" value="daily" onChange={handleDateFilter}/>
-                </label>
+                <button onClick={handleDateYearly}>Y</button>
+                <button onClick={handleDateMonthly}>M</button>
+                <button onClick={handleDateWeekly}>W</button>
+                <button onClick={handleDateDaily}>D</button>
             </div>
             <p>Balance</p>
             <p>${totalIncome-totalExpenses}</p>
