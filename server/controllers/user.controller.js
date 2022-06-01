@@ -71,9 +71,14 @@ module.exports.logout = (req, res) => {
     res.status(200).json({message: "LogOut successful!"});
 }
 
-module.exports.get_user = (req, res) => {
-    // return res.send(req.userId)
+module.exports.getUser = (req, res) => {
     User.findOne({_id: req.params.id})
+        .then(user => res.json(user))
+        .catch(error => res.status(400).json(error));
+}
+
+module.exports.updateUser = (req, res) => {
+    User.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true, runValidators: true})
         .then(user => res.json(user))
         .catch(error => res.status(400).json(error));
 }

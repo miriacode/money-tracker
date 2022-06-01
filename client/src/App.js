@@ -13,6 +13,7 @@ import Categories from "./components/pages/Categories/Categories";
 import NewCategory from "./components/pages/NewCategory/NewCategory";
 import UpdateCategory from "./components/pages/UpdateCategory/UpdateCategory";
 import Profile from "./components/pages/Profile/Profile"
+import UpdateProfile from "./components/pages/UpdateProfile/UpdateProfile"
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 
@@ -55,6 +56,7 @@ function App() {
           <Route exact path="/transactions/new"element={userId?<NewTransaction userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/transactions/update/:id"element={userId?<UpdateTransaction userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/profile"element={userId?<Profile userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/profile/edit"element={userId?<UpdateProfile userId={userId}/>:<AuthenticationError/>} />
         </Routes>
       </BrowserRouter>
     </div>
