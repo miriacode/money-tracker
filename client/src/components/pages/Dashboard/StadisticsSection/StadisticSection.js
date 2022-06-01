@@ -6,6 +6,44 @@ const StadisticsSection = ({userId}) => {
     const [totalIncome, setTotalIncome] = useState();
     const [totalExpenses, setTotalExpenses] = useState();
 
+    useEffect(() => {
+        //By default: Yearly
+        let todayArray = new Date().toDateString().split(" ")
+        let beginningOfThisYear = `${todayArray[3]}-01-01`
+        let nextYearArray = new Date(new Date().getFullYear()+1, 0, 1).toDateString().split(" ")
+        let beginningOfNextYear = `${nextYearArray[3]}-01-01`
+
+        axios.post("http://localhost:8000/api/transactions/period",{
+            userId: userId,
+            date: {$gte: new Date(beginningOfThisYear), $lt: new Date(beginningOfNextYear)},
+            type: "income",
+        }, {withCredentials: true})
+            .then(res => {
+                let response = res.data
+                let array = [0]
+                response.map(el=>array.push(el.amount))
+                let totalAmount = array.reduce((a,b)=>a+b)
+                setTotalIncome(totalAmount)
+                }
+            )
+            .catch(error => console.log(error));
+
+            axios.post("http://localhost:8000/api/transactions/period",{
+                userId: userId,
+                date: {$gte: new Date(beginningOfThisYear), $lt: new Date(beginningOfNextYear)},
+                type: "expense",
+            }, {withCredentials: true})
+                .then(res => {
+                    let response = res.data
+                    let array = [0]
+                    response.map(el=>array.push(el.amount))
+                    let totalAmount = array.reduce((a,b)=>a+b)
+                    setTotalExpenses(totalAmount)
+                    }
+                )
+                .catch(error => console.log(error));
+    }, [userId]);
+
     const getAmount = (type,startDate,endDate) =>{
         axios.post("http://localhost:8000/api/transactions/period",{
             userId: userId,
