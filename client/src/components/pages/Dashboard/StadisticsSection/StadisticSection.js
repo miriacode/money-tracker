@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { set } from "mongoose";
 
 const StadisticsSection = ({userId}) => {
 
@@ -28,59 +27,81 @@ const StadisticsSection = ({userId}) => {
     }
 
     const handleDateYearly = (e) =>{
+        e.preventDefault()
         setTotalIncome(0)
         setTotalExpenses(0)
-        e.preventDefault()
-        let todayArray = new Date().toDateString().split(" ")
-        //['Tue', 'May', '31', '2022']
+        let todayArray = new Date().toDateString().split(" ")//['Tue', 'May', '31', '2022']
         let beginningOfThisYear = `${todayArray[3]}-01-01`
-        let beginningOfNextYear = `${todayArray[3]+1}-01-01`
+        console.log(beginningOfThisYear)
+        let nextYearArray = new Date(new Date().getFullYear()+1, 0, 1).toDateString().split(" ")
+        let beginningOfNextYear = `${nextYearArray[3]}-01-01`
+        console.log(beginningOfNextYear)
         getAmount('income',beginningOfThisYear,beginningOfNextYear)
         getAmount('expense',beginningOfThisYear,beginningOfNextYear)
     }
 
     const handleDateMonthly = (e) =>{
+        e.preventDefault()
         setTotalIncome(0)
         setTotalExpenses(0)
-        e.preventDefault()
         let todayArray = new Date().toDateString().split(" ")
-        console.log(todayArray)
-        let monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
-        //This month
-        let monthNumber = "";
-        monthArray.forEach((m,i)=>(m===todayArray[1])?monthNumber=i+1:null)
-        if(monthNumber<10){
-            monthNumber="0"+monthNumber;
-        }
+        let monthNumber = getMonthNumber(todayArray[1])
         let beginningOfThisMonth = `${todayArray[3]}-${monthNumber}-01`
         console.log(beginningOfThisMonth)
-        //Next Month
-        let beginningOfNextMonth = "";
-        if(monthNumber<12){
-
-            console.log(monthNumber)
-            let nextNumber = monthNumber.split("").slice(-1).reduce((a,b)=>a+b)
-            nextNumber++
-            if(nextNumber<10){
-                nextNumber="0"+nextNumber;
-            }
-            beginningOfNextMonth = `${todayArray[3]}-${nextNumber}-01`
-        }else{
-            beginningOfNextMonth = `${todayArray[3]+1}-01-01`
-        }
-       
+        let today = new Date()
+        let beginningOfNextMonthArray = new Date(today.getFullYear(), today.getMonth()+1, 1).toDateString().split(" ")
+        let nextMonthNumber = getMonthNumber(beginningOfNextMonthArray[1])
+        let beginningOfNextMonth = `${beginningOfNextMonthArray[3]}-${nextMonthNumber}-${beginningOfNextMonthArray[2]}`
         console.log(beginningOfNextMonth)
-
         getAmount('income',beginningOfThisMonth,beginningOfNextMonth)
         getAmount('expense',beginningOfThisMonth,beginningOfNextMonth)
     }
 
+    const sumDays = (today, days)=>{
+        today.setDate(today.getDate() + days);
+        return today;
+    }
+
+    const getMonthNumber = (monthAbr) =>{
+        let monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
+        let monthNumber = "";
+        monthArray.forEach((m,i)=>(m===monthAbr)?monthNumber=i+1:null)
+        if(monthNumber<10){
+            monthNumber="0"+monthNumber;
+        }
+        return monthNumber
+    }
+
     const handleDateWeekly = (e) =>{
-        //setDateFilter(e.target.value);
+        e.preventDefault()
+        setTotalIncome(0)
+        setTotalExpenses(0)
+        let todayArray = new Date().toDateString().split(" ")//['Tue', 'May', '31', '2022']
+        let thisMonthNumber = getMonthNumber(todayArray[1])
+        let today = `${todayArray[3]}-${thisMonthNumber}-${todayArray[2]}`
+        console.log(today)
+        let plusSevenDaysArray = sumDays(new Date(),7).toDateString().split(" ")
+        let plusSevenDaysMonth = getMonthNumber(plusSevenDaysArray[1])
+        let plusSevenDaysDay = `${plusSevenDaysArray[3]}-${plusSevenDaysMonth}-${plusSevenDaysArray[2]}`
+        console.log(plusSevenDaysDay)
+        getAmount('income',today,plusSevenDaysDay)
+        getAmount('expense',today,plusSevenDaysDay)
     }
 
     const handleDateDaily = (e) =>{
-        //setDateFilter(e.target.value);
+        e.preventDefault()
+        setTotalIncome(0)
+        setTotalExpenses(0)
+        let todayArray = new Date().toDateString().split(" ")//['Tue', 'May', '31', '2022']
+        let thisMonthNumber = getMonthNumber(todayArray[1])
+        let today = `${todayArray[3]}-${thisMonthNumber}-${todayArray[2]}`
+        console.log(today)
+        let tomorrowArray = sumDays(new Date(),1).toDateString().split(" ")
+        let nextMonthNumber = getMonthNumber(tomorrowArray[1])
+        let tomorrow = `${tomorrowArray[3]}-${nextMonthNumber}-${tomorrowArray[2]}`
+        console.log(tomorrow)
+        getAmount('income',today,tomorrow)
+        getAmount('expense',today,tomorrow)
     }
 
     return (
