@@ -12,6 +12,18 @@ module.exports.getAmountByUserByPeriod = (req, res) => {
         .catch(error => res.status(400).json(error));
 }
 
+// module.exports.getByUserByLast5Transactions = (req, res) => {
+//     Transaction.find(req.body,{_id: 0, userId: 0, type:1, title:1, description:0, category:0, date:0, createdAt:0, updatedAt:0 }).sort({$date:-1}).limit(5)
+//         .then(transactions => res.json(transactions))
+//         .catch(error => res.status(400).json(error));
+// }
+
+module.exports.getLas5ByUser = (req, res) => {
+    Transaction.find({userId: req.params.userId}).sort({date: -1}).limit(5)
+        .then(transactions => res.json(transactions))
+        .catch(error => res.status(400).json(error));
+}
+
 module.exports.createTransaction = (req, res) => {
     Transaction.create(req.body)
         .then(transaction => res.json(transaction))

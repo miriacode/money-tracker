@@ -1,12 +1,21 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
-const LastTransactions = () => {
+const LastTransactions = ({userId}) => {
+
+    const [lastTransactions, setLastTransactions] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/transactions/last5/find/"+userId,{withCredentials: true})
+            .then(res => setLastTransactions(res.data))
+            .catch(error => console.log(error));
+    }, [userId]);
+
     return (
         <div>
             <h2>LastTransactions</h2>
             <ul>
-                <li>1</li>
-                <li>2</li>
+                {lastTransactions.map((transaction,i)=><li key={i}>{transaction.type} {transaction.title}</li>)}
             </ul>
         </div>
     )

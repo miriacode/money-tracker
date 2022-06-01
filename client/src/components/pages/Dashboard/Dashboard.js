@@ -19,7 +19,7 @@ const Dashboard = ({userId}) => {
             <StadisticSection userId={userId}/>
             <GraphicSection/>
             <Calendar/>
-            <LastTransactions/>
+            <LastTransactions userId={userId}/>
         </div>
     )
 }
