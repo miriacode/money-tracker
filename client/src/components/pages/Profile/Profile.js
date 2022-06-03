@@ -18,7 +18,8 @@ const Profile = ({userId}) => {
     return (
         <div>
             <h2>Profile</h2>
-            <p>{user.profilePictureURL}</p>
+            {/* <p>{user.profilePictureURL}</p> */}
+            {user.profilePictureURL!==undefined?<img src={require("./../../../uploads/profilePicture/"+user.profilePictureURL)} alt={`${user.firstName}-${user.lastName}-profile-picture}`}/>:null}
             <h3>{user.firstName} {user.lastName}</h3>
             <p>First Name:</p>
             <p>{user.firstName}</p>

@@ -15,13 +15,13 @@ const SideMenu = ({userId}) => {
                
             })
             .catch(error => console.log(error));
-    }, [userId]);
+    }, [userId,user]);
 
     return (
         <div className="side-menu">
             <div>Luna/Sol</div>
-          
             <h2>{user.firstName} {user.lastName}</h2>
+            {user.profilePictureURL!==undefined?<img src={require("./../../uploads/profilePicture/"+user.profilePictureURL)} alt={`${user.firstName}-${user.lastName}-profile-picture}`}/>:null}
             <div>Pic</div>
         </div>
     )

@@ -79,38 +79,34 @@ module.exports.getUser = (req, res) => {
         .catch(error => res.status(400).json(error));
 }
 
-
-
-module.exports.updateUser = (req, res) => {
-    
+module.exports.updateUser = (req, res) => {  
     console.log(req.file)
     if(req.file){
         console.log("--------------")
         
         let allPath = req.file.path
-        let namePath = allPath.split("\\")[1]
+        let splitPath = allPath.split("\\")
+        let namePath = `${splitPath[4]}`
+        
         var obj = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
-            cellPhone: req.body.cellPhone,
+            cellphone: req.body.cellphone,
             location: req.body.location,
             postalCode: req.body.postalCode,
-            profilePictureURL: "uploads/"+namePath,
+            profilePictureURL: namePath,
         }
     }else{
        var obj = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
-            cellPhone: req.body.cellPhone,
+            cellphone: req.body.cellphone,
             location: req.body.location,
             postalCode: req.body.postalCode,
         } 
     }
     console.log(obj)
     
-    // User.findByIdAndUpdate({_id: req.params.id}, obj, {new: true, runValidators: true})
-    //     .then(user => res.json(user))
-    //     .catch(error => res.status(400).json(error));
     User.findByIdAndUpdate({_id: req.params.id},obj, (err, item) => {
         if (err) {
             console.log(err);
