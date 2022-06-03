@@ -1,6 +1,7 @@
 const UserController = require("../controllers/user.controller");
 
 const {authenticate} = require("../config/jwt.config");
+const {upload} = require("../utils/multerUtility")
 
 module.exports = app => {
     app.post("/api/register", UserController.register);
@@ -11,5 +12,5 @@ module.exports = app => {
 
     app.get("/api/users/:id", authenticate, UserController.getUser)
 
-    app.put("/api/users/:id", authenticate, UserController.updateUser)
+    app.put("/api/users/:id", authenticate, upload.single('profilePicture'), UserController.updateUser)
 }

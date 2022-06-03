@@ -11,9 +11,14 @@ const Profile = ({userId}) => {
     const [cellphone, setCellphone] = useState("");
     const [location, setLocation] = useState("");
     const [postalCode, setPostalCode] = useState("");
-
+    const [profilePictureURL, setProfilePictureURL] = useState("");
+    const [chosenImage, setChosenImage] = useState(null);
+    
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+
+    //
+    
     
     useEffect(() =>{
         axios.get("http://localhost:8000/api/users/"+userId,{withCredentials: true})
@@ -24,28 +29,53 @@ const Profile = ({userId}) => {
                 setCellphone(res.data.cellphone)
                 setLocation(res.data.location)
                 setPostalCode(res.data.postalCode)
+                setProfilePictureURL(res.data.profilePictureURL)
             })
             .catch(error => console.log(error));
     }, [userId])
 
-    const updateProfile = e => {
+    const updateProfile = (e) => {
+        //
         e.preventDefault();
-        axios.put("http://localhost:8000/api/users/"+userId,{
-            firstName: firstName,
-            lastName: lastName,
-            cellphone: cellphone,
-            location: location,
-            postalCode: postalCode,
-        },{withCredentials: true})
+        // axios.put("http://localhost:8000/api/users/"+userId,{
+        //     firstName: firstName,
+        //     lastName: lastName,
+        //     cellphone: cellphone,
+        //     location: location,
+        //     postalCode: postalCode,
+        // },{withCredentials: true})
+        //     .then(res => navigate("/profile"))
+        //     .catch(err => setErrors(err.response.data.errors))
+        const bodyFormData = new FormData()
+        bodyFormData.append('firstName',firstName)
+        bodyFormData.append('lastName',lastName)
+        bodyFormData.append('cellphone',cellphone)
+        bodyFormData.append('location',location)
+        bodyFormData.append('postalCode',postalCode)
+        console.log(bodyFormData)
+        if(chosenImage!==null){
+           bodyFormData.append('profilePicture',chosenImage) 
+        }
+        
+        axios.put("http://localhost:8000/api/users/"+userId,bodyFormData,{withCredentials: true})
             .then(res => navigate("/profile"))
-            .catch(err => setErrors(err.response.data.errors))
+            .catch(error => console.log(error.response.data.errors));
+    }
+
+    //
+    const handleFile = (e) => {
+        console.log(e)
+        console.log(e.target.files[0])
+        setChosenImage(e.target.files[0])
     }
 
     return (
         <div>
             <h2>Profile</h2>
-            {/* <img></img> */}
+            {profilePictureURL}
             <form onSubmit={updateProfile}>
+                    <input type="file" name="profilePicture" onChange={handleFile}/>
+
                 <div className="form-group">
                     <label htmlFor="firstName">First Name:</label>
                     <input type="text" id="firstName" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="form-control" />
@@ -76,23 +106,9 @@ const Profile = ({userId}) => {
                     {errors.postalCode ? <span className="text-danger">{errors.postalCode.message}</span> : null}
                 </div>
                 
-
-                <input type="submit" value="Update" className="btn btn-success" />
+                <button type="submit">Submit</button>
+                {/* <input type="submit" value="Update" className="btn btn-success" /> */}
             </form>
-            {/* <h3>{user.firstName} {user.lastName}</h3>
-            <p>First Name:</p>
-            <p>{user.firstName}</p>
-            <p>Last Name:</p>
-            <p>{user.lastName}</p>
-            <p>Email:</p>
-            <p>{user.email}</p>
-            <p>Cellphone:</p>
-            <p>{user.cellphone}</p>
-            <p>Location:</p>
-            <p>{user.location}</p>
-            <p>Postal Code:</p>
-            <p>{user.postalCode}</p>
-            <Link to="/profile/edit">Edit</Link> */}
         </div>
     )
 }

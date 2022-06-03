@@ -32,7 +32,10 @@ const UserSchema = new mongoose.Schema( {
     },
     postalCode:{
         type: String,
-    }
+    },
+    profilePictureURL: {
+        type: String,
+    },
 }, {timestamps: true, versionKey: false})
 
 //Apply this when we don't want to storage it in the DB

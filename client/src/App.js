@@ -17,6 +17,9 @@ import UpdateProfile from "./components/pages/UpdateProfile/UpdateProfile"
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 
+// import PruebaJS from "./components/pages/prueba"
+// import PruebaUpdate from "./components/pages/pruebaUpdate"
+
 //Components: Errors
 import AuthenticationError from "./components/Errors/AuthenticationError/AuthenticationError";
 
@@ -57,6 +60,8 @@ function App() {
           <Route exact path="/transactions/update/:id"element={userId?<UpdateTransaction userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/profile"element={userId?<Profile userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/profile/edit"element={userId?<UpdateProfile userId={userId}/>:<AuthenticationError/>} />
+          {/* <Route exact path="/prueba"element={userId?<PruebaJS userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/prueba/update/:id"element={userId?<PruebaUpdate userId={userId}/>:<AuthenticationError/>} /> */}
         </Routes>
       </BrowserRouter>
     </div>

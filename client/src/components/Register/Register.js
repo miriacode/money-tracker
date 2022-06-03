@@ -23,8 +23,10 @@ const Register = () => {
             email:email,
             password:password,
             confirmPassword: confirmPassword,
-            categories:[],
-            transactions:[],
+            profilePictureURL:"uploads/profilePictureDefault.jpg",
+            // categories:[],
+            // transactions:[],
+
         }, {withCredentials: true})
             .then( res => {
                 console.log(res);

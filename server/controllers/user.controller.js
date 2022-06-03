@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 const secret_key = "This is my secret key";
 const bcrypt = require("bcrypt");
 
+
+
 module.exports.register = (req, res) => {
     const user = new User(req.body);
     user.save()
@@ -77,8 +79,45 @@ module.exports.getUser = (req, res) => {
         .catch(error => res.status(400).json(error));
 }
 
+
+
 module.exports.updateUser = (req, res) => {
-    User.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true, runValidators: true})
-        .then(user => res.json(user))
-        .catch(error => res.status(400).json(error));
+    
+    console.log(req.file)
+    if(req.file){
+        console.log("--------------")
+        
+        let allPath = req.file.path
+        let namePath = allPath.split("\\")[1]
+        var obj = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            cellPhone: req.body.cellPhone,
+            location: req.body.location,
+            postalCode: req.body.postalCode,
+            profilePictureURL: "uploads/"+namePath,
+        }
+    }else{
+       var obj = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            cellPhone: req.body.cellPhone,
+            location: req.body.location,
+            postalCode: req.body.postalCode,
+        } 
+    }
+    console.log(obj)
+    
+    // User.findByIdAndUpdate({_id: req.params.id}, obj, {new: true, runValidators: true})
+    //     .then(user => res.json(user))
+    //     .catch(error => res.status(400).json(error));
+    User.findByIdAndUpdate({_id: req.params.id},obj, (err, item) => {
+        if (err) {
+            console.log(err);
+        }else {
+            res.status(201).json({
+            message: "Profile image updated sucessfully"
+            })
+        }
+     });
 }

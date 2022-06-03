@@ -18,7 +18,7 @@ const Profile = ({userId}) => {
     return (
         <div>
             <h2>Profile</h2>
-            {/* <img></img> */}
+            <p>{user.profilePictureURL}</p>
             <h3>{user.firstName} {user.lastName}</h3>
             <p>First Name:</p>
             <p>{user.firstName}</p>
