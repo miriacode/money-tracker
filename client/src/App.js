@@ -27,10 +27,22 @@ import AuthenticationError from "./components/Errors/AuthenticationError/Authent
 import { useCookies } from "react-cookie";
 import jwt_decode from "jwt-decode";
 
+//Styles
+import useLocalStorage from 'use-local-storage'
+
 function App() {
 
   const[cookies] = useCookies(['usertoken'])
   const[userId, setUserId] = useState(null)
+
+  //To handle dark/light theme
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+
+  const switchTheme = () =>{
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme)
+  }
 
   useEffect(() => {
     console.log(cookies.usertoken)
@@ -43,10 +55,10 @@ function App() {
   }, [cookies.usertoken]);
   
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
       <BrowserRouter>
         {userId?<Menu />:null}
-        {userId?<SideMenu userId={userId} />:null}
+        {userId?<SideMenu userId={userId} switchTheme={switchTheme} theme={theme}/>:null}
         <Routes>
           <Route exact path="/" element={userId?<Navigate to="/dashboard"/>:<Login />} />
           <Route exact path="/register" element={userId?<Navigate to="/dashboard"/>:<Register />} />

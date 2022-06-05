@@ -19,6 +19,19 @@ code {
   box-sizing: border-box;
 }
 
+:root {
+  --background: white;
+  --text-primary: black;
+  --text-secondary: royalblue;
+  --accent: purple;
+}
+[data-theme='dark'] {
+  --background: black;
+  --text-primary: white;
+  --text-secondary: grey;
+  --accent: darkred;
+}
+
 /* body{
   overflow: hidden;
   /* display: flex;

@@ -1,0 +1,12 @@
+// :root{
+//     --a: red;
+// }
+
+.container{
+    color:var(--text-secondary);
+    background-color: purple;
+    &:hover{
+        background-color: yellow;
+    }
+}
+

@@ -2,6 +2,9 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+//Styles
+import styles from "./../Profile/Profile.module.css"
+
 
 const Profile = ({userId}) => {
 
@@ -17,8 +20,7 @@ const Profile = ({userId}) => {
 
     return (
         <div>
-            <h2>Profile</h2>
-            {/* <p>{user.profilePictureURL}</p> */}
+            <h2 className={styles.container}>Profile</h2>
             {user.profilePictureURL!==undefined?<img src={require("./../../../uploads/profilePicture/"+user.profilePictureURL)} alt={`${user.firstName}-${user.lastName}-profile-picture}`}/>:null}
             <h3>{user.firstName} {user.lastName}</h3>
             <p>First Name:</p>

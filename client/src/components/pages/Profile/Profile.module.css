@@ -1,0 +1,7 @@
+.container {
+  color: var(--text-secondary);
+  background-color: purple;
+}
+.container:hover {
+  background-color: yellow;
+}/*# sourceMappingURL=Profile.module.css.map */

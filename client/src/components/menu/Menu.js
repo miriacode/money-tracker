@@ -6,11 +6,13 @@ import React from "react";
 import ButtonLogout from "./ButtonLogOut/ButtonLogout";
 
 //CSS
-import './Menu.css'
+// import './Menu.css'
+//Styles
+import styles from "./../Menu/Menu.module.css"
 
 const Menu = () => {
     return (
-        <div className="menu">
+        <div className={styles.menu}>
             <h3>MoneyTracker</h3>
             <ul>
                 {/* <li> <button component={Link} to="/dashboard">Dashboard</button></li>
