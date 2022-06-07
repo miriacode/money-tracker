@@ -10,7 +10,6 @@
     padding-left:2%;
     padding-right:2%;
     background-color: var(--color-component);
-    //F
     font-family:'Poppins', sans-serif;
 
     //Flexbox
@@ -51,7 +50,7 @@
 .menu__title{
     display: inline-block;
     //F
-    font-size: 1.5rem;
+    font-size: var(--step-0);
 }
 
 .menu__item{
@@ -82,8 +81,9 @@
     display: inline-block;
     padding-left: 4.5%;
     // background-color: aquamarine;
-    font-size: 1.15rem;
-    
+    //F
+    // font-size: 1.15rem;
+    font-size: calc(var(--step--2)*.96);
     color:var(--color-text-primary);
     text-decoration: none;
     font-weight: 600;
@@ -99,3 +99,21 @@
     // background-color: black;
 }
 
+
+
+@media (min-width: 1600px){
+    .menu__title{
+        font-size: var(--step-1);
+        // color:red;
+    }
+
+    .menu__link{
+        font-size: calc(var(--step--1)*.96);
+        padding-left: 6.5%;
+    }
+    
+    .menu__icon{
+        width:30px;
+        height:30px;
+    }
+}

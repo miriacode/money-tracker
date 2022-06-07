@@ -40,7 +40,7 @@
 
 .menu__title {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: var(--step-0);
 }
 
 .menu__item {
@@ -65,7 +65,7 @@
 .menu__link {
   display: inline-block;
   padding-left: 4.5%;
-  font-size: 1.15rem;
+  font-size: calc(var(--step--2) * 0.96);
   color: var(--color-text-primary);
   text-decoration: none;
   font-weight: 600;
@@ -77,4 +77,20 @@
 .menu__icon {
   display: inline-flex;
   color: var(--color-primary);
+}
+
+@media (min-width: 1600px) {
+  .menu__title {
+    font-size: var(--step-1);
+  }
+
+  .menu__link {
+    font-size: calc(var(--step--1) * 0.96);
+    padding-left: 6.5%;
+  }
+
+  .menu__icon {
+    width: 30px;
+    height: 30px;
+  }
 }/*# sourceMappingURL=Menu.module.css.map */

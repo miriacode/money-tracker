@@ -25,4 +25,16 @@
 .button__icon {
   display: inline-flex;
   color: var(--color-primary);
+}
+
+@media (min-width: 1600px) {
+  .button__link {
+    font-size: calc(var(--step--1) * 0.96);
+    padding-left: 6.5%;
+  }
+
+  .button__icon {
+    width: 30px;
+    height: 30px;
+  }
 }/*# sourceMappingURL=ButtonLogout.module.css.map */
