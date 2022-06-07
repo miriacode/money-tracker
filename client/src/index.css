@@ -17,11 +17,12 @@ body {
 
 :root {
   /*Fonts*/
-  --font-text-primary:'Roboto', sans-serif;
+  --font-text-primary:'Poppins', sans-serif;
   --font-text-secondary:'Roboto', sans-serif;
 
   /*Light color palette*/
   --color-primary:hsl(173, 100%, 42%);
+  --color-primary:hsl(174, 95%, 35%);
   --color-secondary:hsl(174, 73%, 90%);
   --color-secondary:hsl(174, 73%, 93%);
   --color-component: hsl(0, 0%, 100%);
