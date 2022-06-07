@@ -2,6 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
+//Styles
+import styles from "./ButtonLogout.css"
+
+//
+import LogoutIcon from '@mui/icons-material/Logout';
+
 const ButtonLogout = () => {
 
     const navigate = useNavigate();
@@ -18,7 +24,10 @@ const ButtonLogout = () => {
 
 
     return(
-        <button className='btn btn-danger float-right' onClick={logOut}>Log Out</button>
+        <div className={styles.button}>
+            <LogoutIcon className={styles.button__icon}></LogoutIcon>
+            <button onClick={logOut}>Log Out</button>
+        </div>
     )
 
 }

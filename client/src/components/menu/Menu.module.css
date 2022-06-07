@@ -43,6 +43,14 @@
   font-size: 1.5rem;
 }
 
+.menu__item {
+  display: block;
+  width: 100%;
+  height: 7%;
+  background-color: violet;
+  margin-bottom: 10%;
+}
+
 .menu__list {
   width: 100%;
   height: 75%;
@@ -54,7 +62,7 @@
 }
 
 .menu__list a {
-  display: block;
+  display: inline-block;
   margin-bottom: 2rem;
   background-color: aquamarine;
   font-size: 1.15rem;
@@ -64,4 +72,8 @@
 }
 .menu__list a:hover {
   color: var(--color-menu);
+}
+
+.menu__icon {
+  color: var(--color-component);
 }/*# sourceMappingURL=Menu.module.css.map */

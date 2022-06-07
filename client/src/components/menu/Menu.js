@@ -11,7 +11,14 @@ import styles from "./../Menu/Menu.module.scss"
 import logoLight from "../../assets/images/logo-light.png"
 import logoDark from "../../assets/images/logo-dark.png"
 
-// import DashboardIcon from '@mui/icons-material/Dashboard';
+//Material Icons
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import DiscountIcon from '@mui/icons-material/Discount';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import PersonIcon from '@mui/icons-material/Person';
+import SettingsIcon from '@mui/icons-material/Settings';
+
 
 const Menu = ({theme}) => {
     return (
@@ -23,25 +30,28 @@ const Menu = ({theme}) => {
             
             <ul className={styles.menu__list}>
                 <li className={styles.menu__item}>
-                    {/* <img className={styles.menu__icon} src={DashboardIcon}></img> */}
+                    <DashboardIcon className={styles.menu__icon}></DashboardIcon>
+                    {/* <img className={styles.menu__icon} src={DashboardIcon}></img> fontSize="medium*/}
                     <Link to="/dashboard">Dashboard</Link>
                 </li>
                 <li className={styles.menu__item}>
-                    {/* <img className={styles.menu__icon} src={theme==="light"?logoTransactionLight:logoTransactionDark}></img> */}
+                    <ReceiptIcon className={styles.menu__icon}></ReceiptIcon>
                     <Link to="/transactions">Transactions</Link>
                 </li>
                 <li className={styles.menu__item}>
-                    {/* <img className={styles.menu__icon} src={theme==="light"?logoCategoriesLight:logoCategoriesDark}></img> */}
+                    <DiscountIcon className={styles.menu__icon}></DiscountIcon>
                     <Link to="/categories">Categories</Link>
                     </li>
                 <li className={styles.menu__item}>
-                {/* <img className={styles.menu__icon} src={theme==="light"?logoDashboardLight:logoDashboardDark}></img> */}
+                    <EqualizerIcon className={styles.menu__icon}></EqualizerIcon>
                     <a href="#">Reports</a>
                 </li>
                 <li className={styles.menu__item}>
+                    <PersonIcon className={styles.menu__icon}></PersonIcon>
                     <Link to="/profile">Profile</Link>
                 </li>
                 <li className={styles.menu__item}>
+                    <SettingsIcon className={styles.menu__icon}></SettingsIcon>
                     <a href="#">Settings</a>
                 </li>
             </ul>
