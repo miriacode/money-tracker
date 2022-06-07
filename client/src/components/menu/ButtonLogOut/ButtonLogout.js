@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 //Styles
-import styles from "./ButtonLogout.css"
+import styles from "./ButtonLogout.module.css"
 
 //
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -26,7 +26,7 @@ const ButtonLogout = () => {
     return(
         <div className={styles.button}>
             <LogoutIcon className={styles.button__icon}></LogoutIcon>
-            <button onClick={logOut}>Log Out</button>
+            <button className={styles.button__link}onClick={logOut}>Log Out</button>
         </div>
     )
 

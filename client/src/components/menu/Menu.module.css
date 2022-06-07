@@ -1,7 +1,7 @@
 .menu {
   height: 100vh;
   width: 18.5vw;
-  min-width: 147px;
+  min-width: 270px;
   min-height: 700px;
   max-width: 350px;
   padding-top: 3rem;
@@ -47,8 +47,10 @@
   display: block;
   width: 100%;
   height: 7%;
-  background-color: violet;
+  padding-left: 4.5%;
   margin-bottom: 10%;
+  display: flex;
+  align-items: center;
 }
 
 .menu__list {
@@ -56,24 +58,23 @@
   height: 75%;
   min-height: 500px;
   list-style-type: none;
-  background-color: antiquewhite;
   display: flex;
   flex-direction: column;
 }
 
-.menu__list a {
+.menu__link {
   display: inline-block;
-  margin-bottom: 2rem;
-  background-color: aquamarine;
+  padding-left: 4.5%;
   font-size: 1.15rem;
   color: var(--color-text-primary);
   text-decoration: none;
   font-weight: 600;
 }
-.menu__list a:hover {
-  color: var(--color-menu);
+.menu__link:hover {
+  color: var(--color-primary);
 }
 
 .menu__icon {
-  color: var(--color-component);
+  display: inline-flex;
+  color: var(--color-primary);
 }/*# sourceMappingURL=Menu.module.css.map */

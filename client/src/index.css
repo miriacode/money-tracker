@@ -21,7 +21,7 @@ body {
   --font-text-secondary:'Roboto', sans-serif;
 
   /*Light color palette*/
-  --color-menu:blueviolet;
+  --color-primary:hsl(173, 100%, 42%);
   --color-background: hsl(264, 91%, 96%);
   --color-component: hsl(0, 0%, 100%);
   --color-text-primary: hsl(0, 0%, 0%);
@@ -41,7 +41,7 @@ body {
 }
 [data-theme='dark'] {
   /*Dark color palette*/
-  --color-menu:gray;
+  --color-primary:gray;
   --color-background: hsl(269, 95%, 15%);
   --color-component: hsl(0, 0%, 0%);
   --color-text-primary: hsl(0, 0%, 100%);

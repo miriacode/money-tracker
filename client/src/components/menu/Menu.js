@@ -32,27 +32,27 @@ const Menu = ({theme}) => {
                 <li className={styles.menu__item}>
                     <DashboardIcon className={styles.menu__icon}></DashboardIcon>
                     {/* <img className={styles.menu__icon} src={DashboardIcon}></img> fontSize="medium*/}
-                    <Link to="/dashboard">Dashboard</Link>
+                    <Link to="/dashboard" className={styles.menu__link}>Dashboard</Link>
                 </li>
                 <li className={styles.menu__item}>
                     <ReceiptIcon className={styles.menu__icon}></ReceiptIcon>
-                    <Link to="/transactions">Transactions</Link>
+                    <Link to="/transactions" className={styles.menu__link}>Transactions</Link>
                 </li>
                 <li className={styles.menu__item}>
                     <DiscountIcon className={styles.menu__icon}></DiscountIcon>
-                    <Link to="/categories">Categories</Link>
+                    <Link to="/categories" className={styles.menu__link}>Categories</Link>
                     </li>
                 <li className={styles.menu__item}>
                     <EqualizerIcon className={styles.menu__icon}></EqualizerIcon>
-                    <a href="#">Reports</a>
+                    <a href="#" className={styles.menu__link}>Reports</a>
                 </li>
                 <li className={styles.menu__item}>
                     <PersonIcon className={styles.menu__icon}></PersonIcon>
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/profile" className={styles.menu__link}>Profile</Link>
                 </li>
                 <li className={styles.menu__item}>
                     <SettingsIcon className={styles.menu__icon}></SettingsIcon>
-                    <a href="#">Settings</a>
+                    <a href="#" className={styles.menu__link}>Settings</a>
                 </li>
             </ul>
             <ButtonLogout></ButtonLogout>
