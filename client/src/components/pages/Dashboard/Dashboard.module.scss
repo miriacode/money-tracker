@@ -1,0 +1,18 @@
+.page{
+    width:83.5vw;
+    height:100vh;
+    padding-top: 2.5rem;
+    padding-right: 2.5rem;
+    padding-left: 2.25rem;
+    padding-bottom: 2.5rem;
+
+    border-radius: 2rem;
+    background-color: var(--color-secondary);
+
+    // color: red;
+}
+
+.page__title{
+    font-size: var(--step-0);
+    color: var(--color-text-primary);
+}

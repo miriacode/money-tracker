@@ -22,8 +22,13 @@ body {
 
   /*Light color palette*/
   --color-primary:hsl(173, 100%, 42%);
-  --color-background: hsl(264, 91%, 96%);
+  --color-secondary:hsl(174, 73%, 90%);
+  --color-secondary:hsl(174, 73%, 93%);
   --color-component: hsl(0, 0%, 100%);
+
+  
+  --color-background: hsl(264, 91%, 96%);
+  
   --color-text-primary: hsl(0, 0%, 0%);
   --color-text-secondary: hsl(220, 2%, 61%);
   --accent: hsl(93, 90%, 80%);

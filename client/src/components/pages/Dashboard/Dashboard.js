@@ -1,22 +1,20 @@
 import React from "react";
 import StadisticSection from "./StadisticsSection/StadisticSection"
 import GraphicSection from "./GraphicSection/GraphicSection"
-import Calendar from "./Calendar/Calendar";
-import LastTransactions from "./LastTransactions/LastTransactions";
+
+import RightSideBar from "./../RIghtSideBar/RightSideBar"
 
 //CSS
-// import styles from "./Dashboard.module.css"
+import styles from "./Dashboard.module.css"
 
 
 const Dashboard = ({userId}) => {
     return (
-        <div>
-            <h2>---Dashboard---</h2>
-            <p>{console.log(userId)}</p>
+        <div className={styles.page}>
+            <h2 className={styles.page__title}>Dashboard</h2>
             <StadisticSection userId={userId}/>
             <GraphicSection/>
-            <Calendar/>
-            <LastTransactions userId={userId}/>
+            <RightSideBar userId={userId}></RightSideBar>
         </div>
     )
 }
