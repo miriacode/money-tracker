@@ -1,16 +1,5 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 *{
   border:0;
@@ -19,20 +8,43 @@ code {
   box-sizing: border-box;
 }
 
-:root {
-  --background: white;
-  --text-primary: black;
-  --text-secondary: royalblue;
-  --accent: purple;
-}
-[data-theme='dark'] {
-  --background: black;
-  --text-primary: white;
-  --text-secondary: grey;
-  --accent: darkred;
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size:1.4rem;
+  overflow: hidden;
 }
 
-/* body{
-  overflow: hidden;
-  /* display: flex;
-  flex-direction: row; */
+:root {
+  /*Fonts*/
+  --font-text-primary:'Roboto', sans-serif;
+  --font-text-secondary:'Roboto', sans-serif;
+
+  /*Light color palette*/
+  --color-menu:blueviolet;
+  --color-background: hsl(264, 91%, 96%);
+  --color-component: hsl(0, 0%, 100%);
+  --color-text-primary: hsl(0, 0%, 0%);
+  --color-text-secondary: hsl(220, 2%, 61%);
+  --accent: hsl(93, 90%, 80%);
+
+  /*Font size*/
+  --step--3: clamp(0.58rem, calc(0.47rem + 0.53vw), 0.87rem);
+  --step--2: clamp(0.69rem, calc(0.57rem + 0.63vw), 1.04rem);
+  --step--1: clamp(0.83rem, calc(0.68rem + 0.76vw), 1.25rem);
+  --step-0: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
+  --step-1: clamp(1.20rem, calc(0.98rem + 1.09vw), 1.80rem);
+  --step-2: clamp(1.44rem, calc(1.18rem + 1.31vw), 2.16rem);
+  --step-3: clamp(1.73rem, calc(1.41rem + 1.57vw), 2.59rem);
+  --step-4: clamp(2.07rem, calc(1.70rem + 1.89vw), 3.11rem);
+  --step-5: clamp(2.49rem, calc(2.04rem + 2.26vw), 3.73rem);
+}
+[data-theme='dark'] {
+  /*Dark color palette*/
+  --color-menu:gray;
+  --color-background: hsl(269, 95%, 15%);
+  --color-component: hsl(0, 0%, 0%);
+  --color-text-primary: hsl(0, 0%, 100%);
+  --color-text-secondary: hsl(0, 0%, 83%);
+  --accent: hsl(120, 100%, 25%);
+}

@@ -1,5 +1,67 @@
 .menu {
-  width: 16.5vw;
   height: 100vh;
-  background-color: blueviolet;
+  width: 18.5vw;
+  min-width: 147px;
+  min-height: 700px;
+  max-width: 350px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  padding-left: 2%;
+  padding-right: 2%;
+  background-color: var(--color-component);
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__brand {
+  display: inline-flex;
+  width: 100%;
+  height: 6.5%;
+  min-height: 36px;
+  color: var(--color-text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__logo {
+  display: block;
+  width: 25%;
+  height: 100%;
+  min-height: 42px;
+  min-width: 42px;
+  max-height: 55px;
+  max-width: 55px;
+  background-color: aliceblue;
+}
+
+.menu__title {
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.menu__list {
+  width: 100%;
+  height: 75%;
+  min-height: 500px;
+  list-style-type: none;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__list a {
+  display: block;
+  margin-bottom: 2rem;
+  background-color: aquamarine;
+  font-size: 1.15rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.menu__list a:hover {
+  color: var(--color-menu);
 }/*# sourceMappingURL=Menu.module.css.map */

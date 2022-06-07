@@ -57,7 +57,7 @@ function App() {
   return (
     <div className="App" data-theme={theme}>
       <BrowserRouter>
-        {userId?<Menu />:null}
+        {userId?<Menu theme={theme}/>:null}
         {userId?<SideMenu userId={userId} switchTheme={switchTheme} theme={theme}/>:null}
         <Routes>
           <Route exact path="/" element={userId?<Navigate to="/dashboard"/>:<Login />} />

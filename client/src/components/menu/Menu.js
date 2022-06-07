@@ -1,32 +1,51 @@
-// import React, {useEffect, useState} from "react";
-// import axios from "axios";
 import {Link} from "react-router-dom";
 import React from "react";
 
+//Components
 import ButtonLogout from "./ButtonLogOut/ButtonLogout";
 
-//CSS
-// import './Menu.css'
 //Styles
-import styles from "./../Menu/Menu.module.css"
+import styles from "./../Menu/Menu.module.scss"
 
-const Menu = () => {
+//Assets
+import logoLight from "../../assets/images/logo-light.png"
+import logoDark from "../../assets/images/logo-dark.png"
+
+// import DashboardIcon from '@mui/icons-material/Dashboard';
+
+const Menu = ({theme}) => {
     return (
         <div className={styles.menu}>
-            <h3>MoneyTracker</h3>
-            <ul>
-                {/* <li> <button component={Link} to="/dashboard">Dashboard</button></li>
-                <li> <button component={Link} to="/transactions">Transactions</button></li>
-                <li> <button component={Link} to="/categories">Categories</button></li> */}
-                <li><Link to="/dashboard">Dashboard</Link></li>
-                <li><Link to="/transactions">Transactions</Link></li>
-                <li><Link to="/categories">Categories</Link></li>
-                <li>Reports</li>
-                <li><Link to="/profile">Profile</Link></li>
-                <li>Settings</li>
-                <li><ButtonLogout></ButtonLogout></li>
-                {/* <li><Link to="/logout">LogOut</Link></li> */}
+            <div className={styles.menu__brand}>
+                <img className={styles.menu__logo} src={theme==="light"?logoLight:logoDark}></img>
+                <h3 className={styles.menu__title}>MoneyTracker</h3> 
+            </div>
+            
+            <ul className={styles.menu__list}>
+                <li className={styles.menu__item}>
+                    {/* <img className={styles.menu__icon} src={DashboardIcon}></img> */}
+                    <Link to="/dashboard">Dashboard</Link>
+                </li>
+                <li className={styles.menu__item}>
+                    {/* <img className={styles.menu__icon} src={theme==="light"?logoTransactionLight:logoTransactionDark}></img> */}
+                    <Link to="/transactions">Transactions</Link>
+                </li>
+                <li className={styles.menu__item}>
+                    {/* <img className={styles.menu__icon} src={theme==="light"?logoCategoriesLight:logoCategoriesDark}></img> */}
+                    <Link to="/categories">Categories</Link>
+                    </li>
+                <li className={styles.menu__item}>
+                {/* <img className={styles.menu__icon} src={theme==="light"?logoDashboardLight:logoDashboardDark}></img> */}
+                    <a href="#">Reports</a>
+                </li>
+                <li className={styles.menu__item}>
+                    <Link to="/profile">Profile</Link>
+                </li>
+                <li className={styles.menu__item}>
+                    <a href="#">Settings</a>
+                </li>
             </ul>
+            <ButtonLogout></ButtonLogout>
         </div>
     )
 }
