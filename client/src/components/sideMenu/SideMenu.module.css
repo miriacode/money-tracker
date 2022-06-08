@@ -40,6 +40,10 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+.sidemenu__user:hover {
+  transform: scale(0.95);
 }
 
 .sidemenu__username {

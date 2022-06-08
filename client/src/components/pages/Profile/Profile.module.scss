@@ -5,7 +5,10 @@
 .container{
     color:var(--accent);
     background-color: purple;
+
+    transition: all .2s ease-in-out;
     &:hover{
+        transform: scale(0.95); 
         background-color: yellow;
     }
 }

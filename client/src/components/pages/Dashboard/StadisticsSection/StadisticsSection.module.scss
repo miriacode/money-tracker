@@ -35,12 +35,12 @@
     column-gap: 2.5%;
 }
 
-.stadistics__card{
-    width: 100%;
-    padding: 1rem;
-    border-radius: 1.15rem;
-    background-color: var(--color-component);
-}
+// .stadistics__card{
+//     width: 100%;
+//     padding: 1rem;
+//     border-radius: 1.15rem;
+//     background-color: var(--color-component);
+// }
 
 .stadistics__card{
     width: 100%;
@@ -50,8 +50,16 @@
     box-shadow: 4px 8px 20px -8px #bfebe5;
 
     //Flex
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
+
+    //Transaition
+    transition: all .2s ease-in-out;
+
+    &:hover{
+      // background-color: antiquewhite;
+      transform: scale(0.95); 
+    }
 }
 
 // .stadistics__container .stadistics__card:nth-child(1){
