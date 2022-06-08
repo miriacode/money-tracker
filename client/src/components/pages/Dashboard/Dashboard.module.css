@@ -5,7 +5,7 @@
   padding-right: 20.5rem;
   padding-left: 2.25rem;
   padding-bottom: 2.5rem;
-  outline: 30px solid var(--color-component);
+  outline: 25px solid var(--color-component);
   border-radius: 2rem;
   background-color: var(--color-secondary);
 }

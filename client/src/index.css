@@ -59,9 +59,9 @@ body {
 [data-theme='dark'] {
   /*Dark color palette*/
   
-  --color-component: #23272A;
+  --color-component: #2C2F33;
   --color-component-shadow:hsla(180, 4%, 20%);
-  --color-secondary: #2c3331;
+  --color-secondary: #23272A;
   --color-primary:hsl(174, 95%, 35%);
   /* --color-primary:gray; */
   --color-background: hsl(269, 95%, 15%);
