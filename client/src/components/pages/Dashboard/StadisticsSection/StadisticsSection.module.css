@@ -94,7 +94,7 @@
 
 .pie:before {
   inset: 0;
-  background: radial-gradient(farthest-side, var(--color-corner-start) 98%, rgba(0, 0, 0, 0)) top/var(--border) var(--border) no-repeat, conic-gradient(var(--color) calc(var(--percentage) * 1%), rgba(0, 0, 0, 0) 0);
+  background: radial-gradient(farthest-side, var(--color-corner-start) 98%, rgba(0, 0, 0, 0)) top/var(--border) var(--border) no-repeat, conic-gradient(var(--color), green calc(var(--percentage) * 1%), rgba(0, 0, 0, 0) 0);
   -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--border)), #000 calc(100% - var(--border)));
   mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--border)), #000 calc(100% - var(--border)));
 }

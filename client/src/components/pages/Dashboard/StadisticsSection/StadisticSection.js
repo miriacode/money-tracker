@@ -173,7 +173,7 @@ const StadisticsSection = ({userId}) => {
     }
 
     let expensesPercentageCircleStyles = {
-        "--percentage":161,
+        "--percentage":90,
         "--color":"orange",
     }
 
@@ -192,7 +192,24 @@ const StadisticsSection = ({userId}) => {
                     <button onClick={handleDateWeekly}>W</button>
                     <button onClick={handleDateDaily}>D</button>
                 </div>
-            </div>
+                {/* <select>
+                        <option value="First-Mate">First Mate</option>
+                        <option value="Quarter-Master">Quarter Master</option>
+                        <option value="Boatswain">Boatswain</option>
+                        <option value="Powder-Monkey">Powder Monkey</option>
+                </select> */}
+            {/* <div className={styles.dropdown}>
+                <div className={styles.select}>
+                    <span>Select Gender</span>
+                    <i className={`${styles.fa} ${styles.fa-chevron-left}`}></i>
+                </div>
+                <input type="hidden" name="gender"/>
+                <ul className={styles.dropdownMenu}>
+                    <li id="male">Male</li>
+                    <li id="female">Female</li>
+                </ul>
+                </div>*/}
+            </div> 
             
 
             <div className={styles.stadistics__container}>

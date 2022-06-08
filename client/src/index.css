@@ -13,6 +13,8 @@ body {
   font-weight: 400;
   font-size:1.4rem;
   overflow: hidden;
+
+  /* background-color: var(--color-component); */
 }
 
 :root {
@@ -56,9 +58,13 @@ body {
 }
 [data-theme='dark'] {
   /*Dark color palette*/
+  
+  --color-component: #23272A;
+  --color-secondary: #2C2F33;
+
   --color-primary:gray;
   --color-background: hsl(269, 95%, 15%);
-  --color-component: hsl(0, 0%, 0%);
+  
   --color-text-primary: hsl(0, 0%, 100%);
   --color-text-secondary: hsl(0, 0%, 83%);
   --accent: hsl(120, 100%, 25%);
