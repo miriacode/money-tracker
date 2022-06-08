@@ -33,7 +33,7 @@
   padding: 1rem;
   border-radius: 1.15rem;
   background-color: var(--color-component);
-  box-shadow: 4px 8px 20px -8px #bfebe5;
+  box-shadow: 4px 8px 20px -8px var(--color-component-shadow);
   display: flex;
   justify-content: space-around;
   transition: all 0.2s ease-in-out;

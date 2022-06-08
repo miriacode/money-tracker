@@ -28,7 +28,7 @@ body {
   --color-secondary:hsl(174, 73%, 90%);
   --color-secondary:hsl(174, 73%, 93%);
   --color-component: hsl(0, 0%, 100%);
-
+  --color-component-shadow:hsl(172, 52%, 84%);
   
   --color-background: hsl(264, 91%, 96%);
   
@@ -60,9 +60,10 @@ body {
   /*Dark color palette*/
   
   --color-component: #23272A;
-  --color-secondary: #2C2F33;
-
-  --color-primary:gray;
+  --color-component-shadow:hsla(180, 4%, 20%);
+  --color-secondary: #2c3331;
+  --color-primary:hsl(174, 95%, 35%);
+  /* --color-primary:gray; */
   --color-background: hsl(269, 95%, 15%);
   
   --color-text-primary: hsl(0, 0%, 100%);
