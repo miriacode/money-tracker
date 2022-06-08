@@ -1,10 +1,16 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
+//Styles
+import styles from "./StadisticsSection.module.css"
+
 const StadisticsSection = ({userId}) => {
 
-    const [totalIncome, setTotalIncome] = useState();
-    const [totalExpenses, setTotalExpenses] = useState();
+    const [totalIncome, setTotalIncome] = useState(0);
+    const [totalExpenses, setTotalExpenses] = useState(0);
+
+    const [incomePercentage, setIncomePercentage] = useState(0);
+    const [expensePercentage, setExpensePercentage] = useState(0);
 
     useEffect(() => {
         //By default: Yearly
@@ -44,6 +50,10 @@ const StadisticsSection = ({userId}) => {
                 .catch(error => console.log(error));
     }, [userId]);
 
+    useEffect(() => {
+        setPercentages();
+    }, [totalIncome,totalExpenses]);
+
     const getAmount = (type,startDate,endDate) =>{
         axios.post("http://localhost:8000/api/transactions/period",{
             userId: userId,
@@ -64,6 +74,22 @@ const StadisticsSection = ({userId}) => {
             .catch(error => console.log(error));
     }
 
+    const setPercentages = () =>{
+        if(totalIncome!==0){
+            let incomeP = Math.round((totalIncome-totalExpenses)/totalIncome*100)
+            setIncomePercentage(incomeP)
+            console.log(incomePercentage)
+        }else{
+            setIncomePercentage(0)
+        }
+        if(totalExpenses!==0){
+            let expensesP = Math.round((totalIncome-totalExpenses)/totalExpenses*100)
+            setExpensePercentage(expensesP)
+        }else{
+            setExpensePercentage(0)
+        }
+    }
+
     const handleDateYearly = (e) =>{
         e.preventDefault()
         setTotalIncome(0)
@@ -76,6 +102,7 @@ const StadisticsSection = ({userId}) => {
         console.log(beginningOfNextYear)
         getAmount('income',beginningOfThisYear,beginningOfNextYear)
         getAmount('expense',beginningOfThisYear,beginningOfNextYear)
+        setPercentages();
     }
 
     const handleDateMonthly = (e) =>{
@@ -93,6 +120,7 @@ const StadisticsSection = ({userId}) => {
         console.log(beginningOfNextMonth)
         getAmount('income',beginningOfThisMonth,beginningOfNextMonth)
         getAmount('expense',beginningOfThisMonth,beginningOfNextMonth)
+        setPercentages();
     }
 
     const sumDays = (today, days)=>{
@@ -124,6 +152,7 @@ const StadisticsSection = ({userId}) => {
         console.log(plusSevenDaysDay)
         getAmount('income',today,plusSevenDaysDay)
         getAmount('expense',today,plusSevenDaysDay)
+        setPercentages();
     }
 
     const handleDateDaily = (e) =>{
@@ -140,23 +169,57 @@ const StadisticsSection = ({userId}) => {
         console.log(tomorrow)
         getAmount('income',today,tomorrow)
         getAmount('expense',today,tomorrow)
+        setPercentages();
+    }
+
+    let expensesPercentageCircleStyles = {
+        "--percentage":161,
+        "--color":"orange",
+    }
+
+    let incomePercentageCircleStyles = {
+        "--percentage":62,
+        "--color":"orange",
     }
 
     return (
-        <div>
-            <h2>Stadistics Section</h2>
-            <div>
-                <button onClick={handleDateYearly}>Y</button>
-                <button onClick={handleDateMonthly}>M</button>
-                <button onClick={handleDateWeekly}>W</button>
-                <button onClick={handleDateDaily}>D</button>
+        <div className={styles.stadistics}>
+            <div className={styles.stadistics__label}>
+                <h2 className={styles.stadistics__title}>Stadistics</h2>
+                <div>
+                    <button onClick={handleDateYearly}>Y</button>
+                    <button onClick={handleDateMonthly}>M</button>
+                    <button onClick={handleDateWeekly}>W</button>
+                    <button onClick={handleDateDaily}>D</button>
+                </div>
             </div>
-            <p>Balance</p>
-            <p>${totalIncome-totalExpenses}</p>
-            <p>Total Expenses</p>
-            <p>${totalExpenses}</p>
-            <p>Total Income</p>
-            <p>${totalIncome}</p>
+            
+
+            <div className={styles.stadistics__container}>
+                <div className={styles.stadistics__card}>
+                    <div className={styles.stadistics__description}>
+                        <h4>My Balance</h4>
+                        <p>${totalIncome-totalExpenses}</p> 
+                    </div>
+                </div>
+                <div className={styles.stadistics__card}>
+                    <div className={styles.stadistics__description}>
+                        <h4>Total Expenses</h4>
+                        <p>${totalExpenses}</p>
+                    </div>
+                    <div class={`${styles.pie} ${styles.animate}`} style={expensesPercentageCircleStyles}>{expensePercentage+"%"}</div>
+                </div>
+                <div className={styles.stadistics__card}>
+                    <div className={styles.stadistics__description}>
+                        <h4>Total Income</h4>
+                        <p>${totalIncome}</p>
+                    </div>
+                    <div class={`${styles.pie} ${styles.animate}`} style={incomePercentageCircleStyles}>{incomePercentage+"%"}</div>
+                </div>
+            </div>
+           
+            {/* <div class={styles.pie} style="--p:80;--c:orange;"> 80%</div> */}
+            
         </div>
     )
 }

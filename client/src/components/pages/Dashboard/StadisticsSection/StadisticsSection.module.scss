@@ -1,0 +1,152 @@
+.stadistics{
+    width:57vw;
+    height: 18vh;
+    min-height: 180px;
+    min-width: 700px;
+    color:var(--color-text-primary);
+    // background-color: blue;
+
+
+    font-family: var(--font-text-secondary);
+}
+
+.stadistics__title{
+    margin-bottom: 0.75rem;
+    font-size: calc(var(--step--1)*0.95);
+}
+
+.stadistics__label{
+    width:100%;
+    //FLex
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.stadistics__container{
+    width:100%;
+    // background-color: aquamarine;
+    min-width: 735px;
+    text-align: center;
+
+    //Grid
+    display: grid;
+    grid-template-columns:22% 36.5% 36.5%;
+    column-gap: 2.5%;
+}
+
+.stadistics__card{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1.15rem;
+    background-color: var(--color-component);
+}
+
+.stadistics__card{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1.15rem;
+    background-color: var(--color-component);
+    box-shadow: 4px 8px 20px -8px #bfebe5;
+
+    //Flex
+  display: flex;
+  justify-content: space-around;
+}
+
+// .stadistics__container .stadistics__card:nth-child(1){
+//   display: flex;
+//   // flex-direction: column;
+//   justify-content: space-around;
+// }
+
+// .stadistics__container .stadistics__card:nth-child(2), .stadistics__container .stadistics__card:nth-child(3){
+//   //Flex
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+.stadistics__description{
+  // background-color: pink;
+
+  //Flex
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stadistics__description >h4{
+  display: block;
+  color:var(--color-text-primary);
+  font-size: calc(var(--step-1)*0.80);
+  font-weight:500;
+  
+}
+.stadistics__description >p{
+  font-size: calc(var(--step-3)*0.92);;
+  font-weight: 700;
+}
+
+
+
+/*Percentage circles*/
+@property --percentage{
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 1;
+  }
+  
+  .pie {
+    --percentage:20;
+    --border:0.75rem;
+    // --border-corner:0.7rem;
+    //OJO
+    --color:red;
+    --view:100px;
+    --color-corner-start:blue;
+    --color-corner-end:green;
+    // background-color: aqua;
+  
+    width: var(--view);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    margin: 5px;
+    place-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
+
+  }
+  .pie:before,
+  .pie:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+  }
+  .pie:before {
+    inset: 0;
+    background:
+      radial-gradient(farthest-side,var(--color-corner-start) 98%,#0000) top/var(--border) var(--border) no-repeat,
+      conic-gradient(var(--color) calc(var(--percentage)*1%),#0000 0);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(99% - var(--border)),#000 calc(100% - var(--border)));
+            mask: radial-gradient(farthest-side,#0000 calc(99% - var(--border)),#000 calc(100% - var(--border)));
+  }
+  .pie:after {
+    inset: calc(50% - var(--border)/2);
+    background: var(--color-corner-end);
+    transform: rotate(calc(var(--percentage)*3.6deg)) translateY(calc(50% - var(--view)/2));
+  }
+  .animate {
+    animation: p 1s .5s both;
+  }
+  .no-round:before {
+    background-size: 0 0, auto;
+  }
+  .no-round:after {
+    content: none;
+  }
+  @keyframes p{
+    from{--percentage:0}
+  }

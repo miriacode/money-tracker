@@ -13,8 +13,8 @@ const Dashboard = ({userId}) => {
         <div className={styles.page}>
             <h2 className={styles.page__title}>Dashboard</h2>
             <StadisticSection userId={userId}/>
-            <GraphicSection/>
-            <RightSideBar userId={userId}></RightSideBar>
+            {/* <GraphicSection/>
+            <RightSideBar userId={userId}></RightSideBar> */}
         </div>
     )
 }

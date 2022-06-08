@@ -5,7 +5,7 @@ import React from "react";
 import ButtonLogout from "./ButtonLogOut/ButtonLogout";
 
 //Styles
-import styles from "./../Menu/Menu.module.scss"
+import styles from "./../Menu/Menu.module.css"
 
 //Assets
 import logoLight from "../../assets/images/logo-light.png"
