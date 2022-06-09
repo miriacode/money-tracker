@@ -49,45 +49,57 @@ const Profile = ({userId}) => {
                     </div>
                     <div className={styles.user__extend}>
                         <div className={styles.user__label}>
-                            <BadgeIcon className={styles.user__icon}></BadgeIcon>
-                            <div>
-                                <p>First Name:</p>
+                            <div className={styles.user__icon}>
+                                <BadgeIcon style={{fontSize:30}}></BadgeIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <h5>First Name:</h5>
                                 <p>{user.firstName}</p> 
                             </div>
                             
                         </div>
                         <div className={styles.user__label}>
-                            <BadgeIcon className={styles.user__icon}></BadgeIcon>
-                            <div>
-                                <p>Last Name:</p>
+                            <div className={styles.user__icon}>
+                                <BadgeIcon style={{fontSize:30}}></BadgeIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <h5>Last Name:</h5>
                                 <p>{user.lastName}</p>
                             </div>
                         </div>
                         <div className={styles.user__label}>
-                            <EmailIcon className={styles.user__icon}></EmailIcon>
-                            <div>
-                                <p>Email:</p>
+                            <div className={styles.user__icon}>
+                                <EmailIcon style={{fontSize:30}}></EmailIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <h5>Email:</h5>
                                 <p>{user.email}</p>
                             </div>
                         </div>
                         <div className={styles.user__label}>
-                            <LocalPhoneIcon className={styles.user__icon}></LocalPhoneIcon>
-                            <div>
-                                <p>Cellphone:</p>
+                            <div className={styles.user__icon}>
+                                <LocalPhoneIcon style={{fontSize:30}}></LocalPhoneIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <h5>Cellphone:</h5>
                                 <p>{user.cellphone}</p>
                             </div>
                         </div>
                         <div className={styles.user__label}>
-                            <LocationOnIcon className={styles.user__icon}></LocationOnIcon>
-                            <div>
-                                <p>Location:</p>
+                            <div className={styles.user__icon}>
+                                <LocationOnIcon style={{fontSize:30}}></LocationOnIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <h5>Location:</h5>
                                 <p>{user.location}</p>
                             </div>
                         </div>
                         <div className={styles.user__label}>
-                            <MarkunreadMailboxIcon className={styles.user__icon}></MarkunreadMailboxIcon>
-                            <div>
-                                <p>Postal Code:</p>
+                            <div className={styles.user__icon}>
+                                <MarkunreadMailboxIcon style={{fontSize:30}}></MarkunreadMailboxIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <h5>Postal Code:</h5>
                                 <p>{user.postalCode}</p>
                             </div>
                             
