@@ -1,0 +1,223 @@
+@use './../page';
+
+.user__basic{
+    height: 17vh;
+    min-height: 128px;
+    margin-bottom: 2rem;
+    //Flex
+    display: flex;
+    justify-content: center;
+}
+
+.user__left{
+    position: relative;
+    width:8.5vw;
+    height: 8.5vw;
+    min-width: 108px;
+    min-height: 108px;
+}
+
+.user__left > img{
+    width:8.5vw;
+    height: 8.5vw;
+    min-width: 108px;
+    min-height: 108px;
+    border-radius: 50%;
+    border: 7px solid var(--color-component);
+
+    //Transaition
+    transition: all .2s ease-in-out;
+
+    &:hover{
+      transform: scale(0.95); 
+    }
+}
+.user__edit{
+    position: absolute;
+    bottom: 10%;
+    right: -10%;
+    height: 2.5vw;
+    width:2.4vw;
+    padding-top: 0.25rem;
+    min-height: 24px;
+    min-width: 24px;
+    border-radius: 50%;
+    background-color: var(--color-tertiary);
+    border: 3px solid var(--color-component);
+
+    //Flex
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.user__updateimage{
+    cursor:pointer;
+
+    display: none;
+    background-color: red;
+    font-size: 2rem;
+}
+
+.user__basic > span{
+    width:2vw;
+    display: block;
+}
+
+.user__right{
+    //Flex
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user__right > p{
+    font-size: var(--step--2);
+    color:var(--color-text-secondary)
+}
+
+// .user{
+//     display: block;
+//     height: 20px;
+//     width:20px;
+//     font-family: var(--font-text-secondary);
+//     color:var(--color-text-primary);
+
+
+//     background-color: bisque;
+
+//     // width:100%;
+//     // background-color: antiquewhite;
+// }
+
+
+
+// .user__form{
+//     display: block;
+    
+//     min-height: 128px;
+//     margin-bottom: 2rem;
+
+    
+//     //Flex
+//     display: flex;
+//     justify-content: center;
+// }
+
+// .user__left{
+//     position: relative;
+//     width:8.5vw;
+//     height: 8.5vw;
+//     min-width: 108px;
+//     min-height: 108px;
+// }
+
+// .user__left > img{
+//     width:8.5vw;
+//     height: 8.5vw;
+//     min-width: 108px;
+//     min-height: 108px;
+//     border-radius: 50%;
+//     border: 7px solid var(--color-component);
+
+//     //Transaition
+//     transition: all .2s ease-in-out;
+
+//     &:hover{
+//       transform: scale(0.95); 
+//     }
+// }
+// .user__edit{
+//     position: absolute;
+//     bottom: 10%;
+//     right: -10%;
+//     height: 2.5vw;
+//     width:2.4vw;
+//     padding-top: 0.25rem;
+//     min-height: 24px;
+//     min-width: 24px;
+//     border-radius: 50%;
+//     background-color: var(--color-tertiary);
+//     border: 3px solid var(--color-component);
+
+//     //Flex
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// .user__basic > span{
+//     width:2vw;
+//     display: block;
+// }
+
+// .user__right{
+//     //Flex
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// .user__right > p{
+//     font-size: var(--step--2);
+//     color:var(--color-text-secondary)
+// }
+
+// .user__extend{
+//     width:70%;
+//     height: 40vh;
+//     min-width: 317px;
+//     margin-left:auto ;
+//     margin-right:auto ;
+
+//     //Grid
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+//     column-gap: 2vw;
+//     row-gap: 2vh;
+// }
+
+// .user__label{
+//     width:100%;
+//     height: 100%;
+//     background-color: var(--color-component);
+//     border-radius: 1rem;
+
+//     //Shadow
+//     box-shadow: 4px 8px 20px -8px var(--color-component-shadow);
+
+//     //Flex
+//     display: flex;
+//     justify-content:space-evenly;
+//     align-items: center;
+
+//     //Transaition
+//     transition: all .2s ease-in-out;
+//     &:hover{
+//       transform: scale(0.95); 
+//     }
+// }
+
+// .user__icon{
+//     display: block;
+//     width:15%;
+//     height: 45%;
+//     color:var(--color-primary);
+//     text-align: center;
+// }
+
+// .user__info{
+//     width:60%;
+// }
+
+// .user__info > h5{
+//     display: block;
+//     margin-bottom: 0.5rem;
+    
+// }
+// .user__info > p{
+//     font-size: calc(var(--step--2)*0.95);
+// }

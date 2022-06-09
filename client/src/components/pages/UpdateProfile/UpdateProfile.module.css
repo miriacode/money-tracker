@@ -1,0 +1,89 @@
+.page {
+  width: 83.5vw;
+  height: 100vh;
+  padding-top: 2.5rem;
+  padding-right: 20.5rem;
+  padding-left: 2.25rem;
+  padding-bottom: 2.5rem;
+  outline: 25px solid var(--color-component);
+  border-radius: 2rem;
+  background-color: var(--color-secondary);
+}
+
+.page__title {
+  width: 100%;
+  min-width: 700px;
+  padding-bottom: 2rem;
+  font-size: var(--step-0);
+  color: var(--color-text-primary);
+}
+
+.user__basic {
+  height: 17vh;
+  min-height: 128px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.user__left {
+  position: relative;
+  width: 8.5vw;
+  height: 8.5vw;
+  min-width: 108px;
+  min-height: 108px;
+}
+
+.user__left > img {
+  width: 8.5vw;
+  height: 8.5vw;
+  min-width: 108px;
+  min-height: 108px;
+  border-radius: 50%;
+  border: 7px solid var(--color-component);
+  transition: all 0.2s ease-in-out;
+}
+.user__left > img:hover {
+  transform: scale(0.95);
+}
+
+.user__edit {
+  position: absolute;
+  bottom: 10%;
+  right: -10%;
+  height: 2.5vw;
+  width: 2.4vw;
+  padding-top: 0.25rem;
+  min-height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background-color: var(--color-tertiary);
+  border: 3px solid var(--color-component);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__updateimage {
+  cursor: pointer;
+  display: none;
+  background-color: red;
+  font-size: 2rem;
+}
+
+.user__basic > span {
+  width: 2vw;
+  display: block;
+}
+
+.user__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__right > p {
+  font-size: var(--step--2);
+  color: var(--color-text-secondary);
+}/*# sourceMappingURL=UpdateProfile.module.css.map */
