@@ -19,7 +19,7 @@
     align-items: center;
 
     //Animation
-    //transition: all 1.4s ease-in-out;
+    // transition: all 2s ease-in-out;
     
 }
 
@@ -28,9 +28,10 @@
     width: 100%;
     height:6.5%;
     min-height: 36px;
-    margin-bottom: 8%;
+    min-width:180px;
+    margin-bottom: 3rem;
     color:var(--color-text-primary);
-
+    // background-color: pink;
     //Flex
     display: flex;
     justify-content:center;
@@ -39,12 +40,12 @@
 
 .menu__logo{
     display: block;
-    width:25%;
+    width:3.5vw;
     height:100%;
     min-height: 42px;
     min-width: 42px;
-    max-height: 55px;
-    max-width: 55px;
+    max-height: 50px;
+    max-width: 80px;
     background-color: aliceblue;
 }
 
@@ -64,6 +65,11 @@
     //Flex
     display: flex;
     align-items: center;
+
+    &:hover{
+        position: relative;
+        left:3px;
+    }
 }
 
 .menu__list{

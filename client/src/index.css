@@ -27,6 +27,7 @@ body {
   --color-primary:hsl(174, 95%, 35%);
   --color-secondary:hsl(174, 73%, 90%);
   --color-secondary:hsl(174, 73%, 93%);
+  --color-tertiary:rgb(225, 238, 234);
   --color-component: hsl(0, 0%, 100%);
   --color-component-shadow:hsl(172, 52%, 84%);
   
