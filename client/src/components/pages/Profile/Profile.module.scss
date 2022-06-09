@@ -41,8 +41,8 @@
 .user__left > img{
     width:8.5vw;
     height: 8.5vw;
-    // width: 50px;
-    // height: 50px;
+    min-width: 108px;
+    min-height: 108px;
     border-radius: 50%;
     // background-color: var(--color-secondary);
     border: 7px solid var(--color-component);
@@ -54,6 +54,8 @@
 
     height: 2.5vw;
     width:2.4vw;
+    min-height: 24px;
+    min-width: 24px;
     border-radius: 50%;
     // 
     background-color: var(--color-tertiary);
@@ -86,19 +88,32 @@
 
 .user__extend{
     width:100%;
-    height: 45vh;
-    // min-height: 440px;
+    height: 40vh;
+    min-width: 317px;
     background-color: aquamarine;
 
-    //GRid
+    //Grid
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    // grid-template-rows: repeat(3,auto);
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
     column-gap: 1vw;
     row-gap: 1vh;
 }
 
 .user__label{
-    background-color: pink;
+    width:100%;
+    height: 100%;
+    background-color: var(--color-component);
+    // text-align: center;
+
+    //Flex
+    display: flex;
+    justify-content: center;
+}
+
+.user__icon{
+    color:var(--color-primary);
+    font-size: 2rem;
+}
+.user__label > div{
+
 }

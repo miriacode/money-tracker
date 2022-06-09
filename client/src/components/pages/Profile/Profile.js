@@ -49,34 +49,48 @@ const Profile = ({userId}) => {
                     </div>
                     <div className={styles.user__extend}>
                         <div className={styles.user__label}>
-                            <BadgeIcon></BadgeIcon>
-                            <p>First Name:</p>
-                            <p>{user.firstName}</p>
+                            <BadgeIcon className={styles.user__icon}></BadgeIcon>
+                            <div>
+                                <p>First Name:</p>
+                                <p>{user.firstName}</p> 
+                            </div>
+                            
                         </div>
                         <div className={styles.user__label}>
-                            <BadgeIcon></BadgeIcon>
-                            <p>Last Name:</p>
-                            <p>{user.lastName}</p>
+                            <BadgeIcon className={styles.user__icon}></BadgeIcon>
+                            <div>
+                                <p>Last Name:</p>
+                                <p>{user.lastName}</p>
+                            </div>
                         </div>
                         <div className={styles.user__label}>
-                            <EmailIcon></EmailIcon>
-                            <p>Email:</p>
-                            <p>{user.email}</p>
+                            <EmailIcon className={styles.user__icon}></EmailIcon>
+                            <div>
+                                <p>Email:</p>
+                                <p>{user.email}</p>
+                            </div>
                         </div>
                         <div className={styles.user__label}>
-                            <LocalPhoneIcon></LocalPhoneIcon>
-                            <p>Cellphone:</p>
-                            <p>{user.cellphone}</p>
+                            <LocalPhoneIcon className={styles.user__icon}></LocalPhoneIcon>
+                            <div>
+                                <p>Cellphone:</p>
+                                <p>{user.cellphone}</p>
+                            </div>
                         </div>
                         <div className={styles.user__label}>
-                            <LocationOnIcon></LocationOnIcon>
-                            <p>Location:</p>
-                            <p>{user.location}</p>
+                            <LocationOnIcon className={styles.user__icon}></LocationOnIcon>
+                            <div>
+                                <p>Location:</p>
+                                <p>{user.location}</p>
+                            </div>
                         </div>
                         <div className={styles.user__label}>
-                            <MarkunreadMailboxIcon></MarkunreadMailboxIcon>
-                            <p>Postal Code:</p>
-                            <p>{user.postalCode}</p>
+                            <MarkunreadMailboxIcon className={styles.user__icon}></MarkunreadMailboxIcon>
+                            <div>
+                                <p>Postal Code:</p>
+                                <p>{user.postalCode}</p>
+                            </div>
+                            
                         </div>         
                     </div>
                 </div>

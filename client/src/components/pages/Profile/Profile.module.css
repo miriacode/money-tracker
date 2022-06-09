@@ -40,6 +40,8 @@
 .user__left > img {
   width: 8.5vw;
   height: 8.5vw;
+  min-width: 108px;
+  min-height: 108px;
   border-radius: 50%;
   border: 7px solid var(--color-component);
 }
@@ -50,6 +52,8 @@
   right: -10%;
   height: 2.5vw;
   width: 2.4vw;
+  min-height: 24px;
+  min-width: 24px;
   border-radius: 50%;
   background-color: var(--color-tertiary);
   border: 3px solid var(--color-component);
@@ -77,16 +81,25 @@
 
 .user__extend {
   width: 100%;
-  height: 45vh;
+  height: 40vh;
+  min-width: 317px;
   background-color: aquamarine;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   -moz-column-gap: 1vw;
        column-gap: 1vw;
   row-gap: 1vh;
 }
 
 .user__label {
-  background-color: pink;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-component);
+  display: flex;
+  justify-content: center;
+}
+
+.user__icon {
+  color: var(--color-primary);
+  font-size: 2rem;
 }/*# sourceMappingURL=Profile.module.css.map */
