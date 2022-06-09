@@ -1,15 +1,5 @@
 @use './../page';
 
-// .container{
-//     color:var(--accent);
-//     background-color: purple;
-
-//     transition: all .2s ease-in-out;
-//     &:hover{
-//         transform: scale(0.95); 
-//         background-color: yellow;
-//     }
-// }
 
 .user{
     font-family: var(--font-text-secondary);
@@ -19,19 +9,13 @@
 .user__basic{
     height: 17vh;
     min-height: 128px;
-    // background-color: antiquewhite;
     margin-bottom: 2rem;
     //Flex
     display: flex;
     justify-content: center;
 }
 
-// .user__basic > div {
-    
-// }
-
 .user__left{
-    // background-color: pink;
     position: relative;
     width:8.5vw;
     height: 8.5vw;
@@ -45,15 +29,12 @@
     min-width: 108px;
     min-height: 108px;
     border-radius: 50%;
-    // background-color: var(--color-secondary);
     border: 7px solid var(--color-component);
-
 
     //Transaition
     transition: all .2s ease-in-out;
 
     &:hover{
-      // background-color: antiquewhite;
       transform: scale(0.95); 
     }
 }
@@ -61,17 +42,14 @@
     position: absolute;
     bottom: 10%;
     right: -10%;
-
     height: 2.5vw;
     width:2.4vw;
     padding-top: 0.25rem;
     min-height: 24px;
     min-width: 24px;
     border-radius: 50%;
-    // 
     background-color: var(--color-tertiary);
     border: 3px solid var(--color-component);
-    // background-color: red;
 
     //Flex
     display: flex;
@@ -101,10 +79,8 @@
     width:70%;
     height: 40vh;
     min-width: 317px;
-
     margin-left:auto ;
     margin-right:auto ;
-    // background-color: aquamarine;
 
     //Grid
     display: grid;
@@ -118,6 +94,7 @@
     height: 100%;
     background-color: var(--color-component);
     border-radius: 1rem;
+
     //Shadow
     box-shadow: 4px 8px 20px -8px var(--color-component-shadow);
 
@@ -128,9 +105,7 @@
 
     //Transaition
     transition: all .2s ease-in-out;
-
     &:hover{
-      // background-color: antiquewhite;
       transform: scale(0.95); 
     }
 }
@@ -140,18 +115,11 @@
     width:15%;
     height: 45%;
     color:var(--color-primary);
-    // background-color: pink;
     text-align: center;
-    // margin-top: auto;
-    // margin-bottom: auto;
-    // font-size: 0.5rem;
-
-    
 }
 
 .user__info{
     width:60%;
-    // background-color:yellow;
 }
 
 .user__info > h5{
@@ -160,6 +128,5 @@
     
 }
 .user__info > p{
-    // background-color:blue;
     font-size: calc(var(--step--2)*0.95);
 }
