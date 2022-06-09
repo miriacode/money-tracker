@@ -16,11 +16,9 @@
 }
 
 .user__basic{
-
-  
-
     height: 17vh;
-    //background-color: antiquewhite;
+    min-height: 128px;
+    // background-color: antiquewhite;
 
     //Flex
     display: flex;
@@ -36,6 +34,8 @@
     position: relative;
     width:8.5vw;
     height: 8.5vw;
+    min-width: 108px;
+    min-height: 108px;
 }
 
 .user__left > img{
@@ -85,5 +85,20 @@
 }
 
 .user__extend{
+    width:100%;
+    height: 45vh;
+    // min-height: 440px;
     background-color: aquamarine;
+
+    //GRid
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    // grid-template-rows: repeat(3,auto);
+    column-gap: 1vw;
+    row-gap: 1vh;
+}
+
+.user__label{
+    background-color: pink;
 }
