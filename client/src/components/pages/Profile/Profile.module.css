@@ -23,23 +23,30 @@
 }
 
 .user__basic {
-  position: relative;
   height: 17vh;
   display: flex;
   justify-content: center;
 }
 
-.user__basic > img {
+.user__left {
+  position: relative;
+  width: 8.5vw;
+  height: 8.5vw;
+}
+
+.user__left > img {
+  width: 8.5vw;
+  height: 8.5vw;
   border-radius: 50%;
   border: 7px solid var(--color-component);
 }
 
 .user__edit {
   position: absolute;
-  bottom: 8%;
-  left: 38%;
-  height: 30%;
-  width: 4%;
+  bottom: 10%;
+  right: -10%;
+  height: 2.5vw;
+  width: 2.4vw;
   border-radius: 50%;
   background-color: var(--color-tertiary);
   border: 3px solid var(--color-component);
@@ -51,6 +58,18 @@
 .user__basic > span {
   width: 2vw;
   display: block;
+}
+
+.user__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__right > p {
+  font-size: var(--step--2);
+  color: var(--color-text-secondary);
 }
 
 .user__extend {

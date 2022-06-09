@@ -17,33 +17,48 @@
 
 .user__basic{
 
-    position: relative;
+  
 
     height: 17vh;
-    
-    // background-color: antiquewhite;
+    //background-color: antiquewhite;
 
     //Flex
     display: flex;
     justify-content: center;
 }
 
-.user__basic > img{
+// .user__basic > div {
+    
+// }
+
+.user__left{
+    // background-color: pink;
+    position: relative;
+    width:8.5vw;
+    height: 8.5vw;
+}
+
+.user__left > img{
+    width:8.5vw;
+    height: 8.5vw;
+    // width: 50px;
+    // height: 50px;
     border-radius: 50%;
     // background-color: var(--color-secondary);
     border: 7px solid var(--color-component);
 }
 .user__edit{
     position: absolute;
-    bottom: 8%;
-    left: 38%;
+    bottom: 10%;
+    right: -10%;
 
-    height: 30%;
-    width:4%;
+    height: 2.5vw;
+    width:2.4vw;
     border-radius: 50%;
-    // background-color: red;
+    // 
     background-color: var(--color-tertiary);
     border: 3px solid var(--color-component);
+    // background-color: red;
 
     //Flex
     display: flex;
@@ -54,6 +69,19 @@
 .user__basic > span{
     width:2vw;
     display: block;
+}
+
+.user__right{
+    //Flex
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user__right > p{
+    font-size: var(--step--2);
+    color:var(--color-text-secondary)
 }
 
 .user__extend{

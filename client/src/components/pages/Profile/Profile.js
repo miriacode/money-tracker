@@ -32,15 +32,20 @@ const Profile = ({userId}) => {
             <h2 className={styles.page__title}>Profile</h2>
                 <div className={styles.user}>
                     <div className={styles.user__basic}>
-                        {user.profilePictureURL!==undefined?<img src={require("./../../../uploads/profilePicture/"+user.profilePictureURL)} alt={`${user.firstName}-${user.lastName}-profile-picture}`}/>:null}
-                        <div className={styles.user__edit}>
-                            <Link to="/profile/edit">
-                                <EditIcon></EditIcon> 
-                            </Link>
+                        <div className={styles.user__left}>
+                             {user.profilePictureURL!==undefined?<img src={require("./../../../uploads/profilePicture/"+user.profilePictureURL)} alt={`${user.firstName}-${user.lastName}-profile-picture}`}/>:null}
+                            <div className={styles.user__edit}>
+                                <Link to="/profile/edit">
+                                    <EditIcon></EditIcon> 
+                                </Link>
+                            </div>
                         </div>
                         <span></span>
-                        <h3>{user.firstName} {user.lastName}</h3>
-                        <p>{user.location}</p>
+                        <div className={styles.user__right}>
+                            <h3>{user.firstName} {user.lastName}</h3>
+                            <p>{user.location}</p>
+                        </div>
+                        
                     </div>
                     <div className={styles.user__extend}>
                         <div className={styles.user__label}>

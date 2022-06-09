@@ -27,14 +27,15 @@ body {
   --color-primary:hsl(174, 95%, 35%);
   --color-secondary:hsl(174, 73%, 90%);
   --color-secondary:hsl(174, 73%, 93%);
-  --color-tertiary:rgb(225, 238, 234);
+  --color-tertiary:rgb(210, 221, 217);
   --color-component: hsl(0, 0%, 100%);
   --color-component-shadow:hsl(172, 52%, 84%);
   
   --color-background: hsl(264, 91%, 96%);
   
   --color-text-primary: hsl(0, 0%, 0%);
-  --color-text-secondary: hsl(220, 2%, 61%);
+  --color-text-secondary: hsl(220, 2%, 61%);/*posible para dark*/
+  --color-text-secondary: hsl(225, 52%, 61%);
   --accent: hsl(93, 90%, 80%);
 
   /*Font size*/
