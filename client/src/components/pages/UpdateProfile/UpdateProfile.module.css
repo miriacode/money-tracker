@@ -18,6 +18,11 @@
   color: var(--color-text-primary);
 }
 
+.user {
+  font-family: var(--font-text-secondary);
+  color: var(--color-text-primary);
+}
+
 .user__basic {
   height: 17vh;
   min-height: 128px;
@@ -64,13 +69,6 @@
   align-items: center;
 }
 
-.user__updateimage {
-  cursor: pointer;
-  display: none;
-  background-color: red;
-  font-size: 2rem;
-}
-
 .user__basic > span {
   width: 2vw;
   display: block;
@@ -83,7 +81,92 @@
   align-items: center;
 }
 
-.user__right > p {
-  font-size: var(--step--2);
+.user__right > h3 {
+  font-size: var(--step-1);
+  color: var(--color-text-primary);
+}
+
+.user__extend {
+  width: 85%;
+  height: 40vh;
+  min-width: 317px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  -moz-column-gap: 2vw;
+       column-gap: 2vw;
+  row-gap: 2vh;
+}
+
+.user__label {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-component);
+  border-radius: 1rem;
+  box-shadow: 4px 8px 20px -8px var(--color-component-shadow);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+.user__label:hover {
+  transform: scale(0.95);
+}
+
+.user__icon {
+  display: block;
+  width: 15%;
+  height: 45%;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.user__info > label {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+  font-size: calc(var(--step--3) * 0.86);
+  font-weight: 500;
+}
+
+.user__info > input {
+  all: unset;
+  display: block;
+  height: 3.5vh;
+  padding-left: 0.75rem;
+  font-size: calc(var(--step--2) * 0.9);
+  background-color: transparent;
+  border-bottom: 2px solid var(--color-primary);
   color: var(--color-text-secondary);
+}
+.user__info > input:focus {
+  background-color: transparent;
+  border-bottom: 2px solid rgb(163, 232, 193);
+}
+
+.user__submit {
+  width: 100%;
+  height: 15vh;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__button {
+  font-family: var(--font-text-primary);
+  font-size: calc(var(--step--3) * 0.9);
+  font-weight: 600;
+  color: var(--color-component);
+  width: 7.5vw;
+  height: 5.5vh;
+  border-radius: 0.75rem;
+  background-color: var(--color-primary);
+  transition: all 0.2s ease-in-out;
+}
+.user__button:hover {
+  cursor: pointer;
+  background-color: var(--color-primary-hover);
+  transform: scale(1.05);
 }/*# sourceMappingURL=UpdateProfile.module.css.map */

@@ -3,7 +3,22 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 //Styles
-import styles from "./../Profile/Profile.module.css"
+import styles from "./../UpdateProfile/UpdateProfile.module.css"
+
+//Material UI Components
+import { styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import Stack from "@mui/material/Stack";
+
+//Material UI icons
+// import EditIcon from '@mui/icons-material/Edit';
+
+import BadgeIcon from '@mui/icons-material/Badge';
+import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 
 
 const EditProfile = ({userId}) => {
@@ -20,8 +35,7 @@ const EditProfile = ({userId}) => {
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
-    //
-    
+
     
     useEffect(() =>{
         axios.get("http://localhost:8000/api/users/"+userId,{withCredentials: true})
@@ -33,7 +47,6 @@ const EditProfile = ({userId}) => {
                 setLocation(res.data.location)
                 setPostalCode(res.data.postalCode)
                 setProfilePictureURL(res.data.profilePictureURL)
-                // setProfilePictureURL(res.data.profilePictureURL)
             })
             .catch(error => console.log(error));
     }, [userId])
@@ -41,15 +54,6 @@ const EditProfile = ({userId}) => {
     const updateProfile = (e) => {
         //
         e.preventDefault();
-        // axios.put("http://localhost:8000/api/users/"+userId,{
-        //     firstName: firstName,
-        //     lastName: lastName,
-        //     cellphone: cellphone,
-        //     location: location,
-        //     postalCode: postalCode,
-        // },{withCredentials: true})
-        //     .then(res => navigate("/profile"))
-        //     .catch(err => setErrors(err.response.data.errors))
         const bodyFormData = new FormData()
         bodyFormData.append('firstName',firstName)
         bodyFormData.append('lastName',lastName)
@@ -63,7 +67,10 @@ const EditProfile = ({userId}) => {
         
         axios.put("http://localhost:8000/api/users/"+userId,bodyFormData,{withCredentials: true})
             .then(res => navigate("/profile"))
-            .catch(error => console.log(error.response.data.errors));
+            .catch(error => {
+                setErrors(error.response.data.errors)
+                console.log(error.response.data.errors)
+            });
     }
 
     //
@@ -73,20 +80,32 @@ const EditProfile = ({userId}) => {
         setChosenImage(e.target.files[0])
     }
 
-    let inputFileStyles = {
-        
-    }
+    //Material UI Component
+    const Input = styled("input")({
+        display: "none"
+    });
 
     return (
         <div className={styles.page}>
             <h2 className={styles.page__title}>Profile</h2>
-            <div>
+            <div className={styles.user}>
                 <form onSubmit={updateProfile} className={styles.user__form}>
                     <div className={styles.user__basic}>
                         <div className={styles.user__left}>
                             {profilePictureURL!==undefined?<img src={require("./../../../uploads/profilePicture/"+profilePictureURL)} alt={`${firstName}-${lastName}-profile-picture}`}/>:null}
                             <div className={styles.user__edit}>
-                                <input type="file" name="profilePicture" onChange={handleFile} style={inputFileStyles}/>
+                                {/* Material UI Component */}
+                                <Stack direction="row" alignItems="center" spacing={2}>
+                                    <label htmlFor="icon-button-file">
+                                        <Input accept="image/*" id="icon-button-file" type="file" name="profilePicture" onChange={handleFile}/>
+                                        <IconButton
+                                        aria-label="upload picture"
+                                        component="span"
+                                        >
+                                        <PhotoCamera />
+                                        </IconButton>
+                                    </label>
+                                </Stack>
                             </div>
                         </div>
                         <span></span>
@@ -94,41 +113,72 @@ const EditProfile = ({userId}) => {
                             <h3>{firstName} {lastName}</h3>
                         </div> 
                     </div>
-            
-                       
 
-                    <div className="form-group">
-                        <label htmlFor="firstName">First Name:</label>
-                        <input type="text" id="firstName" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="form-control" />
-                        {errors.firstName? <span className="text-danger">{errors.firstName.message}</span> : null}
+                    <div className={styles.user__extend}>
+                        <div className={styles.user__label}>
+                            <div className={styles.user__icon}>
+                                <BadgeIcon style={{fontSize:30}}></BadgeIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <label className={styles.x} htmlFor="firstName">First Name:</label>
+                                <input type="text" id="firstName" name="firstName" value={firstName} onChange={(e) => setLastName(e.target.value)} className="form-control" />
+                                {errors.firstName ? <span className="text-danger">{errors.firstName.message}</span> : null}
+                            </div>
+                        </div>
+                        <div className={styles.user__label}>
+                            <div className={styles.user__icon}>
+                                <BadgeIcon style={{fontSize:30}}></BadgeIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <label htmlFor="lastName">Last Name:</label>
+                                <input type="text" id="lastName" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} className="form-control" />
+                                {errors.lastName ? <span className="text-danger">{errors.lastName.message}</span> : null}
+                            </div>
+                        </div>
+                        <div className={styles.user__label}>
+                            <div className={styles.user__icon}>
+                                <LocalPhoneIcon style={{fontSize:30}}></LocalPhoneIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <label htmlFor="cellphone">Email:</label>
+                                <input type="text" id="cellphone" name="cellphone" value={cellphone} onChange={(e) => setCellphone(e.target.value)} className="form-control" />
+                                {errors.cellphone ? <span className="text-danger">{errors.cellphone.message}</span> : null}
+                            </div>
+                        </div>
+                        <div className={styles.user__label}>
+                            <div className={styles.user__icon}>
+                                <LocalPhoneIcon style={{fontSize:30}}></LocalPhoneIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <label htmlFor="cellphone">Cellphone:</label>
+                                <input type="text" id="cellphone" name="cellphone" value={cellphone} onChange={(e) => setCellphone(e.target.value)} className="form-control" />
+                                {errors.cellphone ? <span className="text-danger">{errors.cellphone.message}</span> : null}
+                            </div>
+                        </div>
+                        <div className={styles.user__label}>
+                            <div className={styles.user__icon}>
+                                <LocalPhoneIcon style={{fontSize:30}}></LocalPhoneIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <label htmlFor="location">Location:</label>
+                                <input type="text" id="location" name="location" value={location} onChange={(e) => setLocation(e.target.value)} className="form-control" />
+                                {errors.location ? <span className="text-danger">{errors.location.message}</span> : null}
+                            </div>
+                        </div>
+                        <div className={styles.user__label}>
+                            <div className={styles.user__icon}>
+                                <LocalPhoneIcon style={{fontSize:30}}></LocalPhoneIcon>
+                            </div>
+                            <div className={styles.user__info}>
+                                <label htmlFor="postalCode">Postal Code:</label>
+                                <input type="text" id="postalCode" name="postalCode" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} className="form-control" />
+                                {errors.postalCode ? <span className="text-danger">{errors.postalCode.message}</span> : null}
+                            </div>
+                        </div>
                     </div>
-
-                    <div className="form-group">
-                        <label htmlFor="lastName">Last Name:</label>
-                        <input type="text" id="lastName" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} className="form-control" />
-                        {errors.lastName ? <span className="text-danger">{errors.lastName.message}</span> : null}
+                    <div className={styles.user__submit}>
+                        <button type="submit" className={styles.user__button}>Submit</button>
                     </div>
-
-                    <div className="form-group">
-                        <label htmlFor="cellphone">Cellphone:</label>
-                        <input type="text" id="cellphone" name="cellphone" value={cellphone} onChange={(e) => setCellphone(e.target.value)} className="form-control" />
-                        {errors.cellphone ? <span className="text-danger">{errors.cellphone.message}</span> : null}
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="cellphone">Location:</label>
-                        <input type="text" id="location" name="location" value={location} onChange={(e) => setLocation(e.target.value)} className="form-control" />
-                        {errors.location ? <span className="text-danger">{errors.location.message}</span> : null}
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="postalCode">Postal Code:</label>
-                        <input type="text" id="postalCode" name="postalCode" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} className="form-control" />
-                        {errors.postalCode ? <span className="text-danger">{errors.postalCode.message}</span> : null}
-                    </div>
-                    
-                    <button type="submit">Submit</button>
-                    {/* <input type="submit" value="Update" className="btn btn-success" /> */}
                 </form>
             </div>
             

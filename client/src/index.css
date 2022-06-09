@@ -25,6 +25,7 @@ body {
   /*Light color palette*/
   --color-primary:hsl(173, 100%, 42%);
   --color-primary:hsl(174, 95%, 35%);
+  --color-primary-hover:hsl(174, 57%, 59%);
   --color-secondary:hsl(174, 73%, 90%);
   --color-secondary:hsl(174, 73%, 93%);
   --color-tertiary:rgb(210, 221, 217);
@@ -34,8 +35,10 @@ body {
   --color-background: hsl(264, 91%, 96%);
   
   --color-text-primary: hsl(0, 0%, 0%);
-  --color-text-secondary: hsl(220, 2%, 61%);/*posible para dark*/
-  --color-text-secondary: hsl(225, 52%, 61%);
+  /* --color-text-secondary: hsl(220, 2%, 61%);/*posible para dark*/
+  /* --color-text-secondary: hsl(225, 52%, 61%);*/
+  --color-text-secondary: hsl(180, 1%, 58%);  
+  /* --color-text-secondary: red; */
   --accent: hsl(93, 90%, 80%);
 
   /*Font size*/
@@ -65,6 +68,7 @@ body {
   --color-component-shadow:hsla(180, 4%, 20%);
   --color-secondary: #23272A;
   --color-primary:hsl(174, 95%, 35%);
+  --color-tertiary:rgb(241, 251, 247);
   /* --color-primary:gray; */
   --color-background: hsl(269, 95%, 15%);
   
