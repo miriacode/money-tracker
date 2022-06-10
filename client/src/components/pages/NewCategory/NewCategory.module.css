@@ -1,15 +1,15 @@
-.newCategory__background {
+.popup__background {
   position: absolute;
   width: 100%;
   height: 100%;
   padding-top: 10%;
-  background-color: hsla(0deg, 0%, 0%, 0.583);
+  background-color: var(--color-popup-background);
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-.newCategory {
+.popup {
   width: 33vw;
   height: 50vh;
   padding: 2.55%;
@@ -18,4 +18,82 @@
   box-shadow: 4px 8px 10px -8px var(--color-component-shadow);
   border-radius: 1.5rem;
   color: var(--color-text-primary);
+}
+
+.popup__title {
+  font-family: var(--font-text-primary);
+  font-size: var(--step-0);
+  margin-bottom: 3%;
+}
+
+.newCategory {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.newCategory__input {
+  all: unset;
+  display: block;
+  height: 4vh;
+  padding-left: 0.75rem;
+  font-size: calc(var(--step--2) * 0.9);
+  background-color: var(--color-popup-input);
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-text-secondary);
+}
+.newCategory__input:focus {
+  background-color: var(--color-popup-input2);
+  border-bottom: 2px solid rgb(163, 232, 193);
+}
+
+.newCategory__input__error {
+  all: unset;
+  display: block;
+  height: 4vh;
+  padding-left: 0.75rem;
+  font-size: calc(var(--step--2) * 0.9);
+  background-color: var(--color-popup-input);
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-text-secondary);
+  background-color: red;
+}
+.newCategory__input__error:focus {
+  background-color: var(--color-popup-input2);
+  border-bottom: 2px solid rgb(163, 232, 193);
+}
+
+.newCategory__button {
+  display: block;
+  width: 7vw;
+  height: 4vh;
+  border-radius: 0.5rem;
+  font-size: calc(var(--step--3) * 0.75);
+  font-family: var(--font-text-primary);
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary);
+  color: var(--color-component);
+  text-decoration: none;
+}
+.newCategory__button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: var(--color-primary-hover);
+}
+
+.newCategory:nth-child(2) {
+  background-color: yellow;
+  width: 100%;
+  height: 25%;
 }/*# sourceMappingURL=NewCategory.module.css.map */

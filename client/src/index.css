@@ -45,6 +45,11 @@ body {
   --color-scroll-bar-1:rgb(238, 232, 232);
   --color-scroll-bar-2:rgb(197, 197, 197);
 
+  --color-popup-background:hsla(0, 0%, 36%, 0.583);
+
+  --color-popup-input:rgba(194, 250, 230, 0.205);
+  --color-popup-input2:rgba(197, 213, 207, 0.244);
+
   /*Font size*/
   /* --step--3: clamp(0.58rem, calc(0.47rem + 0.53vw), 0.87rem);
   --step--2: clamp(0.69rem, calc(0.57rem + 0.63vw), 1.04rem);
@@ -82,4 +87,10 @@ body {
 
   --color-scroll-bar-1:rgb(80, 79, 79);
   --color-scroll-bar-2:rgb(131, 130, 130);
+
+
+  --color-popup-background:hsla(0, 0%, 0%, 0.583);
+
+  --color-popup-input:rgba(78, 85, 83, 0.327);
+  --color-popup-input2:rgba(118, 126, 124, 0.244);
 }

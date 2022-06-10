@@ -1,0 +1,32 @@
+.popup__background{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    padding-top: 10%;
+    // padding-bottom: 10%;
+    background-color: var(--color-popup-background);
+
+    //Flex
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.popup{
+    width:33vw;
+    height: 50vh;
+    padding: 2.55%;
+    background-color: antiquewhite;
+    background-color: var(--color-component);
+    box-shadow: 4px 8px 10px -8px var(--color-component-shadow);
+    border-radius: 1.5rem;
+
+    
+    color:var(--color-text-primary);
+}
+
+.popup__title{
+    font-family: var(--font-text-primary);
+    font-size: var(--step-0);
+    margin-bottom: 3%;
+}

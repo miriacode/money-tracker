@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+//import classNames from "classnames"
 // import {useNavigate} from "react-router-dom";
 
 // import { style } from "@mui/system";
@@ -39,31 +40,40 @@ const NewCategory = ({userId, click}) => {
         click(null)
     }
 
+    // const conditionalStyles = classNames({
+    //     "styles.newCategory__input__error":errors.categoryName,
+    //     "styles.newCategory__input":true,
+    // })
+
     return (
-        <div className={styles.newCategory__background}>
-            <div className={styles.newCategory}>
-                <h2>New Category</h2>
-                <form onSubmit={saveCategory}>
-                    <div className="form-check">
-                        <label>
-                        Type:
-                            <select value={type} onChange={(e) => setType(e.target.value)}>
-                                <option value="expense">Expense</option>
-                                <option value="income">Income</option>
-                            </select>
-                        </label>
-                        {/* {errors.type? <span className="text-danger">{errors.type.message}</span> : null} */}
-                    </div>
+        <div className={styles.popup__background}>
+            <div className={styles.popup}>
+                <h2 className={styles.popup__title}>New Category</h2>
 
+                <form onSubmit={saveCategory} className={styles.newCategory}>
                     <div>
-                        <label htmlFor="categoryName">Category Name:</label>
-                        <input type="text" id="categoryName" name="categoryName" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
-                        {errors.categoryName? <span>{errors.categoryName.message}</span> : null}
-                    </div>
+                        <div className="form-check">
+                            <label>
+                            Type:
+                                <select value={type} onChange={(e) => setType(e.target.value)}>
+                                    <option value="expense">Expense</option>
+                                    <option value="income">Income</option>
+                                </select>
+                            </label>
+                        </div>
 
-                    <button onClick={returnButton}><ArrowBackIcon></ArrowBackIcon>Return</button>
-                    <input type="submit" value="Add Category" className="btn btn-success" />
+                        <div>
+                            <label htmlFor="categoryName">Category Name:</label>
+                            <input className={styles.newCategory__input} type="text" id="categoryName" name="categoryName" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
+                            {errors.categoryName? <span className={styles.newCategory__error}>{errors.categoryName.message}</span> : null}
+                        </div>
+                    </div>
+                    <div>
+                        <button className={styles.newCategory__button} onClick={returnButton}><ArrowBackIcon style={{fontSize:"1.125rem"}}></ArrowBackIcon>Return</button>
+                        <input className={styles.newCategory__button} type="submit" value="Create" />
+                    </div>
                 </form>
+
             </div>
         </div>
         
