@@ -98,25 +98,27 @@
 /* SCROLLBAR-RIGHT */
 .scroll__bar__right {
   width: 27.5vw;
-  height: 25vw;
-  padding: 7vh 2vw 0 1.5vw;
-  padding: 4vh 1vw 0 0;
-  background-color: aquamarine;
+  height: 10vw;
   box-shadow: 0px 5px 5px 0.5px var(--navbar-shadow-color);
   overflow: scroll;
-  border-radius: 0 0 0 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
 }
 
 .categories__card {
+  height: 6vh;
   width: 100%;
-  background-color: antiquewhite;
+  padding: 1rem;
+  margin-bottom: 0.35rem;
+  background-color: var(--color-component);
+  box-shadow: 0px 5px 5px 0.5px var(--navbar-shadow-color);
+  border-radius: 0.35rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .scroll__bar__right::-webkit-scrollbar {
@@ -133,4 +135,28 @@
   padding-top: 20px;
   background-color: rgb(197, 197, 197);
   border-radius: 1rem;
+}
+
+.card__edit {
+  color: var(--color-text-secondary);
+  padding-right: 0.65rem;
+}
+
+.card__delete {
+  all: unset;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  background-color: transparent;
+}
+
+.card__left {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.card__left > p {
+  font-size: var(--step--3);
+  font-weight: 400;
+  margin-left: 1rem;
 }/*# sourceMappingURL=Categories.module.css.map */

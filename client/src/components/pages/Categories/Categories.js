@@ -10,6 +10,7 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CircleIcon from '@mui/icons-material/Circle';
 
 const Categories = ({userId}) => {
 
@@ -66,6 +67,11 @@ const Categories = ({userId}) => {
                     .catch(error => console.log(error));
             })
     }
+
+    //Colors of the circle
+    const colors = [
+        "#4a4bff","#ff7788","#00bab3","#ff7788","#fdd26e","#69aff2"
+    ]
     
     return (
         <div className={styles.page}>
@@ -92,10 +98,13 @@ const Categories = ({userId}) => {
                         <div className={styles.scroll__bar__right}>
                             {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
                             <div className={styles.categories__card} key={index}>
-                                <p>{category.categoryName}</p>
+                                <div className={styles.card__left}>
+                                    <CircleIcon className={styles.card__circle} style={{fontSize:13,color:colors[Math.floor(Math.random() * (5 - 0 + 1) + 0)]}}></CircleIcon>
+                                    <p>{category.categoryName}</p>
+                                </div>
                                 <div>
-                                    <Link to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
-                                    <button onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
+                                    <Link className={styles.card__edit} to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
+                                    <button className={styles.card__delete} onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
                                 </div>
                             </div>
                             ))
@@ -106,10 +115,14 @@ const Categories = ({userId}) => {
                         <h2 className={styles.categories__title}>Income Categories</h2>
                         <div className={styles.scroll__bar__right}>
                             {incomeCategoryList.length===0?<p>You don't have any expenses categories yet</p>:incomeCategoryList.map((category, index) => (
-                            <div key={index}>
-                                <p>{category.categoryName}</p>
-                                <Link to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
-                                <button onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
+                            <div className={styles.categories__card} key={index}>
+                                <div className={styles.card__left}>
+                                <CircleIcon className={styles.card__circle} style={{fontSize:13,color:colors[Math.floor(Math.random() * (5 - 0 + 1) + 0)]}}></CircleIcon>
+                                    <p>{category.categoryName}</p>
+                                </div>
+                                
+                                <Link className={styles.card__edit} to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
+                                <button className={styles.card__delete} onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
                             </div>
                             ))
                             }
