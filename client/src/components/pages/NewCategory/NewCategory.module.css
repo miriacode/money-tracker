@@ -1,0 +1,21 @@
+.newCategory__background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 10%;
+  background-color: hsla(0deg, 0%, 0%, 0.583);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.newCategory {
+  width: 33vw;
+  height: 50vh;
+  padding: 2.55%;
+  background-color: antiquewhite;
+  background-color: var(--color-component);
+  box-shadow: 4px 8px 10px -8px var(--color-component-shadow);
+  border-radius: 1.5rem;
+  color: var(--color-text-primary);
+}/*# sourceMappingURL=NewCategory.module.css.map */

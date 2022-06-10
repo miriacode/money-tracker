@@ -11,6 +11,9 @@ import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CircleIcon from '@mui/icons-material/Circle';
+// import { Button } from "@mui/material";
+// import { set } from "mongoose";
+import NewCategory from "../NewCategory/NewCategory";
 
 const Categories = ({userId}) => {
 
@@ -68,18 +71,27 @@ const Categories = ({userId}) => {
             })
     }
 
+    //NEW CATEGORY
+    const [newCategoryClicked, setNewCategoryClicked] = useState(null);
+
+    const click = (state) =>{
+        setNewCategoryClicked(state)
+    }
+
+
     //Colors of the circle
     const colors = [
         "#4a4bff","#ff7788","#00bab3","#ff7788","#fdd26e","#69aff2","#F576B8"
     ]
     
     return (
+        <>
         <div className={styles.page}>
             <div className={styles.categories}>
                 <h2 className={styles.page__title}>Categories</h2>
                 <div className={styles.categories__label}>
                     <h2 className={styles.categories__title}>Favorite Categories</h2>
-                    <Link to="/categories/new" className={styles.categories__add}><AddIcon fontSize="small"></AddIcon>Add Category</Link>
+                    <button className={styles.categories__add} onClick={(e) => setNewCategoryClicked(true)}><AddIcon fontSize="small"></AddIcon>Add Category</button>
                 </div>
                 <ul className={styles.categories__favoriteCategories}>
                     {favoriteCategoryList.map(category=>
@@ -131,6 +143,11 @@ const Categories = ({userId}) => {
                 </div>           
             </div>
         </div>
+        {newCategoryClicked?
+
+        <NewCategory userId={userId} click={click}></NewCategory> 
+        :null}
+        </>
     )
 }
 
