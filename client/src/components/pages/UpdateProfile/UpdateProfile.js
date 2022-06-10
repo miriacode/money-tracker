@@ -121,7 +121,7 @@ const EditProfile = ({userId}) => {
                             </div>
                             <div className={styles.user__info}>
                                 <label className={styles.x} htmlFor="firstName">First Name:</label>
-                                <input className={styles.user__input} type="text" id="firstName" name="firstName" value={firstName} onChange={(e) => setLastName(e.target.value)} />
+                                <input className={styles.user__input} type="text" id="firstName" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                                 {errors.firstName ? <span className="text-danger">{errors.firstName.message}</span> : null}
                             </div>
                         </div>

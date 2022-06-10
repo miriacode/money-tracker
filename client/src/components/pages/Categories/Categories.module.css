@@ -21,7 +21,6 @@
 .categories {
   height: 100%;
   color: var(--color-text-primary);
-  background-color: peru;
   font-family: var(--font-text-secondary);
 }
 
@@ -99,16 +98,30 @@
 /* SCROLLBAR-RIGHT */
 .scroll__bar__right {
   width: 27.5vw;
-  height: 50vh;
+  height: 25vw;
+  padding: 7vh 2vw 0 1.5vw;
+  padding: 4vh 1vw 0 0;
   background-color: aquamarine;
   box-shadow: 0px 5px 5px 0.5px var(--navbar-shadow-color);
   overflow: scroll;
   border-radius: 0 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.categories__card {
+  width: 100%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .scroll__bar__right::-webkit-scrollbar {
   padding-top: 50px;
-  width: 0.3vw;
+  width: 0.5vw;
   height: 90%;
 }
 

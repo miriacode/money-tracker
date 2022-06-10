@@ -9,7 +9,6 @@ const UpdateCategory = ({userId}) => {
     const [type, setType] = useState("");
     const [categoryName, setCategoryName] = useState("");
 
-    //const [categoryList, setCategoryList] = useState([]);
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
@@ -32,7 +31,10 @@ const UpdateCategory = ({userId}) => {
                 //Ruta, Controller to make a general Update of all Categories that have the same name of a user (userId)
                 navigate("/categories")
             })
-            .catch(err => setErrors(err.response.data.errors))
+            .catch(err => {
+                setErrors(err.response.data.errors)
+                        console.log(err.response.data.errors)            
+            })
     }
 
     return (
@@ -50,10 +52,10 @@ const UpdateCategory = ({userId}) => {
                     </label>
                 </div>
 
-                <div className="form-group">
+                <div>
                     <label htmlFor="categoryName">Category Name:</label>
-                    <input type="text" id="categoryName" name="categoryName" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} className="form-control" />
-                    {errors.title? <span className="text-danger">{errors.categoryName.message}</span> : null}
+                    <input type="text" id="categoryName" name="categoryName" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
+                    {errors.title? <span>{errors.categoryName.message}</span> : null}
                 </div>
                 <input type="submit" value="Update" className="btn btn-success" />
             </form>

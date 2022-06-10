@@ -41,10 +41,10 @@ const NewCategory = ({userId}) => {
                     {/* {errors.type? <span className="text-danger">{errors.type.message}</span> : null} */}
                 </div>
 
-                <div className="form-group">
+                <div>
                     <label htmlFor="categoryName">Category Name:</label>
-                    <input type="text" id="categoryName" name="categoryName" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} className="form-control" />
-                    {errors.categoryName? <span className="text-danger">{errors.categoryName.message}</span> : null}
+                    <input type="text" id="categoryName" name="categoryName" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
+                    {errors.categoryName? <span>{errors.categoryName.message}</span> : null}
                 </div>
 
 

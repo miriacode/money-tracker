@@ -85,23 +85,25 @@ const Categories = ({userId}) => {
                         </li>)}
                 </ul>
 
-                <h4>All Categories</h4>
+                <h4 className={styles.categories__title}>All Categories</h4>
                 <div className={styles.categories__allCategories}>
                     <div>
-                        <h2 className={styles.categories__title}>Expenses Category</h2>
+                        <h2 className={styles.categories__title}>Expenses Categories</h2>
                         <div className={styles.scroll__bar__right}>
                             {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
-                            <div key={index}>
+                            <div className={styles.categories__card} key={index}>
                                 <p>{category.categoryName}</p>
-                                <Link to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
-                                <button onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
+                                <div>
+                                    <Link to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
+                                    <button onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
+                                </div>
                             </div>
                             ))
                             }
                         </div>
                     </div>
                     <div>
-                        <h2 className={styles.categories__title}>Income Category</h2>
+                        <h2 className={styles.categories__title}>Income Categories</h2>
                         <div className={styles.scroll__bar__right}>
                             {incomeCategoryList.length===0?<p>You don't have any expenses categories yet</p>:incomeCategoryList.map((category, index) => (
                             <div key={index}>
