@@ -25,7 +25,7 @@ const EditProfile = ({userId}) => {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    //const [email, setEmail] = useState("");
+    const [email, setEmail] = useState("");
     const [cellphone, setCellphone] = useState("");
     const [location, setLocation] = useState("");
     const [postalCode, setPostalCode] = useState("");
@@ -42,7 +42,7 @@ const EditProfile = ({userId}) => {
             .then(res => {
                 setFirstName(res.data.firstName)
                 setLastName(res.data.lastName)
-                //setEmail(res.data.email)
+                setEmail(res.data.email)
                 setCellphone(res.data.cellphone)
                 setLocation(res.data.location)
                 setPostalCode(res.data.postalCode)
@@ -121,7 +121,7 @@ const EditProfile = ({userId}) => {
                             </div>
                             <div className={styles.user__info}>
                                 <label className={styles.x} htmlFor="firstName">First Name:</label>
-                                <input type="text" id="firstName" name="firstName" value={firstName} onChange={(e) => setLastName(e.target.value)} className="form-control" />
+                                <input className={styles.user__input} type="text" id="firstName" name="firstName" value={firstName} onChange={(e) => setLastName(e.target.value)} />
                                 {errors.firstName ? <span className="text-danger">{errors.firstName.message}</span> : null}
                             </div>
                         </div>
@@ -131,18 +131,19 @@ const EditProfile = ({userId}) => {
                             </div>
                             <div className={styles.user__info}>
                                 <label htmlFor="lastName">Last Name:</label>
-                                <input type="text" id="lastName" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} className="form-control" />
+                                <input className={styles.user__input} type="text" id="lastName" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                                 {errors.lastName ? <span className="text-danger">{errors.lastName.message}</span> : null}
                             </div>
                         </div>
                         <div className={styles.user__label}>
                             <div className={styles.user__icon}>
-                                <LocalPhoneIcon style={{fontSize:30}}></LocalPhoneIcon>
+                                <EmailIcon style={{fontSize:30}}></EmailIcon>
                             </div>
                             <div className={styles.user__info}>
                                 <label htmlFor="cellphone">Email:</label>
-                                <input type="text" id="cellphone" name="cellphone" value={cellphone} onChange={(e) => setCellphone(e.target.value)} className="form-control" />
-                                {errors.cellphone ? <span className="text-danger">{errors.cellphone.message}</span> : null}
+                                <input className={styles.user__input__disabled} type="text" value={email} readonly="readonly"/>
+                                {/* <input type="text" id="cellphone" name="email" value={cellphone} onChange={(e) => setCellphone(e.target.value)} className="form-control" /> */}
+                                {/* {errors.cellphone ? <span className="text-danger">{errors.cellphone.message}</span> : null} */}
                             </div>
                         </div>
                         <div className={styles.user__label}>
@@ -151,27 +152,27 @@ const EditProfile = ({userId}) => {
                             </div>
                             <div className={styles.user__info}>
                                 <label htmlFor="cellphone">Cellphone:</label>
-                                <input type="text" id="cellphone" name="cellphone" value={cellphone} onChange={(e) => setCellphone(e.target.value)} className="form-control" />
+                                <input className={styles.user__input} type="text" id="cellphone" name="cellphone" value={cellphone} onChange={(e) => setCellphone(e.target.value)}/>
                                 {errors.cellphone ? <span className="text-danger">{errors.cellphone.message}</span> : null}
                             </div>
                         </div>
                         <div className={styles.user__label}>
                             <div className={styles.user__icon}>
-                                <LocalPhoneIcon style={{fontSize:30}}></LocalPhoneIcon>
+                                <LocationOnIcon style={{fontSize:30}}></LocationOnIcon>
                             </div>
                             <div className={styles.user__info}>
                                 <label htmlFor="location">Location:</label>
-                                <input type="text" id="location" name="location" value={location} onChange={(e) => setLocation(e.target.value)} className="form-control" />
+                                <input className={styles.user__input} type="text" id="location" name="location" value={location} onChange={(e) => setLocation(e.target.value)} />
                                 {errors.location ? <span className="text-danger">{errors.location.message}</span> : null}
                             </div>
                         </div>
                         <div className={styles.user__label}>
                             <div className={styles.user__icon}>
-                                <LocalPhoneIcon style={{fontSize:30}}></LocalPhoneIcon>
+                                <MarkunreadMailboxIcon style={{fontSize:30}}></MarkunreadMailboxIcon>
                             </div>
                             <div className={styles.user__info}>
                                 <label htmlFor="postalCode">Postal Code:</label>
-                                <input type="text" id="postalCode" name="postalCode" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} className="form-control" />
+                                <input className={styles.user__input} type="text" id="postalCode" name="postalCode" value={postalCode} onChange={(e) => setPostalCode(e.target.value)}/>
                                 {errors.postalCode ? <span className="text-danger">{errors.postalCode.message}</span> : null}
                             </div>
                         </div>

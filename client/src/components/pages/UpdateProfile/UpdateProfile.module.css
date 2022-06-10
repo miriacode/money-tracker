@@ -130,7 +130,7 @@
   font-weight: 500;
 }
 
-.user__info > input {
+.user__input {
   all: unset;
   display: block;
   height: 3.5vh;
@@ -140,7 +140,7 @@
   border-bottom: 2px solid var(--color-primary);
   color: var(--color-text-secondary);
 }
-.user__info > input:focus {
+.user__input:focus {
   background-color: transparent;
   border-bottom: 2px solid rgb(163, 232, 193);
 }
@@ -165,8 +165,11 @@
   background-color: var(--color-primary);
   transition: all 0.2s ease-in-out;
 }
-.user__button:hover {
-  cursor: pointer;
-  background-color: var(--color-primary-hover);
-  transform: scale(1.05);
+
+.user__input__disabled {
+  all: unset;
+  font-size: calc(var(--step--2) * 0.9);
+  background-color: transparent;
+  border-bottom: 2px solid var(--color-text-secondary);
+  color: var(--color-text-secondary);
 }/*# sourceMappingURL=UpdateProfile.module.css.map */
