@@ -98,13 +98,12 @@
 /* SCROLLBAR-RIGHT */
 .scroll__bar__right {
   width: 27.5vw;
-  height: 10vw;
+  height: 23vw;
   box-shadow: 0px 5px 5px 0.5px var(--navbar-shadow-color);
-  overflow: scroll;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .categories__card {
@@ -119,6 +118,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+.categories__card:hover {
+  transform: scale(0.97);
 }
 
 .scroll__bar__right::-webkit-scrollbar {
@@ -128,12 +131,12 @@
 }
 
 .scroll__bar__right::-webkit-scrollbar-track {
-  background-color: rgb(238, 232, 232);
+  background-color: var(--color-scroll-bar-1);
 }
 
 .scroll__bar__right::-webkit-scrollbar-thumb {
   padding-top: 20px;
-  background-color: rgb(197, 197, 197);
+  background-color: var(--color-scroll-bar-2);
   border-radius: 1rem;
 }
 

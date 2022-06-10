@@ -37,9 +37,13 @@ body {
   --color-text-primary: hsl(0, 0%, 0%);
   /* --color-text-secondary: hsl(220, 2%, 61%);/*posible para dark*/
   /* --color-text-secondary: hsl(225, 52%, 61%);*/
-  --color-text-secondary: hsl(180, 1%, 58%);  
+  /* --color-text-secondary: hsl(180, 1%, 58%);   */
+  --color-text-secondary: rgb(121, 120, 120);  
   /* --color-text-secondary: red; */
   --accent: hsl(93, 90%, 80%);
+
+  --color-scroll-bar-1:rgb(238, 232, 232);
+  --color-scroll-bar-2:rgb(197, 197, 197);
 
   /*Font size*/
   /* --step--3: clamp(0.58rem, calc(0.47rem + 0.53vw), 0.87rem);
@@ -75,4 +79,7 @@ body {
   --color-text-primary: hsl(0, 0%, 100%);
   --color-text-secondary: hsl(0, 0%, 83%);
   --accent: hsl(120, 100%, 25%);
+
+  --color-scroll-bar-1:rgb(80, 79, 79);
+  --color-scroll-bar-2:rgb(131, 130, 130);
 }

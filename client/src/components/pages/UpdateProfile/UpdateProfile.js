@@ -137,7 +137,7 @@ const EditProfile = ({userId}) => {
                         </div>
                         <div className={styles.user__label}>
                             <div className={styles.user__icon}>
-                                <EmailIcon style={{fontSize:30}}></EmailIcon>
+                                <EmailIcon className={styles.user__icon__disabled} style={{fontSize:30}}></EmailIcon>
                             </div>
                             <div className={styles.user__info}>
                                 <label htmlFor="cellphone">Email:</label>

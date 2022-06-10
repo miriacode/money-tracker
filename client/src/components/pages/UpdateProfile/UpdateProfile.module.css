@@ -177,4 +177,8 @@
   background-color: transparent;
   border-bottom: 2px solid var(--color-text-secondary);
   color: var(--color-text-secondary);
+}
+
+.user__icon__disabled {
+  color: var(--color-tertiary);
 }/*# sourceMappingURL=UpdateProfile.module.css.map */
