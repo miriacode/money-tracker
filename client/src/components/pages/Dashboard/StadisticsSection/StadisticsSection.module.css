@@ -42,6 +42,10 @@
   transform: scale(0.95);
 }
 
+.categories__icon {
+  padding-right: 2rem;
+}
+
 .stadistics__description {
   display: flex;
   flex-direction: column;

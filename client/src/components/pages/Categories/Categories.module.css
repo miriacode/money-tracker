@@ -19,6 +19,7 @@
 }
 
 .categories {
+  height: 100%;
   color: var(--color-text-primary);
   background-color: peru;
   font-family: var(--font-text-secondary);
@@ -52,14 +53,53 @@
 }
 .categories__add:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(0.95);
   background-color: var(--color-primary-hover);
+}
+
+.categories__favoriteCategories {
+  width: 100%;
+  height: 15vh;
+  border-radius: 0.75rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categories__favoriteCategory {
+  display: block;
+  width: 17.5vw;
+  height: 75%;
+  background-color: pink;
+  background-color: var(--color-component);
+  border-radius: 0.75rem;
+  box-shadow: 4px 8px 20px -8px var(--color-component-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+.categories__favoriteCategory:hover {
+  transform: scale(0.95);
+}
+
+.categories__icon {
+  color: var(--color-primary);
+  margin-right: 1rem;
+}
+
+.categories__allCategories {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* SCROLLBAR-RIGHT */
 .scroll__bar__right {
-  width: 200px;
-  height: 50px;
+  width: 27.5vw;
+  height: 50vh;
   background-color: aquamarine;
   box-shadow: 0px 5px 5px 0.5px var(--navbar-shadow-color);
   overflow: scroll;

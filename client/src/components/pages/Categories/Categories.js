@@ -8,7 +8,8 @@ import styles from "./Categories.module.css";
 //Material UI Icons
 import LayersIcon from '@mui/icons-material/Layers';
 import AddIcon from '@mui/icons-material/Add';
-
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Categories = ({userId}) => {
 
@@ -74,35 +75,43 @@ const Categories = ({userId}) => {
                     <h2 className={styles.categories__title}>Favorite Categories</h2>
                     <Link to="/categories/new" className={styles.categories__add}><AddIcon fontSize="small"></AddIcon>Add Category</Link>
                 </div>
-                
-                <div>
-                    <ul>
-                        {favoriteCategoryList.map(category=><li>{category}</li>)}
-                    </ul> 
-                </div>
+                <ul className={styles.categories__favoriteCategories}>
+                    {favoriteCategoryList.map(category=>
+                        <li className={styles.categories__favoriteCategory}>
+                            <div className={styles.categories__icon}>
+                                <LayersIcon style={{fontSize:25.5}}></LayersIcon>
+                            </div>
+                            {category}
+                        </li>)}
+                </ul>
+
                 <h4>All Categories</h4>
-                <div>
-                    <h5>Expenses Category</h5>
-                    <div className={styles.scroll__bar__right}>
-                    {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
-                        <div key={index}>
-                            <p>{category.categoryName}</p>
-                            <Link to={"/categories/update/"+category._id}>Edit</Link> 
-                            <button onClick={() => deleteCategory(category._id)}>Delete</button>
+                <div className={styles.categories__allCategories}>
+                    <div>
+                        <h2 className={styles.categories__title}>Expenses Category</h2>
+                        <div className={styles.scroll__bar__right}>
+                            {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
+                            <div key={index}>
+                                <p>{category.categoryName}</p>
+                                <Link to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
+                                <button onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
+                            </div>
+                            ))
+                            }
                         </div>
-                    ))
-                    }
                     </div>
-                    <h5>Income Category</h5>
-                    <div className={styles.scroll__bar__right}>
-                        {incomeCategoryList.length===0?<p>You don't have any expenses categories yet</p>:incomeCategoryList.map((category, index) => (
-                        <div key={index}>
-                            <p>{category.categoryName}</p>
-                            <Link to={"/categories/update/"+category._id}>Edit</Link> 
-                            <button onClick={() => deleteCategory(category._id)}>Delete</button>
+                    <div>
+                        <h2 className={styles.categories__title}>Income Category</h2>
+                        <div className={styles.scroll__bar__right}>
+                            {incomeCategoryList.length===0?<p>You don't have any expenses categories yet</p>:incomeCategoryList.map((category, index) => (
+                            <div key={index}>
+                                <p>{category.categoryName}</p>
+                                <Link to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
+                                <button onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
+                            </div>
+                            ))
+                            }
                         </div>
-                        ))
-                        }
                     </div>
                 </div>           
             </div>
