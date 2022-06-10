@@ -2,6 +2,13 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+//Styles
+import styles from "./Categories.module.css";
+
+//Material UI Icons
+import LayersIcon from '@mui/icons-material/Layers';
+import AddIcon from '@mui/icons-material/Add';
+
 
 const Categories = ({userId}) => {
 
@@ -60,35 +67,45 @@ const Categories = ({userId}) => {
     }
     
     return (
-        <div>
-            <h2>Categories</h2>
-            <Link to="/categories/new">Add Category</Link>
-            <p>Favorite Categories</p>
-            <ul>
-               {favoriteCategoryList.map(category=><li>{category}</li>)}
-            </ul>
-
-            <h4>All Categories</h4>
-
-            <h5>Expenses Category</h5>
-            {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
-                <div className="container border border-dark" key={index}>
-                    <p>{category.categoryName}</p>
-                    <Link to={"/categories/update/"+category._id}>Edit</Link> 
-                    <button onClick={() => deleteCategory(category._id)}>Delete</button>
+        <div className={styles.page}>
+            <div className={styles.categories}>
+                <h2 className={styles.page__title}>Categories</h2>
+                <div className={styles.categories__label}>
+                    <h2 className={styles.categories__title}>Favorite Categories</h2>
+                    <Link to="/categories/new" className={styles.categories__add}><AddIcon fontSize="small"></AddIcon>Add Category</Link>
                 </div>
-            ))
-            }
-
-            <h5>Income Category</h5>
-            {incomeCategoryList.length===0?<p>You don't have any expenses categories yet</p>:incomeCategoryList.map((category, index) => (
-                <div className="container border border-dark" key={index}>
-                    <p>{category.categoryName}</p>
-                    <Link to={"/categories/update/"+category._id}>Edit</Link> 
-                    <button onClick={() => deleteCategory(category._id)}>Delete</button>
+                
+                <div>
+                    <ul>
+                        {favoriteCategoryList.map(category=><li>{category}</li>)}
+                    </ul> 
                 </div>
-            ))
-            }       
+                <h4>All Categories</h4>
+                <div>
+                    <h5>Expenses Category</h5>
+                    <div className={styles.scroll__bar__right}>
+                    {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
+                        <div key={index}>
+                            <p>{category.categoryName}</p>
+                            <Link to={"/categories/update/"+category._id}>Edit</Link> 
+                            <button onClick={() => deleteCategory(category._id)}>Delete</button>
+                        </div>
+                    ))
+                    }
+                    </div>
+                    <h5>Income Category</h5>
+                    <div className={styles.scroll__bar__right}>
+                        {incomeCategoryList.length===0?<p>You don't have any expenses categories yet</p>:incomeCategoryList.map((category, index) => (
+                        <div key={index}>
+                            <p>{category.categoryName}</p>
+                            <Link to={"/categories/update/"+category._id}>Edit</Link> 
+                            <button onClick={() => deleteCategory(category._id)}>Delete</button>
+                        </div>
+                        ))
+                        }
+                    </div>
+                </div>           
+            </div>
         </div>
     )
 }

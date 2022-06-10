@@ -165,6 +165,11 @@
   background-color: var(--color-primary);
   transition: all 0.2s ease-in-out;
 }
+.user__button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: var(--color-primary-hover);
+}
 
 .user__input__disabled {
   all: unset;
