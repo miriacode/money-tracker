@@ -2,7 +2,7 @@ import React from "react";
 import StadisticSection from "./StadisticsSection/StadisticSection"
 import GraphicSection from "./GraphicSection/GraphicSection"
 
-import RightSideBar from "./../RIghtSideBar/RightSideBar"
+// import RightSideBar from "./../RIghtSideBar/RightSideBar"
 
 import RightMenu from "../../RightMenu/RightMenu";
 
@@ -19,7 +19,7 @@ const Dashboard = ({userId}) => {
                 {/* <GraphicSection/>
                 <RightSideBar userId={userId}></RightSideBar> */}
             </div> 
-            <RightMenu></RightMenu>
+            <RightMenu userId={userId}></RightMenu>
         </>
     )
 }

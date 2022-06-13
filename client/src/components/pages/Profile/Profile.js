@@ -110,7 +110,7 @@ const Profile = ({userId}) => {
                     </div>
                 </div>
         </div>
-        <RightMenu></RightMenu>
+        <RightMenu userId={userId}></RightMenu>
         </>
     )
 }

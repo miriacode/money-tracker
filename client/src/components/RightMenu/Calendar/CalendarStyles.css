@@ -110,6 +110,7 @@
 
   .react-calendar__tile {
     height: 29px;
+    height: 3.4vh;
     /* background-color: yellow; */
     font-family: var(--font-text-primary);
     font-size: 0.75rem;
@@ -122,9 +123,9 @@
     font-size: 2rem;
     display: flex;
     height: 30px;
-    margin-bottom: 0.45rem;
-/* 
-    justify-content:; */
+    margin-bottom: 0.2rem;
+ 
+    /*justify-content:; */
   }
 
   .react-calendar__navigation button {
@@ -177,9 +178,16 @@
 
   .react-calendar__navigation .react-calendar__navigation__arrow{
     display: block;
-    width:30%px;
+    width:30px;
     min-width: 0;
     height: 100%;
     /* background-color: yellow;
     border: 1px solid red; */
   }
+/* 
+.react-calendar__tile .react-calendar__month-view__days__day .react-calendar__month-view__days__day--weekend{
+   flex: 0 0 7%;
+   background-color: pink;
+   
+}
+  */

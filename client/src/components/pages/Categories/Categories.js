@@ -144,7 +144,7 @@ const Categories = ({userId}) => {
                 </div>           
             </div>
         </div>
-        <RightMenu></RightMenu>
+        <RightMenu userId={userId}></RightMenu>
         {newCategoryClicked?
 
         <NewCategory userId={userId} click={click}></NewCategory> 
