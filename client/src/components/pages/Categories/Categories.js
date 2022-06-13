@@ -14,6 +14,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 // import { Button } from "@mui/material";
 // import { set } from "mongoose";
 import NewCategory from "../NewCategory/NewCategory";
+import RightMenu from "../../RightMenu/RightMenu";
 
 const Categories = ({userId}) => {
 
@@ -143,6 +144,7 @@ const Categories = ({userId}) => {
                 </div>           
             </div>
         </div>
+        <RightMenu></RightMenu>
         {newCategoryClicked?
 
         <NewCategory userId={userId} click={click}></NewCategory> 

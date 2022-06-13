@@ -9,6 +9,7 @@ import styles from './SideMenu.module.scss'
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
+
 const SideMenu = ({userId, switchTheme, theme}) => {
     const [user, setUser] = useState({});
 
