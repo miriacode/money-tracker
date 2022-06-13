@@ -1,10 +1,11 @@
 .rightMenu{
     position: absolute;
-    right:0;
+    right:1.9rem;
     top:1rem;
 
-    width:20vw;
+    width:17vw;
     height: 100%;
+    max-width: 280px;
     margin-top: 11vh;
     // padding-top: ;
     // padding-left: 1.5rem;
@@ -13,6 +14,6 @@
     background-color: antiquewhite;
 
     //flex
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
 }

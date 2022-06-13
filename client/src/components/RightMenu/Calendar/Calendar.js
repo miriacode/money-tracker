@@ -46,7 +46,7 @@
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import "../Calendar/g.css"
+import "../Calendar/CalendarStyles.css"
 
 export default function Calendario() {
   const [date, setDate] = React.useState(new Date());

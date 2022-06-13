@@ -14,6 +14,8 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 
+import RightMenu from "../../RightMenu/RightMenu";
+
 
 const Profile = ({userId}) => {
 
@@ -28,6 +30,7 @@ const Profile = ({userId}) => {
     }, [userId])
 
     return (
+        <>
         <div className={styles.page}>
             <h2 className={styles.page__title}>Profile</h2>
                 <div className={styles.user}>
@@ -107,6 +110,8 @@ const Profile = ({userId}) => {
                     </div>
                 </div>
         </div>
+        <RightMenu></RightMenu>
+        </>
     )
 }
 

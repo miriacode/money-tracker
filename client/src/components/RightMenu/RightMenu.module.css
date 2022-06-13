@@ -1,11 +1,10 @@
 .rightMenu {
   position: absolute;
-  right: 0;
+  right: 1.9rem;
   top: 1rem;
-  width: 20vw;
+  width: 17vw;
   height: 100%;
+  max-width: 280px;
   margin-top: 11vh;
   background-color: antiquewhite;
-  display: flex;
-  justify-content: center;
 }/*# sourceMappingURL=RightMenu.module.css.map */
