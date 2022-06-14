@@ -18,8 +18,8 @@ module.exports.getAmountByUserByPeriod = (req, res) => {
 //         .catch(error => res.status(400).json(error));
 // }
 
-module.exports.getLas5ByUser = (req, res) => {
-    Transaction.find({userId: req.params.userId}).sort({date: -1}).limit(5)
+module.exports.getLast6ByUser = (req, res) => {
+    Transaction.find({userId: req.params.userId}).sort({date: -1}).limit(6)
         .then(transactions => res.json(transactions))
         .catch(error => res.status(400).json(error));
 }
