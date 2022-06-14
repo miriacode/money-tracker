@@ -2,9 +2,9 @@
   position: absolute;
   right: 1.9rem;
   top: 1rem;
-  width: 17vw;
-  height: 75%;
-  max-width: 280px;
   margin-top: 11vh;
-  background-color: antiquewhite;
+  width: 17vw;
+  height: 81%;
+  max-width: 280px;
+  max-height: 650px;
 }/*# sourceMappingURL=RightMenu.module.css.map */

@@ -42,20 +42,20 @@ const LastTransactions = ({userId}) => {
                 <li className={styles.transaction} key={i}>
                     {transaction.type==="income"?
 
-                    <div className={styles.transaction__icon} style={{backgroundColor:"blue"}}>
-                        <ArrowDropUpIcon style={{color:"red"}}></ArrowDropUpIcon>
+                    <div className={styles.transaction__icon} style={{backgroundColor:"#daefff"}}>
+                        <ArrowDropUpIcon style={{fontSize:27, color:"#048ffe"}}></ArrowDropUpIcon>
                     </div>:
 
-                    <div className={styles.transaction__icon} style={{backgroundColor:"green"}}>
-                        <ArrowDropDownIcon style={{color:"yellow"}}></ArrowDropDownIcon>
+                    <div className={styles.transaction__icon} style={{backgroundColor:"#ffe3e8"}}>
+                        <ArrowDropDownIcon style={{fontSize:27, color:"#ff4166"}}></ArrowDropDownIcon>
                     </div>
                     }
 
-                    <div>
+                    <div className={styles.transaction__middle}>
                         <span className={styles.transaction__title}>{transaction.title}</span>
                         <span className={styles.transaction__date}>May, 25 2020</span>
                     </div>
-                    <div>
+                    <div className={styles.transaction__end}>
                         <span className={styles.transaction__amount}>${transaction.amount}</span>
                     </div>
                 </li>)}

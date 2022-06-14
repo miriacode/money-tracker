@@ -1,13 +1,16 @@
 .lastTransactions{
     width:100%;
-    height: 66%;
-    background-color: aquamarine;
+    // height: 74%;
+    max-height: 57vh;
+    color:var(--color-text-primary);
+    // background-color: rgb(162, 192, 182);
+    // display: none;
 }
 
 .lastTransactions__title{
     height: 5vh;
     padding-left: 1rem;
-    background-color: purple;
+    // background-color: purple;
     font-size: 1.3rem;
 
     //Flex
@@ -18,9 +21,12 @@
 
 .lastTransactions__list{
     display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 1.15rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    // width: 100%;
+    //height: 100%;
+    // max-height: 55vh;
+    border-radius: 0.85rem;
     background-color: var(--color-component);
 
     list-style: none;
@@ -28,8 +34,10 @@
 
 .transaction{
     height: 8vh;
-    padding: 0.5rem;
-    background-color: Pink;
+    max-height: 200px;
+    padding: 5% 0.85rem 5% 5%;
+    //background-color: var(--color-component);
+    // background-color: yellow;
     display: flex;
     justify-content: space-between;
 }
@@ -45,15 +53,40 @@
     align-items: center;
 }
 
-
-.transaction__title{
-    font-size: 8px;
+.transaction__middle{
+    width: 52%;
+    height: 100%;
+    // background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    
 }
 
-.transaction__amount{
-    font-size: 8px;
+.transaction__title{
+    font-size: calc(var(--step--3)*0.82);
+    font-weight: 500;
+    // background-color: palegreen;
+    
 }
 
 .transaction__date{
-    font-size: 8px;
+    font-size: calc(var(--step--3)*0.65);
+    color:var(--color-text-secondary);
+}
+
+.transaction__end{
+    width: 50px;
+    // background-color: pink;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transaction__amount{
+    font-size: calc(var(--step--3)*0.92);
+    font-weight: 500;
+
 }
