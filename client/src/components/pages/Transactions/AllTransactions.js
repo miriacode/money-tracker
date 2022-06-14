@@ -4,6 +4,9 @@ import {Link} from "react-router-dom";
 
 import TransitionRow from "./TransitionRow/TransitionRow";
 
+//Styles
+import styles from "./Transactions.module.scss"
+
 const AllTransactions = ({userId}) => {
     const [transactionList, setTransactionList] = useState([]);
 
@@ -24,8 +27,8 @@ const AllTransactions = ({userId}) => {
     }
 
     return (
-        <div>
-            <h2>---AllTransactions---</h2>
+        <div className={styles.page}>
+            <h2 className={styles.page__title}>All Transactions</h2>
             <Link to="/transactions/new">Add New</Link>
             <table>
                 <thead>
