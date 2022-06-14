@@ -16,6 +16,7 @@
     padding:10px 0 10px 0;
     padding: 10px;
     /* margin: 0; */
+    margin-bottom: 0.8rem;
    }
    .react-calendar__navigation button {
     color: var(--color-primary);
