@@ -4,6 +4,25 @@
   padding-right: 0.8rem;
 }
 
+.cell > span {
+  padding: 0.15rem 0.4rem 0.15rem 0.4rem;
+  background-color: yellow;
+  border: 2px solid peru;
+  color: peru;
+  border-radius: 0.4rem;
+  font-family: var(--font-text-primary);
+  font-size: calc(var(--step--3) * 0.8);
+}
+
+.label {
+  display: inline;
+  max-height: 26px;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .center {
   text-align: center;
 }

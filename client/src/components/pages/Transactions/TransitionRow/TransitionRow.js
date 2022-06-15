@@ -51,7 +51,7 @@ const TransactionRow = ({transaction, deleteTransaction, theme}) => {
       {/* <td  className={styles.cell}>{type}</td> */}
       <td  className={styles.cell}>{title}</td>
       <td  className={styles.cell}>$ {amount}</td>
-      <td  className={styles.cell}>{category}</td>
+      <td  className={`${styles.cell} ${styles.label}`}><span>{category}</span></td>
       <td  className={`${styles.cell} ${styles.center}`}>{date}</td>
       <td  className={`${styles.cell} ${styles.center}`}>
         {/* <button onClick={viewTransaction()>View</button> */}

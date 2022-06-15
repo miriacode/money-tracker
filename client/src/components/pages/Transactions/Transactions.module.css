@@ -34,6 +34,7 @@
   border-radius: 0.8rem;
   background-color: var(--color-component);
   color: var(--color-text-primary);
+  font-family: var(--font-text-secondary);
   font-size: var(--step--3);
   position: relative;
 }
