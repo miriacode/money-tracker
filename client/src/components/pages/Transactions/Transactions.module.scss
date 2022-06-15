@@ -1,1 +1,105 @@
 @use './../page';
+
+.k{
+    width:78vw;
+    height: 81vh;
+    overflow-y:auto;
+    overflow-x: hidden;
+    
+}
+
+.table{
+    width:78vw;
+    height: 81vh;
+    // max-height:500px;
+    padding: 1rem;
+    padding-top: 0;
+    border-radius: 0.8rem;
+    // border:3px solid red;
+    background-color: var(--color-component);
+    color:var(--color-text-primary);
+    font-size: var(--step--3);
+
+    // border-spacing:2PX solid red;
+    position: relative;
+
+}
+
+.table__head{
+    position: sticky;
+    height:5vh;
+    font-size: var(--step--3);
+    font-family: var(--font-text-primary);
+}
+
+.table__th{
+    position: sticky;
+    bottom: 0; 
+    position: relative;
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+
+.table__body{
+    width:76vw;
+    height: 5vh;
+    //for the scroll
+    // border-bottom: 2px solid var(--color-secondary);
+    overflow-y: auto;
+    // background-color: pink;
+}
+
+
+
+.table__body::-webkit-scrollbar {
+    padding-top: 50px;
+    width: 0.5vw;
+    height: 90%;
+}
+
+
+.table__body::-webkit-scrollbar-track {
+    background-color: var(--color-scroll-bar-1);
+   
+}
+
+.table__body::-webkit-scrollbar-thumb {
+    padding-top: 20px;
+    background-color: var(--color-scroll-bar-2);
+    border-radius: 1rem;
+}
+
+
+
+
+.button{
+    position: absolute;
+    right: 2vw;
+    bottom: 5vh;
+
+    width:2.9vw;
+    height: 5.6vh;
+    border-radius: 0.8rem;
+    background-color: bisque;
+    background-color: var(--color-primary);
+
+    //Flex
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button > a{
+    color:white;
+    text-align: center;
+    // background-color: aquamarine;
+
+}
+
+// table{
+//     table-layout: fixed;
+//   }
+//   tbody{
+//         display: block;
+//       overflow: auto;
+//   }

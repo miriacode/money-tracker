@@ -30,7 +30,58 @@ import jwt_decode from "jwt-decode";
 //Styles
 import useLocalStorage from 'use-local-storage'
 
+// import { ThemeProvider, useTheme, createTheme } from '@mui/material/styles';
+// import { amber, deepOrange, grey } from '@mui/material/colors';
+
+// const [mode, setMode] = useState<PaletteMode>('light');
+//   const colorMode = useMemo(
+//     () => ({
+//       // The dark mode switch would invoke this method
+//       toggleColorMode: () => {
+//         setMode((prevMode: PaletteMode) =>
+//           prevMode === 'light' ? 'dark' : 'light',
+//         );
+//       },
+//     }),
+//     [],
+//   );
+
+  // Update the theme only if the mode changes
+  // const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+
+  // const getDesignTokens = (mode: PaletteMode) => ({
+  //       palette: {
+  //         mode,
+  //         ...(mode === 'light'
+  //           ? {
+  //               // palette values for light mode
+  //               primary: amber,
+  //               divider: amber[200],
+  //               text: {
+  //                 primary: grey[900],
+  //                 secondary: grey[800],
+  //               },
+  //             }
+  //           : {
+  //               // palette values for dark mode
+  //               primary: deepOrange,
+  //               divider: deepOrange[700],
+  //               background: {
+  //                 default: deepOrange[900],
+  //                 paper: deepOrange[900],
+  //               },
+  //               text: {
+  //                 primary: '#fff',
+  //                 secondary: grey[500],
+  //               },
+  //             }),
+  //       },
+  //     });
+
 function App() {
+
+  // const themes = useTheme();
+  // const darkModeTheme = createTheme(getDesignTokens('dark'));
 
   const[cookies] = useCookies(['usertoken'])
   const[userId, setUserId] = useState(null)
@@ -55,6 +106,8 @@ function App() {
   }, [cookies.usertoken]);
   
   return (
+    // <ColorModeContext.Provider value={colorMode}>
+    // <ThemeProvider themes={darkModeTheme}>
     <div className="App" data-theme={theme}>
       <BrowserRouter>
         {userId?<Menu theme={theme}/>:null}
@@ -77,6 +130,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    // </ThemeProvider>
+    // </ColorModeContext.Provider>
   )
 }
 

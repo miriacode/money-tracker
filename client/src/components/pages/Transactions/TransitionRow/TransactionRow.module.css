@@ -1,0 +1,25 @@
+.cell {
+  height: 50px;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.icon {
+  width: 2.5vw;
+  height: 5vh;
+  border-radius: 0.45rem;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=TransactionRow.module.css.map */
