@@ -10,7 +10,7 @@ import styles from "./../LastTransactions/LastTransactions.module.css"
 import { makeStyles } from "@mui/material";
 
 
-const LastTransactions = ({userId}) => {
+const LastTransactions = ({userId, theme}) => {
 
     const [lastTransactions, setLastTransactions] = useState([])
     const [date, setDate] = useState([]);
@@ -31,6 +31,24 @@ const LastTransactions = ({userId}) => {
             .catch(error => console.log(error));
     }, [userId]);
 
+    let lightTheme = {
+        blue:{
+          backgroundColor:"#daefff"
+        },
+        red:{
+          backgroundColor:"#ffe3e8"
+        }
+      }
+    
+      let darkTheme = {
+        blue:{
+          backgroundColor:"#bed5f7"
+        },
+        red:{
+          backgroundColor:"#ffc4cf"
+        }
+      }
+
     return (
         <div className={styles.lastTransactions}>
 
@@ -42,11 +60,11 @@ const LastTransactions = ({userId}) => {
                 <li className={styles.transaction} key={i}>
                     {transaction.type==="income"?
 
-                    <div className={styles.transaction__icon} style={{backgroundColor:"#daefff"}}>
+                    <div className={styles.transaction__icon} style={theme==="light"?lightTheme.blue:darkTheme.blue}>
                         <ArrowDropUpIcon style={{fontSize:27, color:"#048ffe"}}></ArrowDropUpIcon>
                     </div>:
 
-                    <div className={styles.transaction__icon} style={{backgroundColor:"#ffe3e8"}}>
+                    <div className={styles.transaction__icon} style={theme==="light"?lightTheme.red:darkTheme.red}>
                         <ArrowDropDownIcon style={{fontSize:27, color:"#ff4166"}}></ArrowDropDownIcon>
                     </div>
                     }

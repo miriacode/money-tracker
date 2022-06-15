@@ -2,8 +2,10 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-//CSS
-import './NewTransaction.css'
+//Styles
+import styles from './NewTransaction.module.css'
+
+import RightMenu from '../../RightMenu/RightMenu'
 
 const NewTransaction = ({userId}) => {
     const [type, setType] = useState("expense");
@@ -42,8 +44,9 @@ const NewTransaction = ({userId}) => {
     }
 
     return (
-        <div className="new-transaction">
-            <h2>---New Transaction---</h2>
+        <>
+        <div className={styles.page}>
+            <h2 className={styles.page__title}>New Transaction</h2>
             <form onSubmit={saveTransaction}>
                 <div className="form-check">
                     <label>
@@ -97,6 +100,9 @@ const NewTransaction = ({userId}) => {
                 <input type="submit" value="Add" className="btn btn-success" />
             </form>
         </div>
+        <RightMenu userId={userId}></RightMenu>
+        </>
+
     )
 }
 

@@ -20,8 +20,10 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 
+import RightMenu from '../../RightMenu/RightMenu'
 
-const EditProfile = ({userId}) => {
+
+const EditProfile = ({userId, theme}) => {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -86,6 +88,8 @@ const EditProfile = ({userId}) => {
     });
 
     return (
+        <>
+
         <div className={styles.page}>
             <h2 className={styles.page__title}>Profile</h2>
             <div className={styles.user}>
@@ -184,6 +188,8 @@ const EditProfile = ({userId}) => {
             </div>
             
         </div>
+        <RightMenu userId={userId} theme={theme}></RightMenu>        
+        </>
     )
 }
 

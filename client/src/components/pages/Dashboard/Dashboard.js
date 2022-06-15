@@ -10,7 +10,7 @@ import RightMenu from "../../RightMenu/RightMenu";
 import styles from "./Dashboard.module.css"
 
 
-const Dashboard = ({userId}) => {
+const Dashboard = ({userId, theme}) => {
     return (
         <>
             <div className={styles.page}>
@@ -19,7 +19,7 @@ const Dashboard = ({userId}) => {
                 {/* <GraphicSection/>
                 <RightSideBar userId={userId}></RightSideBar> */}
             </div> 
-            <RightMenu userId={userId}></RightMenu>
+            <RightMenu userId={userId} theme={theme}></RightMenu>
         </>
     )
 }

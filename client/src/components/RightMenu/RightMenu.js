@@ -7,11 +7,11 @@ import LastTransactions from "../RightMenu/LastTransactions/LastTransactions";
 // import styles from "./../RightMenu/Calendar/"
 import styles from "./../RightMenu/RightMenu.module.css"
 
-const RightMenu = ({userId}) => {
+const RightMenu = ({userId, theme}) => {
     return (
         <div className={styles.rightMenu}>
            <Calendario></Calendario>
-           <LastTransactions userId={userId}/>
+           <LastTransactions userId={userId} theme={theme}/>
         </div>
     )
 }

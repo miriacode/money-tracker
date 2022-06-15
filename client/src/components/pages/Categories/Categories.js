@@ -16,7 +16,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 import NewCategory from "../NewCategory/NewCategory";
 import RightMenu from "../../RightMenu/RightMenu";
 
-const Categories = ({userId}) => {
+const Categories = ({userId, theme}) => {
 
     const [incomeCategoryList, setIncomeCategoryList] = useState([]);
     const [expensesCategoryList, setExpensesCategoryList] = useState([]);
@@ -144,7 +144,7 @@ const Categories = ({userId}) => {
                 </div>           
             </div>
         </div>
-        <RightMenu userId={userId}></RightMenu>
+        <RightMenu userId={userId} theme={theme}></RightMenu>
         {newCategoryClicked?
 
         <NewCategory userId={userId} click={click}></NewCategory> 

@@ -115,16 +115,16 @@ function App() {
         <Routes>
           <Route exact path="/" element={userId?<Navigate to="/dashboard"/>:<Login />} />
           <Route exact path="/register" element={userId?<Navigate to="/dashboard"/>:<Register />} />
-          <Route exact path="/dashboard" element={userId?<Dashboard userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/dashboard" element={userId?<Dashboard userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/transactions" element={userId?<AllTransactions userId={userId} theme={theme}/>:<AuthenticationError/>} />
-          <Route exact path="/categories" element={userId?<Categories userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/categories" element={userId?<Categories userId={userId} theme={theme}/>:<AuthenticationError/>} />
           {/* <Route exact path="/categories/new" element={userId?<NewCategory userId={userId}/>:<AuthenticationError/>} /> */}
           <Route exact path="/categories/update/:id"element={userId?<UpdateCategory userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/transactions/:id"element={userId?<Transaction />:<AuthenticationError/>} />
           <Route exact path="/transactions/new"element={userId?<NewTransaction userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/transactions/update/:id"element={userId?<UpdateTransaction userId={userId}/>:<AuthenticationError/>} />
-          <Route exact path="/profile"element={userId?<Profile userId={userId}/>:<AuthenticationError/>} />
-          <Route exact path="/profile/edit"element={userId?<UpdateProfile userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/profile"element={userId?<Profile userId={userId} theme={theme}/>:<AuthenticationError/>} />
+          <Route exact path="/profile/edit"element={userId?<UpdateProfile userId={userId} theme={theme}/>:<AuthenticationError/>} />
           {/* <Route exact path="/prueba"element={userId?<PruebaJS userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/prueba/update/:id"element={userId?<PruebaUpdate userId={userId}/>:<AuthenticationError/>} /> */}
         </Routes>
