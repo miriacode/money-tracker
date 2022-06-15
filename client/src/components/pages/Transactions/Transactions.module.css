@@ -39,19 +39,21 @@
 }
 
 .table__head {
-  position: -webkit-sticky;
-  position: sticky;
-  height: 5vh;
+  height: 6vh;
   font-size: var(--step--3);
   font-family: var(--font-text-primary);
 }
 
 .table__th {
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 0;
   position: relative;
   border-bottom: 2px solid var(--color-secondary);
+}
+
+.m {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-component);
 }
 
 .table__body {
@@ -60,17 +62,17 @@
   overflow-y: auto;
 }
 
-.table__body::-webkit-scrollbar {
+.k::-webkit-scrollbar {
   padding-top: 50px;
   width: 0.5vw;
   height: 90%;
 }
 
-.table__body::-webkit-scrollbar-track {
+.k::-webkit-scrollbar-track {
   background-color: var(--color-scroll-bar-1);
 }
 
-.table__body::-webkit-scrollbar-thumb {
+.k::-webkit-scrollbar-thumb {
   padding-top: 20px;
   background-color: var(--color-scroll-bar-2);
   border-radius: 1rem;

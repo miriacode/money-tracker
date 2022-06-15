@@ -192,10 +192,10 @@ const AllTransactions = ({userId}) => {
                 </div>
             </ThemeProvider>
              */}
-            
+            <div className={styles.k}>
             <table className={styles.table}>
                 <thead className={styles.table__head}>
-                    <tr>
+                    <tr className={styles.m}>
                         <th className={styles.table__th}>Type</th>
                         <th className={styles.table__th}>Title</th>
                         <th className={styles.table__th}>Amount</th>
@@ -204,25 +204,28 @@ const AllTransactions = ({userId}) => {
                         <th className={styles.table__th}>Actions</th>
                     </tr>
                 </thead>
-                <div className={styles.k}>
-                <tbody className={styles.table__body}>
-                    {transactionList.length > 0 ? (
-                        transactionList.map((transaction) => (
-                        <TransactionRow
-                            key={transaction.id}
-                            transaction={transaction}
-                            // setDataToEdit={setDataToEdit}
-                            deleteTransaction={deleteTransaction}
-                        />
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan="5">You haven't registered any transaction yet.</td>
-                        </tr>
-                    )}
-                </tbody></div>
+               
+                    <tbody className={styles.table__body}>
+                         
+                        {transactionList.length > 0 ? (
+                            transactionList.map((transaction) => (
+                            
+                            <TransactionRow
+                                key={transaction.id}
+                                transaction={transaction}
+                                // setDataToEdit={setDataToEdit}
+                                deleteTransaction={deleteTransaction}
+                            />
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="5">You haven't registered any transaction yet.</td>
+                            </tr>
+                        )}
+                    </tbody>
+                
             </table>
-            
+            </div>
             <div className={styles.button}>
                 <Link to="/transactions/new"><AddIcon style={{fontSize:30}}></AddIcon></Link>
             </div>
