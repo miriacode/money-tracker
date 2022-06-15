@@ -154,7 +154,7 @@ import { style } from "@mui/system";
 //   ];
 
 
-const AllTransactions = ({userId}) => {
+const AllTransactions = ({userId, theme}) => {
     const [transactionList, setTransactionList] = useState([]);
 
     useEffect(() =>{
@@ -192,10 +192,10 @@ const AllTransactions = ({userId}) => {
                 </div>
             </ThemeProvider>
              */}
-            <div className={styles.k}>
+            <div className={styles.scroll}>
             <table className={styles.table}>
                 <thead className={styles.table__head}>
-                    <tr className={styles.m}>
+                    <tr className={styles.table__tr}>
                         <th className={styles.table__th}>Type</th>
                         <th className={styles.table__th}>Title</th>
                         <th className={styles.table__th}>Amount</th>
@@ -213,6 +213,7 @@ const AllTransactions = ({userId}) => {
                             <TransactionRow
                                 key={transaction.id}
                                 transaction={transaction}
+                                theme={theme}
                                 // setDataToEdit={setDataToEdit}
                                 deleteTransaction={deleteTransaction}
                             />

@@ -22,4 +22,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.button__view {
+  color: var(--color-text-secondary);
+  padding-right: 0.65rem;
+}
+.button__view:hover {
+  color: #bed5f7;
+}
+
+.button__delete {
+  all: unset;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  background-color: transparent;
+}
+.button__delete:hover {
+  color: #ffc4cf;
 }/*# sourceMappingURL=TransactionRow.module.css.map */

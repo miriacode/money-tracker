@@ -116,7 +116,7 @@ function App() {
           <Route exact path="/" element={userId?<Navigate to="/dashboard"/>:<Login />} />
           <Route exact path="/register" element={userId?<Navigate to="/dashboard"/>:<Register />} />
           <Route exact path="/dashboard" element={userId?<Dashboard userId={userId}/>:<AuthenticationError/>} />
-          <Route exact path="/transactions" element={userId?<AllTransactions userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/transactions" element={userId?<AllTransactions userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/categories" element={userId?<Categories userId={userId}/>:<AuthenticationError/>} />
           {/* <Route exact path="/categories/new" element={userId?<NewCategory userId={userId}/>:<AuthenticationError/>} /> */}
           <Route exact path="/categories/update/:id"element={userId?<UpdateCategory userId={userId}/>:<AuthenticationError/>} />

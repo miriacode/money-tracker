@@ -19,7 +19,7 @@
   color: var(--color-text-primary);
 }
 
-.k {
+.scroll {
   width: 78vw;
   height: 81vh;
   overflow-y: auto;
@@ -46,10 +46,10 @@
 
 .table__th {
   position: relative;
-  border-bottom: 2px solid var(--color-secondary);
+  border-bottom: 3px solid var(--color-scroll-bar-1);
 }
 
-.m {
+.table__tr {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -62,17 +62,17 @@
   overflow-y: auto;
 }
 
-.k::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
   padding-top: 50px;
   width: 0.5vw;
   height: 90%;
 }
 
-.k::-webkit-scrollbar-track {
+.scroll::-webkit-scrollbar-track {
   background-color: var(--color-scroll-bar-1);
 }
 
-.k::-webkit-scrollbar-thumb {
+.scroll::-webkit-scrollbar-thumb {
   padding-top: 20px;
   background-color: var(--color-scroll-bar-2);
   border-radius: 1rem;
@@ -90,6 +90,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.15);
 }
 
 .button > a {

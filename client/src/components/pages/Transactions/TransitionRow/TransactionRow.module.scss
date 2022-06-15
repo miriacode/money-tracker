@@ -65,3 +65,26 @@
 //     // display: block;
     
 // }
+
+.button__view{
+    // width: 1vw;
+    // height: 2vh;
+    // background-color: ;
+   color: var(--color-text-secondary);
+   padding-right:0.65rem;
+
+   &:hover{
+    color: #bed5f7;
+   }
+}
+
+.button__delete{
+    all:unset;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    background-color: transparent;
+
+    &:hover{
+        color: #ffc4cf;
+       }
+}
