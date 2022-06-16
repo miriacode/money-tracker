@@ -33,19 +33,19 @@ const LastTransactions = ({userId, theme}) => {
 
     let lightTheme = {
         blue:{
-          backgroundColor:"#daefff"
+          backgroundColor:"transparent"
         },
         red:{
-          backgroundColor:"#ffe3e8"
+          backgroundColor:"transparent"
         }
       }
     
       let darkTheme = {
         blue:{
-          backgroundColor:"#bed5f7"
+          backgroundColor:"transparent"
         },
         red:{
-          backgroundColor:"#ffc4cf"
+          backgroundColor:"transparent"
         }
       }
 
@@ -61,11 +61,11 @@ const LastTransactions = ({userId, theme}) => {
                     {transaction.type==="income"?
 
                     <div className={styles.transaction__icon} style={theme==="light"?lightTheme.blue:darkTheme.blue}>
-                        <ArrowDropUpIcon style={{fontSize:27, color:"#048ffe"}}></ArrowDropUpIcon>
+                        <ArrowDropUpIcon style={{fontSize:35, color:"#048ffe"}}></ArrowDropUpIcon>
                     </div>:
 
                     <div className={styles.transaction__icon} style={theme==="light"?lightTheme.red:darkTheme.red}>
-                        <ArrowDropDownIcon style={{fontSize:27, color:"#ff4166"}}></ArrowDropDownIcon>
+                        <ArrowDropDownIcon style={{fontSize:35, color:"#ff4166"}}></ArrowDropDownIcon>
                     </div>
                     }
 

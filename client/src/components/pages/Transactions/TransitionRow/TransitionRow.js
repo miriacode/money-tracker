@@ -21,19 +21,19 @@ const TransactionRow = ({transaction, deleteTransaction, theme}) => {
 
   let lightTheme = {
     blue:{
-      backgroundColor:"#daefff"
+      backgroundColor:"transparent"
     },
     red:{
-      backgroundColor:"#ffe3e8"
+      backgroundColor:"transparent"
     }
   }
 
   let darkTheme = {
     blue:{
-      backgroundColor:"#bed5f7"
+      backgroundColor:"transparent"
     },
     red:{
-      backgroundColor:"#ffc4cf"
+      backgroundColor:"transparent"
     }
   }
 
@@ -77,17 +77,17 @@ const TransactionRow = ({transaction, deleteTransaction, theme}) => {
       {type==="income"?
           <td  className={`${styles.cell} ${styles.flex}`}>
               <div className={styles.icon} style={theme==="light"?lightTheme.blue:darkTheme.blue}>
-                <ArrowDropUpIcon style={{fontSize:27, color:"#048ffe"}}></ArrowDropUpIcon>
+                <ArrowDropUpIcon style={{fontSize:35, color:"#048ffe"}}></ArrowDropUpIcon>
               </div>
           </td>:
           <td className={`${styles.cell} ${styles.flex}`}>
               <div className={styles.icon} style={theme==="light"?lightTheme.red:darkTheme.red}>
-                <ArrowDropDownIcon style={{fontSize:27, color:"#ff4166"}}></ArrowDropDownIcon>
+                <ArrowDropDownIcon style={{fontSize:35, color:"#ff4166"}}></ArrowDropDownIcon>
               </div>
           </td>}
       <td  className={styles.cell}>{title}</td>
       <td  className={styles.cell}>$ {amount}</td>
-      <td  className={`${styles.cell} ${styles.label}`}><span style={{color:color,borderColor:`${color}`}}>{category}</span></td>
+      <td  className={`${styles.cell}`}><span style={{color:color,borderColor:`${color}`}}>{category}</span></td>
       <td  className={`${styles.cell} ${styles.center}`}>{date}</td>
       <td  className={`${styles.cell} ${styles.center}`}>
         <Link className={styles.button__view} to={"/transactions/"+_id}><SearchIcon></SearchIcon></Link>
