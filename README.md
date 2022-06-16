@@ -7,9 +7,9 @@ Money Tracker App es una aplicación diseñada para ayudar a las personas a llev
 - Visualización de manera gráfica de ingresos vs egresos en un período
 - Organización de ingresos y egresos por categorías definidas por el usuario.
 
-![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-light.png)
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-light.jpg)
 
-![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/categories-light.png)
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/categories-light.jpg)
 
 
 ## Funcionalidades 🛠
@@ -39,14 +39,14 @@ Este proyecto fue desarrollado utilizando las siguientes tecnologías:
 This project is under the [MIT license](https://github.com/miriacode/money-tracker/blob/main/LICENSE)
 
 
-![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-light.png)
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-light.jpg)
 
-![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-dark.png)
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-dark.jpg)
 
-![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/categories-light.png)
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/categories-light.jpg)
 
-![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/categories-dark.png)
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/categories-dark.jpg)
 
-![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/profile-light.png)
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/profile-light.jpg)
 
-![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/updateProfile-dark.png)
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/updateProfile-dark.jpg)
