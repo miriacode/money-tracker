@@ -33,12 +33,17 @@
 // }
 
 .cell{
-    height: 50px;
+    height: 35px;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
+    // background-color: aqua;
 }
 
 .cell > span{
+
+    // display: block;
+
+
     padding: 0.15rem 0.4rem 0.15rem 0.4rem;
 
     background-color: yellow;
@@ -53,16 +58,19 @@
 }
 
 .label{
-    display: inline;
-    max-height: 26px;
-
+    display: block;
+    // width:100%;
+    // height: 50px;
+    
+    // max-height: px;
+    margin-left: 5%;
     // background-color: #ffc4cf;
-    text-align: center;
+    // text-align: center;
 
     //Flex
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    // display: inline-flex;
+    // justify-content: center;
+    // align-items: center;
     
 }
 

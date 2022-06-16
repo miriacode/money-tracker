@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 //import classNames from "classnames"
 // import {useNavigate} from "react-router-dom";
@@ -12,12 +12,31 @@ import styles from "./NewCategory.module.css"
 //Material UI
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
+ // import the script
+var randomColor = require('randomcolor');
+
 const NewCategory = ({userId, click}) => {
     const [type, setType] = useState("expense");
     const [categoryName, setCategoryName] = useState("");
+    const [color, setColor] = useState("")
 
     const [errors, setErrors] = useState({});
     // const navigate = useNavigate();
+
+    useEffect(() => {
+        // var letters = '0123456789ABCDEF';
+        // var randomColor = '#';
+        // for (var i = 0; i < 6; i++) {
+        //     randomColor += letters[Math.floor(Math.random() * 16)];
+        // }
+        
+        let randomColorr = randomColor({
+            luminosity: 'bright',
+            // e.g. 'rgb(225,200,20)'
+         });
+        setColor(randomColorr)
+        // console.log(randomColor)
+    }, []);
 
     const saveCategory = (e) =>{
         e.preventDefault();
@@ -25,6 +44,7 @@ const NewCategory = ({userId, click}) => {
             userId: userId,
             type: type,
             categoryName: categoryName,
+            color:color,
         }, {withCredentials: true})
             .then(res => {
                 console.log(res.data)

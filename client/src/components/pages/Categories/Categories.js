@@ -81,9 +81,9 @@ const Categories = ({userId, theme}) => {
 
 
     //Colors of the circle
-    const colors = [
-        "#4a4bff","#ff7788","#00bab3","#ff7788","#fdd26e","#69aff2","#F576B8"
-    ]
+    // const colors = [
+    //     "#4a4bff","#ff7788","#00bab3","#ff7788","#fdd26e","#69aff2","#F576B8"
+    // ]
     
     return (
         <>
@@ -112,7 +112,7 @@ const Categories = ({userId, theme}) => {
                             {expensesCategoryList.length===0?<p>You don't have any expenses categories yet</p>:expensesCategoryList.map((category, index) => (
                             <div className={styles.categories__card} key={index}>
                                 <div className={styles.card__left}>
-                                    <CircleIcon className={styles.card__circle} style={{fontSize:13,color:colors[Math.floor(Math.random() * (6 - 0 + 1) + 0)]}}></CircleIcon>
+                                    <CircleIcon className={styles.card__circle} style={{fontSize:13,color:category.color}}></CircleIcon>
                                     <p>{category.categoryName}</p>
                                 </div>
                                 <div>
@@ -130,7 +130,7 @@ const Categories = ({userId, theme}) => {
                             {incomeCategoryList.length===0?<p>You don't have any expenses categories yet</p>:incomeCategoryList.map((category, index) => (
                             <div className={styles.categories__card} key={index}>
                                 <div className={styles.card__left}>
-                                <CircleIcon className={styles.card__circle} style={{fontSize:13,color:colors[Math.floor(Math.random() * (6 - 0 + 1) + 0)]}}></CircleIcon>
+                                <CircleIcon className={styles.card__circle} style={{fontSize:13,color:category.color}}></CircleIcon>
                                     <p>{category.categoryName}</p>
                                 </div>
                                 

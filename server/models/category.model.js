@@ -15,6 +15,9 @@ const CategorySchema = new mongoose.Schema({
         type: String,
         required: [true, "Category Name is required."],
         unique: true,
+    },
+    color:{
+        type: String,
     }
 }, {timestamps: true, versionKey: false})
 

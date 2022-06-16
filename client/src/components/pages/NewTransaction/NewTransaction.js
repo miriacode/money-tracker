@@ -36,7 +36,7 @@ const NewTransaction = ({userId}) => {
             title: title,
             description: description,
             amount: amount,
-            category: category,
+            category: {categoryName:"hi",color:"red"},
             date:date,
         }, {withCredentials: true})
             .then(res => navigate("/transactions"))

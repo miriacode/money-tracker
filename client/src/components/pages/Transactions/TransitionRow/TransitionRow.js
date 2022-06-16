@@ -1,5 +1,7 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 //Material UI Icon
 import SearchIcon from '@mui/icons-material/Search';
@@ -35,6 +37,20 @@ const TransactionRow = ({transaction, deleteTransaction, theme}) => {
     }
   }
 
+  const [color, setColor] = useState("");
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/categories/"+category, {withCredentials: true})
+      .then(res => {
+          console.log(res.data[0])
+          console.log(res.data[0].color)
+          setColor(res.data[0].color)
+      }
+      )
+      .catch(error => console.log(error.response.data.errors));
+    
+  }, [category]);
+
   return (
     <tr className={styles.row}>
       {type==="income"?
@@ -48,13 +64,11 @@ const TransactionRow = ({transaction, deleteTransaction, theme}) => {
                 <ArrowDropDownIcon style={{fontSize:27, color:"#ff4166"}}></ArrowDropDownIcon>
               </div>
           </td>}
-      {/* <td  className={styles.cell}>{type}</td> */}
       <td  className={styles.cell}>{title}</td>
       <td  className={styles.cell}>$ {amount}</td>
-      <td  className={`${styles.cell} ${styles.label}`}><span>{category}</span></td>
+      <td  className={`${styles.cell} ${styles.label}`}><span style={{color:`${color}`,borderColor:color,backgroundColor:`${color}25`}}>{category}</span></td>
       <td  className={`${styles.cell} ${styles.center}`}>{date}</td>
       <td  className={`${styles.cell} ${styles.center}`}>
-        {/* <button onClick={viewTransaction()>View</button> */}
         <Link className={styles.button__view} to={"/transactions/"+_id}><SearchIcon></SearchIcon></Link>
         <button className={styles.button__delete} onClick={() => deleteTransaction(_id)}><DeleteIcon></DeleteIcon></button>
      </td>

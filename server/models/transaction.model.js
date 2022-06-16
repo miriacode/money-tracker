@@ -28,6 +28,10 @@ const TransactionSchema = new mongoose.Schema({
         type: String,
         required: [true, "Category is required."],
     },
+    // color: {
+    //     type: String,
+    //     // required: [true, "Category is required."],
+    // },
     date: {
         type: Date,
         required: [true, "Transaction Date is required."],

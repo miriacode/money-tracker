@@ -1,12 +1,12 @@
 const Category = require("../models/category.model");
 
-// module.exports.getAll = (req, res) => {
-//     Category.find()
-//     /*To order, 1 means ascending order */
-//     // Category.find().collation({locale: "en"}).sort({title: 1})
-//         .then(categories => res.json(categories))
-//         .catch(error => res.status(400).json(error));
-// }
+module.exports.getCategoryColor = (req, res) => {
+    Category.find({categoryName:req.params.categoryName})
+    /*To order, 1 means ascending order */
+    // Category.find().collation({locale: "en"}).sort({title: 1})
+        .then(categories => res.json(categories))
+        .catch(error => res.status(400).json(error));
+}
 
 module.exports.createCategory = (req, res) => {
     Category.create(req.body)
