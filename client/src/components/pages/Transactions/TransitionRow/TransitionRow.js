@@ -44,12 +44,33 @@ const TransactionRow = ({transaction, deleteTransaction, theme}) => {
       .then(res => {
           console.log(res.data[0])
           console.log(res.data[0].color)
-          setColor(res.data[0].color)
+          let defaultColor = res.data[0].color
+
+
+
+          if(theme==="light"){
+            let newColor = defaultColor.slice(0,-5)+"40%)"
+            setColor(newColor)
+          }else{
+            setColor(defaultColor)
+          }
       }
       )
       .catch(error => console.log(error.response.data.errors));
     
-  }, [category]);
+  }, [category, theme]);
+
+  useEffect(() => {
+      if(theme==="light"){
+        let oldColor = color
+        //let newColor = oldColor.slice(0,-1)+" ,0.99)"
+        let newColor = oldColor.slice(0,-5)+"40%)"
+        setColor(newColor)
+        // console.log(oldColor)
+      }
+
+  }, [category,theme]);
+
 
   return (
     <tr className={styles.row}>
@@ -66,7 +87,7 @@ const TransactionRow = ({transaction, deleteTransaction, theme}) => {
           </td>}
       <td  className={styles.cell}>{title}</td>
       <td  className={styles.cell}>$ {amount}</td>
-      <td  className={`${styles.cell} ${styles.label}`}><span style={{color:`${color}`,borderColor:color,backgroundColor:`${color}25`}}>{category}</span></td>
+      <td  className={`${styles.cell} ${styles.label}`}><span style={{color:color,borderColor:`${color}`}}>{category}</span></td>
       <td  className={`${styles.cell} ${styles.center}`}>{date}</td>
       <td  className={`${styles.cell} ${styles.center}`}>
         <Link className={styles.button__view} to={"/transactions/"+_id}><SearchIcon></SearchIcon></Link>

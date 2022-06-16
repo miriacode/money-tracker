@@ -1,19 +1,14 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-//import classNames from "classnames"
-// import {useNavigate} from "react-router-dom";
-
-// import { style } from "@mui/system";
 
 //Styles
 import styles from "./NewCategory.module.css"
-// import { Hidden } from "@mui/material";
 
 //Material UI
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
- // import the script
-var randomColor = require('randomcolor');
+//Importing dependency
+const randomColor = require('randomcolor');
 
 const NewCategory = ({userId, click}) => {
     const [type, setType] = useState("expense");
@@ -21,21 +16,13 @@ const NewCategory = ({userId, click}) => {
     const [color, setColor] = useState("")
 
     const [errors, setErrors] = useState({});
-    // const navigate = useNavigate();
 
     useEffect(() => {
-        // var letters = '0123456789ABCDEF';
-        // var randomColor = '#';
-        // for (var i = 0; i < 6; i++) {
-        //     randomColor += letters[Math.floor(Math.random() * 16)];
-        // }
-        
         let randomColorr = randomColor({
             luminosity: 'bright',
-            // e.g. 'rgb(225,200,20)'
+            format: 'hsl'
          });
         setColor(randomColorr)
-        // console.log(randomColor)
     }, []);
 
     const saveCategory = (e) =>{
@@ -50,7 +37,6 @@ const NewCategory = ({userId, click}) => {
                 console.log(res.data)
                 window.location.reload();
                 click(null)
-                // navigate("/categories")
             }
             )
             .catch(error => setErrors(error.response.data.errors));
@@ -59,11 +45,6 @@ const NewCategory = ({userId, click}) => {
     const returnButton = () => {
         click(null)
     }
-
-    // const conditionalStyles = classNames({
-    //     "styles.newCategory__input__error":errors.categoryName,
-    //     "styles.newCategory__input":true,
-    // })
 
     return (
         <div className={styles.popup__background}>
