@@ -7,7 +7,9 @@ Money Tracker App es una aplicación diseñada para ayudar a las personas a llev
 - Visualización de manera gráfica de ingresos vs egresos en un período
 - Organización de ingresos y egresos por categorías definidas por el usuario.
 
-<!-- ![banner](https://raw.githubusercontent.com/miriacode/todo-app-frontend-mentor/main/assets/banner.png) -->
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-light.png)
+
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/categories-light.png)
 
 
 
