@@ -71,7 +71,7 @@ const LastTransactions = ({userId, theme}) => {
 
                     <div className={styles.transaction__middle}>
                         <span className={styles.transaction__title}>{transaction.title}</span>
-                        <span className={styles.transaction__date}>May, 25 2020</span>
+                        <span className={styles.transaction__date}>Jun 16, 2022</span>
                     </div>
                     <div className={styles.transaction__end}>
                         <span className={styles.transaction__amount}>${transaction.amount}</span>
