@@ -1,0 +1,25 @@
+.graphic__container {
+  background-color: aliceblue;
+}
+
+.graphic {
+  width: 100%;
+  height: 46vh;
+  background-color: var(--color-component);
+  font-size: var(--step--3);
+  font-weight: 500;
+  font-family: var(--font-text-primary);
+}
+
+.grid {
+  color: aquamarine;
+}
+
+.tooltip > p {
+  background-color: red;
+}
+
+.f {
+  position: absolute;
+  top: 0;
+}/*# sourceMappingURL=GraphicSection.module.css.map */

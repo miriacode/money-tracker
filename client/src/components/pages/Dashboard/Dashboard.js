@@ -18,6 +18,7 @@ const Dashboard = ({userId, theme}) => {
                 <StadisticSection userId={userId}/>
                 {/* <GraphicSection/>
                 <RightSideBar userId={userId}></RightSideBar> */}
+                <GraphicSection theme={theme}></GraphicSection>
             </div> 
             <RightMenu userId={userId} theme={theme}></RightMenu>
         </>
