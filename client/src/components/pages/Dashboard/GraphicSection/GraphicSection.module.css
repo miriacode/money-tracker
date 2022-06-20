@@ -1,14 +1,34 @@
+.graphic__section {
+  width: 100%;
+  height: 57vh;
+  margin-top: 0.75rem;
+}
+
+.graphic__label {
+  height: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.graphic__title {
+  font-size: calc(var(--step--1) * 0.95);
+  color: var(--color-text-primary);
+}
+
 .graphic__container {
   background-color: aliceblue;
 }
 
 .graphic {
   width: 100%;
-  height: 46vh;
+  height: 92%;
   background-color: var(--color-component);
   font-size: var(--step--3);
   font-weight: 500;
   font-family: var(--font-text-primary);
+  border-radius: 1.15rem;
+  box-shadow: 4px 8px 20px -8px var(--color-component-shadow);
 }
 
 .grid {
