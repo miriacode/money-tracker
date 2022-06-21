@@ -2,8 +2,6 @@ import React from "react";
 import StadisticSection from "./StadisticsSection/StadisticSection"
 import GraphicSection from "./GraphicSection/GraphicSection"
 
-// import RightSideBar from "./../RIghtSideBar/RightSideBar"
-
 import RightMenu from "../../RightMenu/RightMenu";
 
 //CSS
