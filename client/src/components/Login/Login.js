@@ -25,13 +25,11 @@ const Login = () => {
                 if(res.data.error){
                     setErrors(res.data.message);
                 } else {
-                    //navigate("/");
                     navigate("/dashboard");
                     document.location.reload()
                 }
             })
             .catch(err => console.log(err));
-
     }
 
     return (
