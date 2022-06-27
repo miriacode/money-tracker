@@ -34,7 +34,7 @@ const Login = () => {
 
     return (
             <div className="col-6">
-                <h2>Log In</h2>
+                <h2>Log In</h2> 
                 <form onSubmit={login}>
                     <div className="form-group">
                         <label htmlFor="emailLogin">E-mail</label>
