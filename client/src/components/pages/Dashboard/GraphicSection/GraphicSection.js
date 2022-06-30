@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import {arrayMonthStartDate, arrayMonthEndDate} from "../../../../helpers/getStartAndEndDate"
 
 import styles from "./../GraphicSection/GraphicSection.module.css"
 
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 
-const GraphicSection = ({theme}) => {
+const GraphicSection = ({userId, theme}) => {
     const [data, setData] = useState([
             {milestone: 'Jan', Income: 0, Expenses: 0},
             {milestone: 'Feb', Income:0, Expenses:0},
@@ -19,7 +20,45 @@ const GraphicSection = ({theme}) => {
             {milestone: 'Oct', Income: 0, Expenses: 0},
             {milestone: 'Nov', Income: 0, Expenses: 0},
             {milestone: 'Dec', Income: 0, Expenses: 0},
-        ])
+    ])
+
+    useEffect(() => {
+        console.log(arrayMonthStartDate)
+        console.log(arrayMonthEndDate)
+
+        let arrayIncome=[]
+        let arrayExpenses=[]
+
+        for(let i=0;i<arrayMonthStartDate.length;i++){
+            axios.post("http://localhost:8000/api/transactions/period",{
+                userId: userId,
+                date: {$gte: new Date(arrayMonthStartDate[i]), $lt: new Date(arrayMonthEndDate[i])},
+                type: "income",
+            }, {withCredentials: true})
+                .then(res => {
+                    console.log(res.data)
+                    
+                    if(res.data==""){
+                        arrayIncome.push(0)
+                        console.log(arrayIncome)
+                    }else{
+                        let sum = []
+                        res.data.forEach(el=>sum.push(el.amount))
+                        let suma = sum.reduce((a,b)=>(a+b))
+                        arrayIncome.push(suma)
+                        //console.log(sum)
+                        console.log(arrayIncome)
+                    }
+                   
+                })
+                .catch(error => console.log(error));    
+        }
+        
+        console.log(arrayIncome)
+
+
+        
+    }, []);
 
         // const fu = (arrayLabels, arrayIncome, arrayExpenses) =>{
         //     let newData = []
