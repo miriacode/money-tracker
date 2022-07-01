@@ -1,18 +1,26 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {arrayMonthStartDate, arrayMonthEndDate} from "../../../../helpers/getStartAndEndDate"
+import {arrayMonthLabels} from "../../../../helpers/getLabelForChart"
+import { useAmount } from "../../../../hooks/useAmount";
+
+import {builtDataForChart} from "../../../../helpers/builtDataForChart"
 
 import styles from "./../GraphicSection/GraphicSection.module.css"
 
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import { useSum } from "../../../../hooks/useSum";
+
 
 const GraphicSection = ({userId, theme}) => {
-    const [data, setData] = useState([
-            {milestone: 'Jan', Income: 0, Expenses: 0},
+
+    const [data, setData] = useState(
+        [
+            {milestone: 'Jan', Income: 400, Expenses: 200},
             {milestone: 'Feb', Income:0, Expenses:0},
             {milestone: 'Mar', Income: 0, Expenses: 0},
             {milestone: 'Apr', Income: 0, Expenses: 0},
-            {milestone: 'May', Income: 0, Expenses: 0},
+            {milestone: 'May', Income: 500, Expenses: 200},
             {milestone: 'Jun', Income: 0, Expenses: 0},
             {milestone: 'Jul', Income:0, Expenses:0},
             {milestone: 'Aug', Income: 0, Expenses: 0},
@@ -20,115 +28,117 @@ const GraphicSection = ({userId, theme}) => {
             {milestone: 'Oct', Income: 0, Expenses: 0},
             {milestone: 'Nov', Income: 0, Expenses: 0},
             {milestone: 'Dec', Income: 0, Expenses: 0},
-    ])
+        ]
+    )
+    
+    // let am = useSum(userId,'income',arrayMonthStartDate,arrayMonthEndDate)
+    // const [newData, setNewData] = useState(null)
 
-    useEffect(() => {
-        console.log(arrayMonthStartDate)
-        console.log(arrayMonthEndDate)
+    // const [arrayInfo, setArrayInfo] = useState([])
+    // const [arrayIncome, setArrayIncome] = useState([])
+    // const [arrayExpenses, setArrayExpenses] = useState([])
 
-        let arrayIncome=[]
-        let arrayExpenses=[]
 
-        for(let i=0;i<arrayMonthStartDate.length;i++){
-            axios.post("http://localhost:8000/api/transactions/period",{
-                userId: userId,
-                date: {$gte: new Date(arrayMonthStartDate[i]), $lt: new Date(arrayMonthEndDate[i])},
-                type: "income",
-            }, {withCredentials: true})
-                .then(res => {
-                    console.log(res.data)
+    // useEffect(() => {
+    //     //Aqui se le pasa
+    //     setData([])
+    // }, [newData]);
+
+    // useEffect(()=>{
+    //     console.log(arrayInfo)
+    // },[arrayInfo])
+
+
+    // useEffect(() => {
+
+    //     for(let i=0;i<arrayMonthStartDate.length;i++){
+    //         axios.post("http://localhost:8000/api/transactions/period",{
+    //             userId: userId,
+    //             date: {$gte: new Date(arrayMonthStartDate[i]), $lt: new Date(arrayMonthEndDate[i])},
+    //             type: "income",
+    //         }, {withCredentials: true})
+    //             .then(res => {
+    //                 console.log(res.data)
+    //                 setArrayInfo([...arrayInfo,2])
                     
-                    if(res.data==""){
-                        arrayIncome.push(0)
-                        console.log(arrayIncome)
-                    }else{
-                        let sum = []
-                        res.data.forEach(el=>sum.push(el.amount))
-                        let suma = sum.reduce((a,b)=>(a+b))
-                        arrayIncome.push(suma)
-                        //console.log(sum)
-                        console.log(arrayIncome)
-                    }
-                   
-                })
-                .catch(error => console.log(error));    
-        }
-        
-        console.log(arrayIncome)
+    //                 // if(res.data==[]){
+    //                 //     //array.push(0)
+    //                 //     setArrayIncome([...arrayIncome,0])
+    //                 //     console.log("Hola"+arrayIncome)
+                    
+    //                 // }
+    //                 // else{
+    //                 //     let sum = [0]
+    //                 //     res.data.forEach(el=>sum.push(el.amount))
+    //                 //     let suma = sum.reduce((a,b)=>(a+b))
+    //                 //     //array.push(suma)
+    //                 //     setArrayExpenses(...arrayIncome,suma)
 
+    //                 // }
+    //               //setArrayIncome(array)
+    //             })
+    //             .catch(error => console.log(error)); 
+    //         }
 
-        
-    }, []);
-
-        // const fu = (arrayLabels, arrayIncome, arrayExpenses) =>{
-        //     let newData = []
-        //     for(let i=0; i<arrayLabels.length; i++){
-        //         newData.push(new Object(arrayLabels[i],arrayIncome[i],arrayExpenses[i]))
-        //     }
-        //     return newData
-        // }
-
-        // useEffect(() => {
             
-        // }, []);
+            // for(let i=0;i<arrayMonthStartDate.length;i++){
+            //     axios.post("http://localhost:8000/api/transactions/period",{
+            //         userId: userId,
+            //         date: {$gte: new Date(arrayMonthStartDate[i]), $lt: new Date(arrayMonthEndDate[i])},
+            //         type: "expenses",
+            //     }, {withCredentials: true})
+            //         .then(res => {
+            //             console.log(res.data)
+                        
+            //             if(res.data==""){
+            //                 //array.push(0)
+            //                 setArrayExpenses([...arrayExpenses,0])
+            //                 //console.log(arrayIncome)
+                        
+            //             }
+            //             else{
+            //                 let sum = []
+            //                 res.data.forEach(el=>sum.push(el.amount))
+            //                 let suma = sum.reduce((a,b)=>(a+b))
+            //                 //array.push(suma)
+            //                 setArrayExpenses([...arrayExpenses,suma])
+            //                 // console.log("yy"+array)
+                       
+            //                 //console.log(arrayIncome)
+            //             }
+            //            //setArrayExpenses(array)
+            //         })
+            //         .catch(error => console.log(error));    
+            //     }
+            
+        
+    // }, []);
 
-        // useEffect(() => {
-        //     //By default: Yearly
-        //     let todayArray = new Date().toDateString().split(" ")
-        //     let beginningOfThisYear = `${todayArray[3]}-01-01`
-        //     let nextYearArray = new Date(new Date().getFullYear()+1, 0, 1).toDateString().split(" ")
-        //     let beginningOfNextYear = `${nextYearArray[3]}-01-01`
-    
-        //     axios.post("http://localhost:8000/api/transactions/period",{
-        //         userId: userId,
-        //         date: {$gte: new Date(beginningOfThisYear), $lt: new Date(beginningOfNextYear)},
-        //         type: "income",
-        //     }, {withCredentials: true})
-        //         .then(res => {
-        //             let response = res.data
-        //             let array = [0]
-        //             response.map(el=>array.push(el.amount))
-        //             let totalAmount = array.reduce((a,b)=>a+b)
-        //             setTotalIncome(totalAmount)
-        //             }
-        //         )
-        //         .catch(error => console.log(error));
-    
-        //         axios.post("http://localhost:8000/api/transactions/period",{
-        //             userId: userId,
-        //             date: {$gte: new Date(beginningOfThisYear), $lt: new Date(beginningOfNextYear)},
-        //             type: "expense",
-        //         }, {withCredentials: true})
-        //             .then(res => {
-        //                 let response = res.data
-        //                 let array = [0]
-        //                 response.map(el=>array.push(el.amount))
-        //                 let totalAmount = array.reduce((a,b)=>a+b)
-        //                 setTotalExpenses(totalAmount)
-        //                 }
-        //             )
-        //             .catch(error => console.log(error));
-        // }, [userId]);
+        
+    // useEffect(() => {
+    //     // console.log(builtDataForChart(arrayMonthLabels,arrayy, arrayy2))
+    //     console.log(arrayMonthLabels)
+    // }, [arrayIncome, arrayExpenses]);
 
+    const handleGraphYearly = () =>{
+        // console.log(am)
+        setData([])
+    }
 
-    // const data = [
-    //     {name: 'Jan', Income: 2400, Expenses: 2000},
-    //     {name: 'Feb', Income: 800, Expenses: 400},
-    //     {name: 'Mar', Income: 2400, Expenses: 1500},
-    //     {name: 'Apr', Income: 2500, Expenses: 2000},
-    //     {name: 'May', Income: 2700, Expenses: 1700},
-    //     {name: 'Jun', Income: 1300, Expenses: 1900},
-    //     {name: 'Jul', Income: 800, Expenses: 400},
-    //     {name: 'Aug', Income: 2400, Expenses: 1500},
-    //     {name: 'Sep', Income: 2500, Expenses: 2000},
-    //     {name: 'Oct', Income: 2700, Expenses: 1700},
-    //     {name: 'Nov', Income: 1300, Expenses: 1900},
-    //     {name: 'Dec', Income: 2000, Expenses: 1300},
-    // ];
+    const handleGraphMonthly = () =>{
+        setData([])
+    }
 
+    const handleGraphWeekly = () =>{
+        setData([])
+    }
 
+    const handleGraphDaily= () =>{
+        setData([])
+    }
+
+    //Theme
     const [currentTheme, setCurrentTheme] = useState({});
-
     useEffect(() => {
         if(theme=="light"){
             setCurrentTheme(
@@ -153,10 +163,10 @@ const GraphicSection = ({userId, theme}) => {
             <div className={styles.graphic__label}>
                 <h2 className={styles.graphic__title}>My balance history</h2>
                 <div className={styles.graphic__buttons}>
-                    <button >Y</button>
-                    <button >M</button>
-                    <button >W</button>
-                    <button>D</button>
+                    <button onClick={handleGraphYearly}>Y</button>
+                    <button onClick={handleGraphMonthly}>M</button>
+                    <button onClick={handleGraphWeekly}>W</button>
+                    <button onClick={handleGraphDaily}>D</button>
                 </div>
             </div>
 
@@ -175,21 +185,18 @@ const GraphicSection = ({userId, theme}) => {
                         </linearGradient>
                     </defs>
                     <XAxis dataKey="milestone" tick={{ fill: currentTheme.color }} tickLine={{ stroke: currentTheme.color }} />
-                    {/* <YAxis/> */}
                     <YAxis tick={{ fill: currentTheme.color }} tickLine={{ stroke: currentTheme.color }} />
                     <CartesianGrid className={styles.grid} strokeDasharray="1 16" />
-                    {/* <Legend layout="vetical" verticalAlign="middle" align="right" height={36} width={130}/> */}
                     <Legend verticalAlign="bottom"></Legend>
-                 
                     <Tooltip contentStyle={{backgroundColor: currentTheme.backgroundColor, color: currentTheme.color, borderRadius:"0.5rem", fontSize:"0.8rem", border:"none"}} /> 
-                    
-
+                
                     <Area type="monotone" dataKey="Income" stroke="#00D6BD" fillOpacity={0.5} fill="url(#colorPv)" />
                     <Area type="monotone" dataKey="Expenses" stroke="#ff7a95" fillOpacity={0.6} fill="url(#colorUv)" />
                 </AreaChart>
                 </ResponsiveContainer>
-                </div>
             </div>
+
+        </div>
 
     )
 }

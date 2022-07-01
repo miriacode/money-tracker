@@ -6,11 +6,9 @@ const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const [errors, setErrors] = useState("");
 
     const navigate = useNavigate();
-
 
     const login = (e) => {
         e.preventDefault();
@@ -33,25 +31,31 @@ const Login = () => {
     }
 
     return (
-            <div className="col-6">
-                <h2>Log In</h2> 
+        <div>
+            <div>
+                <h2>Hello, Friend</h2>
+                <p>Enter your personal details and start journey with us</p>
+                <button>Sign Up</button>
+            </div>
+            <div >
+                <h2>Sign In</h2> 
                 <form onSubmit={login}>
-                    <div className="form-group">
+                    <div >
                         <label htmlFor="emailLogin">E-mail</label>
-                        <input type="email" name="emailLogin" id="emailLogin" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="email" name="emailLogin" id="emailLogin" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
-                    <div className="form-group">
+                    <div >
                         <label htmlFor="passwordLogin">Password</label>
-                        <input type="password" name="passwordLogin" id="passwordLogin" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" name="passwordLogin" id="passwordLogin" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div>
-                        {errors !== "" ? <span className="text-danger">{errors}</span> : null}
+                        {errors !== "" ? <span>{errors}</span> : null}
                     </div>
-                    <input type="submit" value="Log In" className="btn btn-primary" />
+                    <input type="submit" value="Log In"/>
                 </form>
-
                 <p>You don't have an account?</p><Link to="/register">Register</Link>
             </div>
+        </div>
     )
 
 }
