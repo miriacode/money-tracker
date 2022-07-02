@@ -5,7 +5,7 @@ import styles from "./../GraphicSection/GraphicSection.module.css"
 //Library
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 //Helpers
-import { thisYear, thisMonth, nextMonth } from "../../../../helpers/dates";
+import { thisYear, thisMonth, nextMonth, thisMonday, nextMonday } from "../../../../helpers/dates";
 
 const GraphicSection = ({userId, theme}) => {
 
@@ -38,19 +38,18 @@ const GraphicSection = ({userId, theme}) => {
             })
             .catch(error => console.log(error));
     }
-    // const handleThisWeekGraph = () =>{
-    //     axios.post("http://localhost:8000/api/transactions/period3",{
-    //         userId:userId,
-    //         startDate:`${thisYear}-01-01`,
-    //         endDate:`${thisYear+1}-01-01`,
-    //         period:"THISYEAR"
-    //     }, {withCredentials: true})
-    //         .then(res => {
-    //             setData(res.data)
-    //         })
-    //         .catch(error => console.log(error));
-    // }
-
+    const handleThisWeekGraph = () =>{
+        axios.post("http://localhost:8000/api/transactions/period3",{
+            userId:userId,
+            startDate:`${thisMonday}`,
+            endDate:`${nextMonday}`,
+            period:"THISWEEK"
+        }, {withCredentials: true})
+            .then(res => {
+                setData(res.data)
+            })
+            .catch(error => console.log(error));
+    }
 
     //Theme
     const [currentTheme, setCurrentTheme] = useState({});
@@ -80,7 +79,7 @@ const GraphicSection = ({userId, theme}) => {
                 <div className={styles.graphic__buttons}>
                     <button onClick={handleThisYearGraph}>Y</button>
                     <button onClick={handleThisMonthGraph}>M</button>
-                    {/* <button onClick={handleThisWeekGraph}>W</button>*/}
+                    <button onClick={handleThisWeekGraph}>W</button>
                 </div>
             </div>
 
