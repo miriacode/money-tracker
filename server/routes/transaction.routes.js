@@ -9,6 +9,10 @@ module.exports = app => {
 
     app.post("/api/transactions/period", authenticate, TransactionController.getAmountByUserByPeriod);
 
+    app.post("/api/transactions/period2", authenticate, TransactionController.getAmountByUserByPeriodForChart);
+
+    app.post("/api/transactions/period3", authenticate, TransactionController.getForChart);
+
     app.get("/api/transactions/last5/find/:userId", authenticate, TransactionController.getLast6ByUser);
 
     app.get("/api/transactions/:id", authenticate, TransactionController.getTransaction);

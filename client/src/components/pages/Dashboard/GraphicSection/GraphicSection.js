@@ -1,15 +1,12 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {arrayMonthStartDate, arrayMonthEndDate} from "../../../../helpers/getStartAndEndDate"
-import {arrayMonthLabels} from "../../../../helpers/getLabelForChart"
-import { useAmount } from "../../../../hooks/useAmount";
-
-import {builtDataForChart} from "../../../../helpers/builtDataForChart"
 
 import styles from "./../GraphicSection/GraphicSection.module.css"
 
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-import { useSum } from "../../../../hooks/useSum";
+
+
+// import t from "../../../../../../server/service/transactions.service"
 
 
 const GraphicSection = ({userId, theme}) => {
@@ -31,111 +28,38 @@ const GraphicSection = ({userId, theme}) => {
         ]
     )
     
-    // let am = useSum(userId,'income',arrayMonthStartDate,arrayMonthEndDate)
-    // const [newData, setNewData] = useState(null)
-
-    // const [arrayInfo, setArrayInfo] = useState([])
-    // const [arrayIncome, setArrayIncome] = useState([])
-    // const [arrayExpenses, setArrayExpenses] = useState([])
 
 
-    // useEffect(() => {
-    //     //Aqui se le pasa
+    useEffect(() => {
+        axios.post("http://localhost:8000/api/transactions/period3",{
+            userId:userId,
+            startDate:"2022-01-01",
+            endDate:"2022-12-31",
+            period:"THISYEAR"
+        }, {withCredentials: true})
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(error => console.log(error));
+    
+    }, []);
+        
+
+
+    const handleThisYearGraph = () =>{
+        setData([])
+    }
+    // const handleGraphMonthly = () =>{
     //     setData([])
-    // }, [newData]);
+    // }
 
-    // useEffect(()=>{
-    //     console.log(arrayInfo)
-    // },[arrayInfo])
+    // const handleGraphWeekly = () =>{
+    //     setData([])
+    // }
 
-
-    // useEffect(() => {
-
-    //     for(let i=0;i<arrayMonthStartDate.length;i++){
-    //         axios.post("http://localhost:8000/api/transactions/period",{
-    //             userId: userId,
-    //             date: {$gte: new Date(arrayMonthStartDate[i]), $lt: new Date(arrayMonthEndDate[i])},
-    //             type: "income",
-    //         }, {withCredentials: true})
-    //             .then(res => {
-    //                 console.log(res.data)
-    //                 setArrayInfo([...arrayInfo,2])
-                    
-    //                 // if(res.data==[]){
-    //                 //     //array.push(0)
-    //                 //     setArrayIncome([...arrayIncome,0])
-    //                 //     console.log("Hola"+arrayIncome)
-                    
-    //                 // }
-    //                 // else{
-    //                 //     let sum = [0]
-    //                 //     res.data.forEach(el=>sum.push(el.amount))
-    //                 //     let suma = sum.reduce((a,b)=>(a+b))
-    //                 //     //array.push(suma)
-    //                 //     setArrayExpenses(...arrayIncome,suma)
-
-    //                 // }
-    //               //setArrayIncome(array)
-    //             })
-    //             .catch(error => console.log(error)); 
-    //         }
-
-            
-            // for(let i=0;i<arrayMonthStartDate.length;i++){
-            //     axios.post("http://localhost:8000/api/transactions/period",{
-            //         userId: userId,
-            //         date: {$gte: new Date(arrayMonthStartDate[i]), $lt: new Date(arrayMonthEndDate[i])},
-            //         type: "expenses",
-            //     }, {withCredentials: true})
-            //         .then(res => {
-            //             console.log(res.data)
-                        
-            //             if(res.data==""){
-            //                 //array.push(0)
-            //                 setArrayExpenses([...arrayExpenses,0])
-            //                 //console.log(arrayIncome)
-                        
-            //             }
-            //             else{
-            //                 let sum = []
-            //                 res.data.forEach(el=>sum.push(el.amount))
-            //                 let suma = sum.reduce((a,b)=>(a+b))
-            //                 //array.push(suma)
-            //                 setArrayExpenses([...arrayExpenses,suma])
-            //                 // console.log("yy"+array)
-                       
-            //                 //console.log(arrayIncome)
-            //             }
-            //            //setArrayExpenses(array)
-            //         })
-            //         .catch(error => console.log(error));    
-            //     }
-            
-        
-    // }, []);
-
-        
-    // useEffect(() => {
-    //     // console.log(builtDataForChart(arrayMonthLabels,arrayy, arrayy2))
-    //     console.log(arrayMonthLabels)
-    // }, [arrayIncome, arrayExpenses]);
-
-    const handleGraphYearly = () =>{
-        // console.log(am)
-        setData([])
-    }
-
-    const handleGraphMonthly = () =>{
-        setData([])
-    }
-
-    const handleGraphWeekly = () =>{
-        setData([])
-    }
-
-    const handleGraphDaily= () =>{
-        setData([])
-    }
+    // const handleGraphDaily= () =>{
+    //     setData([])
+    // }
 
     //Theme
     const [currentTheme, setCurrentTheme] = useState({});
@@ -163,10 +87,10 @@ const GraphicSection = ({userId, theme}) => {
             <div className={styles.graphic__label}>
                 <h2 className={styles.graphic__title}>My balance history</h2>
                 <div className={styles.graphic__buttons}>
-                    <button onClick={handleGraphYearly}>Y</button>
-                    <button onClick={handleGraphMonthly}>M</button>
+                    <button onClick={handleThisYearGraph}>Y</button>
+                    {/* <button onClick={handleGraphMonthly}>M</button>
                     <button onClick={handleGraphWeekly}>W</button>
-                    <button onClick={handleGraphDaily}>D</button>
+                    <button onClick={handleGraphDaily}>D</button> */}
                 </div>
             </div>
 
