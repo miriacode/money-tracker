@@ -1,65 +1,56 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-
+//Styles
 import styles from "./../GraphicSection/GraphicSection.module.css"
-
+//Library
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-
-
-// import t from "../../../../../../server/service/transactions.service"
-
+//Helpers
+import { thisYear, thisMonth, nextMonth } from "../../../../helpers/dates";
 
 const GraphicSection = ({userId, theme}) => {
 
-    const [data, setData] = useState(
-        [
-            {milestone: 'Jan', Income: 400, Expenses: 200},
-            {milestone: 'Feb', Income:0, Expenses:0},
-            {milestone: 'Mar', Income: 0, Expenses: 0},
-            {milestone: 'Apr', Income: 0, Expenses: 0},
-            {milestone: 'May', Income: 500, Expenses: 200},
-            {milestone: 'Jun', Income: 0, Expenses: 0},
-            {milestone: 'Jul', Income:0, Expenses:0},
-            {milestone: 'Aug', Income: 0, Expenses: 0},
-            {milestone: 'Sep', Income: 0, Expenses: 0},
-            {milestone: 'Oct', Income: 0, Expenses: 0},
-            {milestone: 'Nov', Income: 0, Expenses: 0},
-            {milestone: 'Dec', Income: 0, Expenses: 0},
-        ]
-    )
+    const [data, setData] = useState([])
     
-
-
     useEffect(() => {
+        handleThisYearGraph()
+    }, []); 
+    const handleThisYearGraph = () =>{
         axios.post("http://localhost:8000/api/transactions/period3",{
             userId:userId,
-            startDate:"2022-01-01",
-            endDate:"2022-12-31",
+            startDate:`${thisYear}-01-01`,
+            endDate:`${thisYear+1}-01-01`,
             period:"THISYEAR"
         }, {withCredentials: true})
             .then(res => {
-                console.log(res.data)
+                setData(res.data)
             })
             .catch(error => console.log(error));
-    
-    }, []);
-        
-
-
-    const handleThisYearGraph = () =>{
-        setData([])
     }
-    // const handleGraphMonthly = () =>{
-    //     setData([])
+    const handleThisMonthGraph = () =>{
+        axios.post("http://localhost:8000/api/transactions/period3",{
+            userId:userId,
+            startDate:`${thisYear}-${thisMonth}-01`,
+            endDate:`${thisYear}-${nextMonth}-01`,
+            period:"THISMONTH"
+        }, {withCredentials: true})
+            .then(res => {
+                setData(res.data)
+            })
+            .catch(error => console.log(error));
+    }
+    // const handleThisWeekGraph = () =>{
+    //     axios.post("http://localhost:8000/api/transactions/period3",{
+    //         userId:userId,
+    //         startDate:`${thisYear}-01-01`,
+    //         endDate:`${thisYear+1}-01-01`,
+    //         period:"THISYEAR"
+    //     }, {withCredentials: true})
+    //         .then(res => {
+    //             setData(res.data)
+    //         })
+    //         .catch(error => console.log(error));
     // }
 
-    // const handleGraphWeekly = () =>{
-    //     setData([])
-    // }
-
-    // const handleGraphDaily= () =>{
-    //     setData([])
-    // }
 
     //Theme
     const [currentTheme, setCurrentTheme] = useState({});
@@ -88,9 +79,8 @@ const GraphicSection = ({userId, theme}) => {
                 <h2 className={styles.graphic__title}>My balance history</h2>
                 <div className={styles.graphic__buttons}>
                     <button onClick={handleThisYearGraph}>Y</button>
-                    {/* <button onClick={handleGraphMonthly}>M</button>
-                    <button onClick={handleGraphWeekly}>W</button>
-                    <button onClick={handleGraphDaily}>D</button> */}
+                    <button onClick={handleThisMonthGraph}>M</button>
+                    {/* <button onClick={handleThisWeekGraph}>W</button>*/}
                 </div>
             </div>
 
@@ -121,7 +111,6 @@ const GraphicSection = ({userId, theme}) => {
             </div>
 
         </div>
-
     )
 }
 

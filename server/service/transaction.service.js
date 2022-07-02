@@ -10,36 +10,23 @@ module.exports.sortTransactionsByPeriodForChart = async(request) => {
       date: {$gte: new Date(request.startDate), $lt: new Date(request.endDate)},
     }
     const responseIncome = await Transaction.find({ ...requestBuilt, type: "income" },{_id: 0, userId: 0, type:0, title:0, description:0, category:0, createdAt:0, updatedAt:0 })
-    console.log(responseIncome)
 
     const responseExpenses = await Transaction.find({ ...requestBuilt, type: "expense" },{_id: 0, userId: 0, type:0, title:0, description:0, category:0, createdAt:0, updatedAt:0 })
-    console.log(responseExpenses)
-
+  
     if (request.period === "THISYEAR") {
-        return sortThisYear(responseIncome, responseExpenses)//Jan,Feb
+        return sortAmount(months, responseIncome, responseExpenses)
+    }else if(request.period === "THISMONTH"){
+      return sortAmount(days, responseIncome, responseExpenses)
     }
 
-    // if (request.period === "THISMONTH") {
-    //     return sortThisMonth(incomes, expenses)
-    // }
-    // if (request.period === "THISWEEK") {
-    //     return sortWeekly(incomes, expenses)//this
-    // }
-    // if (request.period === "THISDAY") {
-    //     return sortDaily(incomes, expenses)
-    // };
-  }
-        
+}
 
-    
-   
-    
-    
-    
 
-  const sortThisYear = (income, expenses) => {//todos los incomes y esxpenses de este amo
-    let thisYear = new Date().getFullYear()
-    const months = [
+//Variables
+let thisYear = new Date().getFullYear()
+let thisMonth = new Date().getMonth()+1;
+
+const months = [
       {month: "Jan", startDate: `${thisYear}-01-01`, endDate: `${thisYear}-01-31`},
       {month: "Feb", startDate: `${thisYear}-02-01`, endDate: `${thisYear}-02-28`},
       {month: "Mar", startDate: `${thisYear}-03-01`, endDate: `${thisYear}-03-31`},
@@ -52,10 +39,42 @@ module.exports.sortTransactionsByPeriodForChart = async(request) => {
       {month: "Oct", startDate: `${thisYear}-10-01`, endDate: `${thisYear}-10-31`},
       {month: "Nov", startDate: `${thisYear}-11-01`, endDate: `${thisYear}-11-30`},
       {month: "Dic", startDate: `${thisYear}-12-01`, endDate: `${thisYear}-12-31`},
-    ];
-    const incomesAndExpensesThisYear = [];
-    for (const m of months) {
-      const { month, startDate, endDate } = m;
+];
+
+let numberOfDaysThisMonth =new Date(thisYear, thisMonth, 0).getDate()
+
+const getNextMonthnumber = () =>{
+    let nextMonthNumber = new Date().getMonth()+2;
+    if(nextMonthNumber===13){
+        nextMonthNumber = 1
+    }
+    return nextMonthNumber
+}
+
+let nextMonthNumber = getNextMonthnumber();
+
+const getMonthDays = () =>{
+     const days = []
+     for(i=1;i<=numberOfDaysThisMonth;i++){
+      if(i==numberOfDaysThisMonth){
+        days.push({month: i, startDate: `${thisYear}-${thisMonth}-${i}`, endDate: `${thisYear}-${nextMonthNumber}-01`})
+      }else if(12==numberOfDaysThisMonth){
+        days[days.length-1].endDate = `${thisYear+1}-01-01`   
+      }else{
+        days.push({month: i, startDate: `${thisYear}-${thisMonth}-${i}`, endDate: `${thisYear}-${thisMonth}-${i+1}`})
+      }
+      
+    }
+    return days
+};  
+let days = getMonthDays();
+
+
+//Main Function
+const sortAmount = (template, income, expenses) => {
+    const incomesAndExpenses = [];
+    for (const t of template) {
+      const { month, startDate, endDate } = t;
       const response = { milestone: month, Income: 0, Expenses: 0 };
       income.forEach(income => {
         const date = income.date;
@@ -71,12 +90,8 @@ module.exports.sortTransactionsByPeriodForChart = async(request) => {
         }
       });
   
-      incomesAndExpensesThisYear.push(response);
+      incomesAndExpenses.push(response);
     }
   
-    return incomesAndExpensesThisYear;
+    return incomesAndExpenses;
 }
-
-
-// module.exports.sortTransactionsByPeriodForChart();
-  

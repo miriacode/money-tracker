@@ -25,7 +25,7 @@ module.exports.getForChart = (req, res) => {
     // sortTransactionsByPeriodForChart(req)
     TransactionService.sortTransactionsByPeriodForChart(req.body)
     //.then(() => res.json({}))
-.then(transactions => res.json(transactions))
+    .then(transactions => res.json(transactions))
     .catch(error => res.status(400).json(error)); //[{amount:200, date:"2022-01-01"}]
 }
 
