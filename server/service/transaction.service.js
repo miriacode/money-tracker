@@ -17,6 +17,8 @@ module.exports.sortTransactionsByPeriodForChart = async(request) => {
         return sortAmount(months, responseIncome, responseExpenses)
     }else if(request.period === "THISMONTH"){
       return sortAmount(days, responseIncome, responseExpenses)
+    }else{
+      return sortAmount(weekDays, responseIncome, responseExpenses)
     }
 
 }
@@ -69,6 +71,31 @@ const getMonthDays = () =>{
 };  
 let days = getMonthDays();
 
+const getMonday = (d) => {
+  var day = d.getDay(),
+      diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+  const newDate = new Date(d.setDate(diff));
+  return newDate
+}
+
+const addDays =(date, days) => {
+  const copy = new Date(Number(date))
+  copy.setDate(date.getDate() + days) //Returns the full date
+  let u = copy.toISOString().split('T')[0] //Returns the date in String
+  return u
+}
+
+const thisMonday = getMonday(new Date())
+
+const weekDays = [
+  {month: "Mon", startDate: `${thisMonday}`, endDate: `${addDays(thisMonday+1)}`},
+  {month: "Tue", startDate: `${addDays(thisMonday+1)}`, endDate: `${addDays(thisMonday+2)}`},
+  {month: "Wed", startDate: `${addDays(thisMonday+2)}`, endDate: `${addDays(thisMonday+3)}`},
+  {month: "Thr", startDate: `${addDays(thisMonday+3)}`, endDate: `${addDays(thisMonday+4)}`},
+  {month: "Fri", startDate: `${addDays(thisMonday+4)}`, endDate: `${addDays(thisMonday+5)}`},
+  {month: "Sat", startDate: `${addDays(thisMonday+5)}`, endDate: `${addDays(thisMonday+6)}`},
+  {month: "Sun", startDate: `${addDays(thisMonday+6)}`, endDate: `${addDays(thisMonday+7)}`},
+]
 
 //Main Function
 const sortAmount = (template, income, expenses) => {
