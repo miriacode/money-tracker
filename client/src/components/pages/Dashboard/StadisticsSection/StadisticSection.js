@@ -3,6 +3,7 @@ import axios from "axios";
 
 //Styles
 import styles from "./StadisticsSection.module.css"
+import Dropdown from "../Dropdown/Dropdown";
 
 const StadisticsSection = ({userId}) => {
 
@@ -11,6 +12,8 @@ const StadisticsSection = ({userId}) => {
 
     const [incomePercentage, setIncomePercentage] = useState(0);
     const [expensePercentage, setExpensePercentage] = useState(0);
+
+    const [selected, setSelected] = useState("Choose One");
 
     useEffect(() => {
         //By default: Yearly
@@ -192,6 +195,8 @@ const StadisticsSection = ({userId}) => {
                     <button onClick={handleDateWeekly}>W</button>
                     <button onClick={handleDateDaily}>D</button>
                 </div>
+
+                <Dropdown selected={selected} setSelected={setSelected}></Dropdown>
                 {/* <select>
                         <option value="First-Mate">First Mate</option>
                         <option value="Quarter-Master">Quarter Master</option>
