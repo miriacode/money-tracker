@@ -13,7 +13,7 @@ const StadisticsSection = ({userId}) => {
     const [incomePercentage, setIncomePercentage] = useState(0);
     const [expensePercentage, setExpensePercentage] = useState(0);
 
-    const [selected, setSelected] = useState("Choose One");
+
 
     useEffect(() => {
         //By default: Yearly
@@ -93,8 +93,8 @@ const StadisticsSection = ({userId}) => {
         }
     }
 
-    const handleDateYearly = (e) =>{
-        e.preventDefault()
+    const handleDateYearly = () =>{
+        // e.preventDefault()
         setTotalIncome(0)
         setTotalExpenses(0)
         let todayArray = new Date().toDateString().split(" ")//['Tue', 'May', '31', '2022']
@@ -108,8 +108,8 @@ const StadisticsSection = ({userId}) => {
         setPercentages();
     }
 
-    const handleDateMonthly = (e) =>{
-        e.preventDefault()
+    const handleDateMonthly = () =>{
+        // e.preventDefault()
         setTotalIncome(0)
         setTotalExpenses(0)
         let todayArray = new Date().toDateString().split(" ")
@@ -141,8 +141,8 @@ const StadisticsSection = ({userId}) => {
         return monthNumber
     }
 
-    const handleDateWeekly = (e) =>{
-        e.preventDefault()
+    const handleDateWeekly = () =>{
+        // e.preventDefault()
         setTotalIncome(0)
         setTotalExpenses(0)
         let todayArray = new Date().toDateString().split(" ")//['Tue', 'May', '31', '2022']
@@ -158,8 +158,8 @@ const StadisticsSection = ({userId}) => {
         setPercentages();
     }
 
-    const handleDateDaily = (e) =>{
-        e.preventDefault()
+    const handleDateDaily = () =>{
+        // e.preventDefault()
         setTotalIncome(0)
         setTotalExpenses(0)
         let todayArray = new Date().toDateString().split(" ")//['Tue', 'May', '31', '2022']
@@ -189,14 +189,21 @@ const StadisticsSection = ({userId}) => {
         <div className={styles.stadistics}>
             <div className={styles.stadistics__label}>
                 <h2 className={styles.stadistics__title}>Stadistics</h2>
-                <div>
+                {/* <div>
                     <button onClick={handleDateYearly}>Y</button>
                     <button onClick={handleDateMonthly}>M</button>
                     <button onClick={handleDateWeekly}>W</button>
                     <button onClick={handleDateDaily}>D</button>
-                </div>
+                </div> */}
 
-                <Dropdown selected={selected} setSelected={setSelected}></Dropdown>
+                <Dropdown 
+         
+                    // handleDateDaily={handleDateDaily}
+                    actions={[handleDateYearly, handleDateMonthly, handleDateWeekly, handleDateDaily]}
+                    options={["This Year","This Month","This Week","Today"]}>
+                    
+                    {/* actions={[handleDateYearly,handleDateMonthly,handleDateWeekly, handleDateDaily]} */}
+                </Dropdown>
                 {/* <select>
                         <option value="First-Mate">First Mate</option>
                         <option value="Quarter-Master">Quarter Master</option>
