@@ -1,10 +1,8 @@
-//const TransactionController = require("../controllers/transaction.controller");//hacer un nuevo q me retorne un amount y date de todas
-
 const Transaction = require("../models/transaction.model");
 
 module.exports.sortTransactionsByPeriodForChart = async(request) => { 
-    //Request->userId,startDate,endDate,perid
-    //ejm: 1/2022-01-01/2022-12-31/THIS YEAR
+    //Request->userId,startDate,endDate,period
+    console.log(request.startDate)
     const requestBuilt = {
       userId: request.userId,
       date: {$gte: new Date(request.startDate), $lt: new Date(request.endDate)},
@@ -12,15 +10,14 @@ module.exports.sortTransactionsByPeriodForChart = async(request) => {
     const responseIncome = await Transaction.find({ ...requestBuilt, type: "income" },{_id: 0, userId: 0, type:0, title:0, description:0, category:0, createdAt:0, updatedAt:0 })
 
     const responseExpenses = await Transaction.find({ ...requestBuilt, type: "expense" },{_id: 0, userId: 0, type:0, title:0, description:0, category:0, createdAt:0, updatedAt:0 })
-  
+
     if (request.period === "THISYEAR") {
         return sortAmount(months, responseIncome, responseExpenses)
     }else if(request.period === "THISMONTH"){
       return sortAmount(days, responseIncome, responseExpenses)
-    }else{
+    }else if(request.period === "THISWEEK"){
       return sortAmount(weekDays, responseIncome, responseExpenses)
     }
-
 }
 
 
@@ -73,29 +70,30 @@ let days = getMonthDays();
 
 const getMonday = (d) => {
   var day = d.getDay(),
-      diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+      diff = d.getDate() - day + (day == 0 ? -6:1);
   const newDate = new Date(d.setDate(diff));
   return newDate
 }
 
 const addDays =(date, days) => {
   const copy = new Date(Number(date))
-  copy.setDate(date.getDate() + days) //Returns the full date
-  let u = copy.toISOString().split('T')[0] //Returns the date in String
+  copy.setDate(date.getDate() + days)
+  let u = copy.toISOString().split('T')[0]
   return u
 }
 
 const thisMonday = getMonday(new Date())
 
 const weekDays = [
-  {month: "Mon", startDate: `${thisMonday}`, endDate: `${addDays(thisMonday+1)}`},
-  {month: "Tue", startDate: `${addDays(thisMonday+1)}`, endDate: `${addDays(thisMonday+2)}`},
-  {month: "Wed", startDate: `${addDays(thisMonday+2)}`, endDate: `${addDays(thisMonday+3)}`},
-  {month: "Thr", startDate: `${addDays(thisMonday+3)}`, endDate: `${addDays(thisMonday+4)}`},
-  {month: "Fri", startDate: `${addDays(thisMonday+4)}`, endDate: `${addDays(thisMonday+5)}`},
-  {month: "Sat", startDate: `${addDays(thisMonday+5)}`, endDate: `${addDays(thisMonday+6)}`},
-  {month: "Sun", startDate: `${addDays(thisMonday+6)}`, endDate: `${addDays(thisMonday+7)}`},
+  {month: "Mon", startDate: `${addDays(thisMonday,0)}`, endDate: `${addDays(thisMonday,1)}`},
+  {month: "Tue", startDate: `${addDays(thisMonday,1)}`, endDate: `${addDays(thisMonday,2)}`},
+  {month: "Wed", startDate: `${addDays(thisMonday,2)}`, endDate: `${addDays(thisMonday,3)}`},
+  {month: "Thr", startDate: `${addDays(thisMonday,3)}`, endDate: `${addDays(thisMonday,4)}`},
+  {month: "Fri", startDate: `${addDays(thisMonday,4)}`, endDate: `${addDays(thisMonday,5)}`},
+  {month: "Sat", startDate: `${addDays(thisMonday,5)}`, endDate: `${addDays(thisMonday,6)}`},
+  {month: "Sun", startDate: `${addDays(thisMonday,6)}`, endDate: `${addDays(thisMonday,7)}`},
 ]
+
 
 //Main Function
 const sortAmount = (template, income, expenses) => {
@@ -105,14 +103,14 @@ const sortAmount = (template, income, expenses) => {
       const response = { milestone: month, Income: 0, Expenses: 0 };
       income.forEach(income => {
         const date = income.date;
-        if (date > new Date(startDate) && date < new Date(endDate)) {
+        if (date >= new Date(startDate) && date < new Date(endDate)) {
           response.Income += income.amount;
         }
       });
   
       expenses.forEach(expense => {
         const date = expense.date;
-        if (date > new Date(startDate) && date < new Date(endDate)) {
+        if (date >= new Date(startDate) && date < new Date(endDate)) {
           response.Expenses += expense.amount;
         }
       });
