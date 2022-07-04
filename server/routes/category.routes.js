@@ -9,7 +9,7 @@ module.exports = app => {
     //MOD
     app.get("/api/categories/:categoryName",  authenticate, CategoryController.getCategoryColor);
 
-    app.get("/api/categories/:id", authenticate, CategoryController.getCategory);
+    app.get("/api/categories/id/:id", authenticate, CategoryController.getCategory);
     
     app.put("/api/categories/:id", authenticate,  CategoryController.updateCategory);
 
