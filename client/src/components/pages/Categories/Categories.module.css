@@ -142,6 +142,8 @@
 }
 
 .card__edit {
+  cursor: pointer;
+  background-color: transparent;
   color: var(--color-text-secondary);
   padding-right: 0.65rem;
 }

@@ -147,7 +147,10 @@ const Categories = ({userId, theme}) => {
                                 <div>
                                     <button 
                                         className={styles.card__edit}
-                                        onClick={(e) => setUpdateCategoryClicked(true)}>
+                                        onClick={(e) => {
+                                            setUpdateCategoryClicked(true)
+                                            setActiveCategoryId(category._id)
+                                            }}>
                                         <EditIcon></EditIcon>
                                     </button>
                                          

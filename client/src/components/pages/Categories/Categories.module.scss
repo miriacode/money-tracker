@@ -195,11 +195,10 @@
 
 //Card
 .card__edit{
-    // width: 1vw;
-    // height: 2vh;
-    // background-color: ;
-   color: var(--color-text-secondary);
-   padding-right:0.65rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    padding-right:0.65rem;
 }
 
 .card__delete{
