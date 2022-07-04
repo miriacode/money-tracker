@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+
+import Dropdown from "../Dropdown/Dropdown";
 //Styles
 import styles from "./../GraphicSection/GraphicSection.module.css"
+
 //Library
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 //Helpers
 import { thisYear, thisMonth, nextMonth, thisMonday, nextMonday } from "../../../../helpers/dates";
+
 
 const GraphicSection = ({userId, theme}) => {
 
@@ -76,11 +80,16 @@ const GraphicSection = ({userId, theme}) => {
 
             <div className={styles.graphic__label}>
                 <h2 className={styles.graphic__title}>My balance history</h2>
-                <div className={styles.graphic__buttons}>
+                {/* <div className={styles.graphic__buttons}>
                     <button onClick={handleThisYearGraph}>Y</button>
                     <button onClick={handleThisMonthGraph}>M</button>
                     <button onClick={handleThisWeekGraph}>W</button>
-                </div>
+                </div> */}
+               
+                <Dropdown 
+                    actions={[handleThisYearGraph, handleThisMonthGraph, handleThisWeekGraph]}
+                    options={["This Year","This Month","This Week"]}>
+                </Dropdown>
             </div>
 
             <div className={styles.graphic}>

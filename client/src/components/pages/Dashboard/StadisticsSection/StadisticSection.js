@@ -189,41 +189,12 @@ const StadisticsSection = ({userId}) => {
         <div className={styles.stadistics}>
             <div className={styles.stadistics__label}>
                 <h2 className={styles.stadistics__title}>Stadistics</h2>
-                {/* <div>
-                    <button onClick={handleDateYearly}>Y</button>
-                    <button onClick={handleDateMonthly}>M</button>
-                    <button onClick={handleDateWeekly}>W</button>
-                    <button onClick={handleDateDaily}>D</button>
-                </div> */}
-
                 <Dropdown 
-         
-                    // handleDateDaily={handleDateDaily}
                     actions={[handleDateYearly, handleDateMonthly, handleDateWeekly, handleDateDaily]}
                     options={["This Year","This Month","This Week","Today"]}>
-                    
-                    {/* actions={[handleDateYearly,handleDateMonthly,handleDateWeekly, handleDateDaily]} */}
                 </Dropdown>
-                {/* <select>
-                        <option value="First-Mate">First Mate</option>
-                        <option value="Quarter-Master">Quarter Master</option>
-                        <option value="Boatswain">Boatswain</option>
-                        <option value="Powder-Monkey">Powder Monkey</option>
-                </select> */}
-            {/* <div className={styles.dropdown}>
-                <div className={styles.select}>
-                    <span>Select Gender</span>
-                    <i className={`${styles.fa} ${styles.fa-chevron-left}`}></i>
-                </div>
-                <input type="hidden" name="gender"/>
-                <ul className={styles.dropdownMenu}>
-                    <li id="male">Male</li>
-                    <li id="female">Female</li>
-                </ul>
-                </div>*/}
             </div> 
             
-
             <div className={styles.stadistics__container}>
                 <div className={styles.stadistics__card}>
                     <div className={styles.stadistics__description}>
@@ -246,9 +217,7 @@ const StadisticsSection = ({userId}) => {
                     <div class={`${styles.pie} ${styles.animate}`} style={incomePercentageCircleStyles}>{incomePercentage+"%"}</div>
                 </div>
             </div>
-           
-            {/* <div class={styles.pie} style="--p:80;--c:orange;"> 80%</div> */}
-            
+
         </div>
     )
 }

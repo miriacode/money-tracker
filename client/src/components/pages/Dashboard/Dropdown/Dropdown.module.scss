@@ -13,6 +13,8 @@
     // background-color: red;
     //font-size: var(--font-step--3);
     font-size: 1rem;
+
+    // color: var(--color-primary-text);
     
 }
 
@@ -22,7 +24,7 @@
     height: 100%;
     padding: 0.15rem 0.75rem;
     background-color:var(--color-component);
-    color: var(--color-primary-text);
+    color: var(--color-text-primary);
     //BOxsHAD0W
     border-radius: 0.25rem;
     overflow: none;
@@ -49,7 +51,7 @@
     z-index: 1;
     
     background-color:var(--color-component);
-    color: var(--color-primary-text);
+    color: var(--color-text-primary);
     //padding: 10px;
     // background : #fff ; 
     // box-shadow : 3px 3px 10px 6px rgba ( 0 , 0 , 0 , 0.06 ) ;
