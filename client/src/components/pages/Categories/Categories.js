@@ -11,9 +11,10 @@ import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CircleIcon from '@mui/icons-material/Circle';
-// import { Button } from "@mui/material";
-// import { set } from "mongoose";
+
+//Components
 import NewCategory from "../NewCategory/NewCategory";
+import UpdateCategory from "../UpdateCategory/UpdateCategory";
 import RightMenu from "../../RightMenu/RightMenu";
 
 const Categories = ({userId, theme}) => {
@@ -73,18 +74,10 @@ const Categories = ({userId, theme}) => {
     }
 
     //NEW CATEGORY
-    const [newCategoryClicked, setNewCategoryClicked] = useState(null);
+    const [newCategoryClicked, setNewCategoryClicked] = useState(false);
+    const [updateCategoryClicked, setUpdateCategoryClicked] = useState(false);
+    const [activeCategoryId, setActiveCategoryId] = useState(null)
 
-    const click = (state) =>{
-        setNewCategoryClicked(state)
-    }
-
-
-    //Colors of the circle
-    // const colors = [
-    //     "#4a4bff","#ff7788","#00bab3","#ff7788","#fdd26e","#69aff2","#F576B8"
-    // ]
-    
     return (
         <>
         <div className={styles.page}>
@@ -92,7 +85,13 @@ const Categories = ({userId, theme}) => {
                 <h2 className={styles.page__title}>Categories</h2>
                 <div className={styles.categories__label}>
                     <h2 className={styles.categories__title}>Favorite Categories</h2>
-                    <button className={styles.categories__add} onClick={(e) => setNewCategoryClicked(true)}><AddIcon fontSize="small"></AddIcon>Add Category</button>
+                    <button 
+                        className={styles.categories__add} 
+                        onClick={(e) => setNewCategoryClicked(true)}>
+                            <AddIcon fontSize="small">
+                            </AddIcon>
+                            Add Category
+                    </button>
                 </div>
                 <ul className={styles.categories__favoriteCategories}>
                     {favoriteCategoryList.map(category=>
@@ -116,12 +115,23 @@ const Categories = ({userId, theme}) => {
                                     <p>{category.categoryName}</p>
                                 </div>
                                 <div>
-                                    <Link className={styles.card__edit} to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
-                                    <button className={styles.card__delete} onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
+                                    <button 
+                                        className={styles.card__edit}
+                                        onClick={(e) => {
+                                            setUpdateCategoryClicked(true)
+                                            setActiveCategoryId(category._id)
+                                            }}>
+                                        <EditIcon></EditIcon>
+                                    </button>
+                                         
+                                    <button 
+                                        className={styles.card__delete} 
+                                        onClick={() => deleteCategory(category._id)}>
+                                        <DeleteIcon></DeleteIcon>
+                                    </button>
                                 </div>
                             </div>
-                            ))
-                            }
+                            ))}
                         </div>
                     </div>
                     <div>
@@ -134,8 +144,19 @@ const Categories = ({userId, theme}) => {
                                     <p>{category.categoryName}</p>
                                 </div>
                                 
-                                <Link className={styles.card__edit} to={"/categories/update/"+category._id}><EditIcon></EditIcon></Link> 
-                                <button className={styles.card__delete} onClick={() => deleteCategory(category._id)}><DeleteIcon/></button>
+                                <div>
+                                    <button 
+                                        className={styles.card__edit}
+                                        onClick={(e) => setUpdateCategoryClicked(true)}>
+                                        <EditIcon></EditIcon>
+                                    </button>
+                                         
+                                    <button 
+                                        className={styles.card__delete} 
+                                        onClick={() => deleteCategory(category._id)}>
+                                        <DeleteIcon></DeleteIcon>
+                                    </button>
+                                </div>
                             </div>
                             ))
                             }
@@ -145,10 +166,23 @@ const Categories = ({userId, theme}) => {
             </div>
         </div>
         <RightMenu userId={userId} theme={theme}></RightMenu>
-        {newCategoryClicked?
 
-        <NewCategory userId={userId} click={click}></NewCategory> 
+        {newCategoryClicked?
+            <NewCategory 
+                userId={userId} 
+                click={setNewCategoryClicked}>
+            </NewCategory> 
         :null}
+
+        {updateCategoryClicked?
+            <UpdateCategory 
+                userId={userId}
+                categoryId={activeCategoryId}
+                click={setUpdateCategoryClicked}>
+            </UpdateCategory> 
+        :null}
+
+        {updateCategoryClicked? console.log(activeCategoryId):null}
         </>
     )
 }
