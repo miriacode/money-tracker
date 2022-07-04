@@ -37,12 +37,11 @@ const NewCategory = ({userId, click}) => {
                 console.log(res.data)
                 window.location.reload();
                 click(null)
-            }
-            )
+            })
             .catch(error => setErrors(error.response.data.errors));
     }
 
-    const returnButton = () => {
+    const returnToPreviousPage = () => {
         click(null)
     }
 
@@ -51,30 +50,52 @@ const NewCategory = ({userId, click}) => {
             <div className={styles.popup}>
                 <h2 className={styles.popup__title}>New Category</h2>
 
-                <form onSubmit={saveCategory} className={styles.newCategory}>
-                    <div>
-                        <div className="form-check">
-                            <label>
-                            Type:
-                                <select value={type} onChange={(e) => setType(e.target.value)}>
-                                    <option value="expense">Expense</option>
-                                    <option value="income">Income</option>
-                                </select>
+                <form onSubmit={saveCategory} className={styles.category}>
+                    <div className={styles.category__center}>
+                        <div className={styles.category__control}>
+                            <label
+                                className={styles.category__label}>
+                                Type: 
                             </label>
+                            <select
+                                className={styles.category__select} 
+                                value={type} 
+                                onChange={(e) => setType(e.target.value)}>
+                                <option value="expense">Expense</option>
+                                <option value="income">Income</option>
+                            </select>
                         </div>
 
-                        <div>
+                        <div className={styles.category__control}>
                             <label htmlFor="categoryName">Category Name:</label>
-                            <input className={styles.newCategory__input} type="text" id="categoryName" name="categoryName" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
-                            {errors.categoryName? <span className={styles.newCategory__error}>{errors.categoryName.message}</span> : null}
+                            <input 
+                                className={styles.category__input} 
+                                type="text"
+                                id="categoryName"
+                                name="categoryName"
+                                value={categoryName}
+                                onChange={(e) => setCategoryName(e.target.value)} 
+                            />
                         </div>
+                            {errors.categoryName? <span className={styles.category__error}>{errors.categoryName.message}</span> : null}
+                        
                     </div>
-                    <div>
-                        <button className={styles.newCategory__button} onClick={returnButton}><ArrowBackIcon style={{fontSize:"1.125rem"}}></ArrowBackIcon>Return</button>
-                        <input className={styles.newCategory__button} type="submit" value="Create" />
+
+                    <div className={styles.category__bottom}>
+                        <button
+                            className={styles.category__button}
+                            onClick={returnToPreviousPage}>
+                            <ArrowBackIcon style={{fontSize:"1.125rem"}}></ArrowBackIcon>
+                            Return
+                        </button>
+
+                        <input 
+                            className={styles.category__button} 
+                            type="submit"
+                            value="Create"
+                        />
                     </div>
                 </form>
-
             </div>
         </div>
         
