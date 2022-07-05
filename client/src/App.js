@@ -120,7 +120,7 @@ function App() {
           <Route exact path="/categories" element={userId?<Categories userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/categories/update/:id"element={userId?<UpdateCategory userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/transactions/:id"element={userId?<Transaction userId={userId} theme={theme}/>:<AuthenticationError/>} />
-          <Route exact path="/transactions/new"element={userId?<NewTransaction userId={userId}/>:<AuthenticationError/>} />
+          <Route exact path="/transactions/new"element={userId?<NewTransaction userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/transactions/update/:id"element={userId?<UpdateTransaction userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/profile"element={userId?<Profile userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/profile/edit"element={userId?<UpdateProfile userId={userId} theme={theme}/>:<AuthenticationError/>} />

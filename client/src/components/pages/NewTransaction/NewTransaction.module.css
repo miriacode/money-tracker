@@ -83,6 +83,10 @@
   pointer-events: none;
 }
 
+.transaction__input__date__dark {
+  color-scheme: dark;
+}
+
 .transaction__bottom {
   display: flex;
   justify-content: center;
@@ -106,7 +110,11 @@
 }
 
 .error {
-  color: #fe5b5b;
+  color: var(--color-error);
   font-size: calc(var(--step--3) * 0.9);
   padding-left: 20%;
+}
+
+.transaction__input__error {
+  border: 2px solid var(--color-error);
 }/*# sourceMappingURL=NewTransaction.module.css.map */

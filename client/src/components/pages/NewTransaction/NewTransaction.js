@@ -7,7 +7,7 @@ import styles from './NewTransaction.module.css'
 
 import RightMenu from '../../RightMenu/RightMenu'
 
-const NewTransaction = ({userId}) => {
+const NewTransaction = ({userId, theme}) => {
     const [type, setType] = useState("expense");
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -62,7 +62,9 @@ const NewTransaction = ({userId}) => {
                 <div className={styles.transaction__control}>
                     <label htmlFor="title" className={styles.transaction__label}>Title:</label>
                     <input 
-                        className={`${styles.transaction__input} ${styles.transaction__input__text}`}
+                        className={errors.title?
+                                    `${styles.transaction__input} ${styles.transaction__input__text} ${styles.transaction__input__error}`:
+                                    `${styles.transaction__input} ${styles.transaction__input__text}`}
                         type="text" 
                         id="title" 
                         name="title" 
@@ -85,7 +87,9 @@ const NewTransaction = ({userId}) => {
                 <div className={styles.transaction__control}>
                     <label htmlFor="amount" className={styles.transaction__label}>Amount</label>$
                     <input 
-                        className={`${styles.transaction__input} ${styles.transaction__input__number}`}
+                        className={errors.title?
+                            `${styles.transaction__input} ${styles.transaction__input__text} ${styles.transaction__input__error}`:
+                            `${styles.transaction__input} ${styles.transaction__input__number}`}
                         type="number" 
                         id="amount" 
                         name="amount"
@@ -97,10 +101,12 @@ const NewTransaction = ({userId}) => {
                 <div className={styles.transaction__control}>
                     <label className={styles.transaction__label}>Category:</label>
                         <select
-                            className={`${styles.transaction__input} ${styles.transaction__input__select}`}
+                            className={errors.title?
+                                `${styles.transaction__input} ${styles.transaction__input__text} ${styles.transaction__input__error}`:
+                                `${styles.transaction__input} ${styles.transaction__input__select}`}
                             value={category} 
                             onChange={(e) => setCategory(e.target.value)}>
-                            <option>-----</option>
+                            <option>--------</option>
                             {type==="expense"?
                                 categoryList.filter(category=>category.type==="expense")
                                             .map((category,index)=>(
@@ -124,7 +130,9 @@ const NewTransaction = ({userId}) => {
                 <div className={styles.transaction__control}>
                     <label className={styles.transaction__label}>Date</label>
                     <input 
-                        className={`${styles.transaction__input} ${styles.transaction__input__date}`}
+                        className={theme==="light"?
+                        `${styles.transaction__input} ${styles.transaction__input__date}`: 
+                        `${styles.transaction__input} ${styles.transaction__input__date} ${styles.transaction__input__date__dark}`}
                         type="date" 
                         value={date} 
                         onChange={(e) => setDate(e.target.value)}/>

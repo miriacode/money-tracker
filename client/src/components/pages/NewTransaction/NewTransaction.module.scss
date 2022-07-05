@@ -75,11 +75,9 @@
     
 }
 
-// .transaction__input__text{
-//     display:block;
-//     width:100%;
-//     height: 100%;
-// }
+.transaction__input__date__dark{
+    color-scheme: dark;
+}
 
 
 .transaction__bottom{
@@ -109,7 +107,14 @@
 
 
 .error{
-    color: #fe5b5b;
+    // background-color: pink;
+    // position: absolute;
+    // bottom: 5%;
+    color: var(--color-error);
     font-size: calc(var(--step--3)*0.9);
     padding-left:20%;
+}
+
+.transaction__input__error{
+    border: 2px solid var(--color-error);
 }
