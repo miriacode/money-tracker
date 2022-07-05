@@ -1,11 +1,11 @@
 import React from "react";
 import ShowTransaction from "./ShowTransaction/ShowTransaction";
 
-const Transaction = () => {
+const Transaction = ({userId, theme}) => {
     return (
         <div>
             <h2>---Transaction---</h2>
-            <ShowTransaction></ShowTransaction>
+            <ShowTransaction userId={userId} theme={theme}></ShowTransaction>
         </div>
     )
 }

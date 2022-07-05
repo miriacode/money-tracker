@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useParams, Link} from "react-router-dom";
+import RightMenu from "../../../RightMenu/RightMenu";
 
-const ShowTransaction = () => {
+
+
+const ShowTransaction = ({userId, theme}) => {
     
     const {id} = useParams();
     const [transaction, setTransaction] = useState({});
@@ -12,7 +15,6 @@ const ShowTransaction = () => {
     useEffect(() =>{
         axios.get("http://localhost:8000/api/transactions/"+id,{withCredentials: true})
             .then(res => {
-                console.log(res.data)
                 setTransaction(res.data)
                 let date = new Date(res.data.date).toUTCString().split(" ")
                 setDate(`${date[2]} ${date[1]}, ${date[3]}`)
@@ -22,27 +24,31 @@ const ShowTransaction = () => {
     
 
     return (
-        <div>
-            <h2>Show Transaction</h2>
+        <>
             <div>
+                <h2>Show Transaction</h2>
                 <div>
-                    <Link to={"/transactions/update/"+id}>Update</Link>
+                    <div>
+                        <Link to={"/transactions/update/"+id}>Update</Link>
+                    </div>
+                    <p>Type:</p>
+                    <p> {transaction.type}</p>
+                    <p>Category:</p> 
+                    <p>{transaction.category}</p>
+                    <p>Title:</p>
+                    <p>{transaction.title}</p> 
+                    <p>Description:</p>  
+                    <p>{transaction.description}</p>
+                    <p>Amount:</p>  
+                    <p>{transaction.amount}</p>
+                    <p>Date</p>
+                    <p>{date}</p>
                 </div>
-                <p>Type:</p>
-                <p> {transaction.type}</p>
-                <p>Category:</p> 
-                <p>{transaction.category}</p>
-                <p>Title:</p>
-                <p>{transaction.title}</p> 
-                <p>Description:</p>  
-                <p>{transaction.description}</p>
-                <p>Amount:</p>  
-                <p>{transaction.amount}</p>
-                <p>Date</p>
-                <p>{date}</p>
+                
             </div>
-            
-        </div>
+            <RightMenu userId={userId} theme={theme}></RightMenu>
+            {/* <RightMenu></RightMenu> */}
+        </>
     )
 }
 
