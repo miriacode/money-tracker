@@ -60,7 +60,11 @@ const NewTransaction = ({userId, theme}) => {
                 </div>
 
                 <div className={styles.transaction__control}>
-                    <label htmlFor="title" className={styles.transaction__label}>Title:</label>
+                    <label 
+                        htmlFor="title" 
+                        className={styles.transaction__label}>
+                        Title:
+                    </label>
                     <input 
                         className={errors.title?
                                     `${styles.transaction__input} ${styles.transaction__input__text} ${styles.transaction__input__error}`:
