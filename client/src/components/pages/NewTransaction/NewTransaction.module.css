@@ -65,22 +65,30 @@
 
 .transaction__input__select {
   display: block;
-  width: auto;
+  width: 20%;
+  text-align: center;
 }
 
 .transaction__input__text {
   width: 80%;
+  padding: 0 0.8rem 0 0.8rem;
 }
 
 .transaction__input__textarea {
   display: block;
   width: 80%;
   resize: none;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
-.transaction__input__number::before {
-  background-color: #fe5b5b;
-  pointer-events: none;
+.transaction__input__number {
+  text-align: center;
+  width: 18%;
+}
+
+.transaction__input__date {
+  width: 20%;
+  text-align: center;
 }
 
 .transaction__input__date__dark {

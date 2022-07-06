@@ -69,7 +69,10 @@ const NewTransaction = ({userId, theme}) => {
                         id="title" 
                         name="title" 
                         value={title} 
-                        onChange={(e) => setTitle(e.target.value)}/>   
+                        onChange={(e) => {
+                                setTitle(e.target.value)
+                                const {title, ...rest} = errors;
+                                setErrors(rest)}}/>   
                 </div>
                     {errors.title? <span className={styles.error}>{errors.title.message}</span> : null}
                 <div className={styles.transaction__control__big}>
@@ -87,26 +90,32 @@ const NewTransaction = ({userId, theme}) => {
                 <div className={styles.transaction__control}>
                     <label htmlFor="amount" className={styles.transaction__label}>Amount</label>$
                     <input 
-                        className={errors.title?
-                            `${styles.transaction__input} ${styles.transaction__input__text} ${styles.transaction__input__error}`:
+                        className={errors.amount?
+                            `${styles.transaction__input} ${styles.transaction__input__number} ${styles.transaction__input__error}`:
                             `${styles.transaction__input} ${styles.transaction__input__number}`}
                         type="number" 
                         id="amount" 
                         name="amount"
                         value={amount} 
-                        min={0}
-                        onChange={(e) => setAmount(e.target.value)}/> 
+                        // min={0}
+                        onChange={(e) => {
+                            setAmount(e.target.value)
+                            const {amount, ...rest} = errors;
+                            setErrors(rest)}}/> 
                 </div>
                     {errors.amount ? <span className={styles.error}>{errors.amount.message}</span> : null}
                 <div className={styles.transaction__control}>
                     <label className={styles.transaction__label}>Category:</label>
                         <select
-                            className={errors.title?
-                                `${styles.transaction__input} ${styles.transaction__input__text} ${styles.transaction__input__error}`:
+                            className={errors.category?
+                                `${styles.transaction__input} ${styles.transaction__input__select} ${styles.transaction__input__error}`:
                                 `${styles.transaction__input} ${styles.transaction__input__select}`}
                             value={category} 
-                            onChange={(e) => setCategory(e.target.value)}>
-                            <option>--------</option>
+                            onChange={(e) => {
+                                setCategory(e.target.value)
+                                const {category, ...rest} = errors;
+                                setErrors(rest)}}>
+                            <option>------------</option>
                             {type==="expense"?
                                 categoryList.filter(category=>category.type==="expense")
                                             .map((category,index)=>(
@@ -131,11 +140,17 @@ const NewTransaction = ({userId, theme}) => {
                     <label className={styles.transaction__label}>Date</label>
                     <input 
                         className={theme==="light"?
-                        `${styles.transaction__input} ${styles.transaction__input__date}`: 
-                        `${styles.transaction__input} ${styles.transaction__input__date} ${styles.transaction__input__date__dark}`}
+                        errors.date?`${styles.transaction__input} ${styles.transaction__input__date} ${styles.transaction__input__error}`: 
+                        `${styles.transaction__input} ${styles.transaction__input__date} `:
+                        errors.date?`${styles.transaction__input} ${styles.transaction__input__date} ${styles.transaction__input__date__dark} ${styles.transaction__input__error}`: 
+                        `${styles.transaction__input} ${styles.transaction__input__date} ${styles.transaction__input__date__dark}`
+                        }
                         type="date" 
                         value={date} 
-                        onChange={(e) => setDate(e.target.value)}/>
+                        onChange={(e) => {
+                            setDate(e.target.value)
+                            const {date, ...rest} = errors;
+                            setErrors(rest)}}/>
                 </div>
                 {errors.date ? <span  className={styles.error}>{errors.date.message}</span> : null}
                 
