@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
 *{
   border:0;
@@ -21,6 +22,7 @@ body {
   /*Fonts*/
   --font-text-primary:'Poppins', sans-serif;
   --font-text-secondary:'Roboto', sans-serif;
+  --font-text-tertiary:'Open Sans', sans-serif;
 
   /*Light color palette*/
   --color-primary:hsl(173, 100%, 42%);

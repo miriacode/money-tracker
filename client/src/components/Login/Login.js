@@ -4,6 +4,9 @@ import {useNavigate, Link} from "react-router-dom";
 
 import styles from "./../Login/Login.module.css"
 
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+
 const Login = () => {
 
     const [email, setEmail] = useState("");
@@ -38,25 +41,43 @@ const Login = () => {
                 <div className={`${styles.box} ${styles.announce}`}>
                     <h2 className={styles.title}>Hello, Friend!</h2>
                     <p className={styles.paragraph}>Enter your personal details and start journey with us</p>
-                    <button className={`${styles.button}`}>SIGN UP</button>
+                    {/* <button >SIGN UP</button> */}
+                    <Link to="/register"className={`${styles.button}`}>SIGN UP</Link>
                 </div>
                 <div className={`${styles.box} ${styles.enter}`}>
-                    <h2>Sign In</h2> 
-                    <form onSubmit={login}>
-                        <div >
-                            <label htmlFor="emailLogin">E-mail</label>
-                            <input type="email" name="emailLogin" id="emailLogin" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <h2 className={styles.title}>Sign In</h2> 
+                    <form onSubmit={login} className={styles.form}>
+                        <div className={styles.control}>
+                            <EmailIcon  className={styles.icon} style={{fontSize:15}}/>
+                            <input
+                                className={styles.input}
+                                type="email" 
+                                name="emailLogin" 
+                                id="emailLogin"
+                                placeholder="Email" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)} />
                         </div>
-                        <div >
-                            <label htmlFor="passwordLogin">Password</label>
-                            <input type="password" name="passwordLogin" id="passwordLogin" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <div  className={styles.control}>
+                            <LockIcon  className={styles.icon} styles={{fontSize:"small"}}/>
+                            <input
+                                className={styles.input}
+                                type="password" 
+                                name="passwordLogin" 
+                                id="passwordLogin"
+                                placeholder="Password" 
+                                value={password} 
+                                onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div>
                             {errors !== "" ? <span>{errors}</span> : null}
                         </div>
-                        <input type="submit" value="Log In"/>
+                        <input 
+                            type="submit" 
+                            value="SIGN IN"
+                            className={`${styles.button} ${styles.submit}`}/>
                     </form>
-                    <p>You don't have an account?</p><Link to="/register">Register</Link>
+                    {/* <p>You don't have an account?</p> */}
                 </div>
         </div>
         </div>
