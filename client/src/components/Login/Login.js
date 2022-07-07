@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import axios from "axios";
 import {useNavigate, Link} from "react-router-dom";
 
+import styles from "./../Login/Login.module.css"
+
 const Login = () => {
 
     const [email, setEmail] = useState("");
@@ -31,30 +33,32 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <div>
-                <h2>Hello, Friend</h2>
-                <p>Enter your personal details and start journey with us</p>
-                <button>Sign Up</button>
-            </div>
-            <div >
-                <h2>Sign In</h2> 
-                <form onSubmit={login}>
-                    <div >
-                        <label htmlFor="emailLogin">E-mail</label>
-                        <input type="email" name="emailLogin" id="emailLogin" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                    <div >
-                        <label htmlFor="passwordLogin">Password</label>
-                        <input type="password" name="passwordLogin" id="passwordLogin" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-                    <div>
-                        {errors !== "" ? <span>{errors}</span> : null}
-                    </div>
-                    <input type="submit" value="Log In"/>
-                </form>
-                <p>You don't have an account?</p><Link to="/register">Register</Link>
-            </div>
+        <div className={styles.background}>
+            <div className={styles.container}>
+                <div className={`${styles.box} ${styles.announce}`}>
+                    <h2 className={styles.title}>Hello, Friend!</h2>
+                    <p className={styles.paragraph}>Enter your personal details and start journey with us</p>
+                    <button className={`${styles.button}`}>SIGN UP</button>
+                </div>
+                <div className={`${styles.box} ${styles.enter}`}>
+                    <h2>Sign In</h2> 
+                    <form onSubmit={login}>
+                        <div >
+                            <label htmlFor="emailLogin">E-mail</label>
+                            <input type="email" name="emailLogin" id="emailLogin" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        </div>
+                        <div >
+                            <label htmlFor="passwordLogin">Password</label>
+                            <input type="password" name="passwordLogin" id="passwordLogin" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        </div>
+                        <div>
+                            {errors !== "" ? <span>{errors}</span> : null}
+                        </div>
+                        <input type="submit" value="Log In"/>
+                    </form>
+                    <p>You don't have an account?</p><Link to="/register">Register</Link>
+                </div>
+        </div>
         </div>
     )
 
