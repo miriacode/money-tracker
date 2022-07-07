@@ -6,7 +6,7 @@ import SideMenu from "./components/sideMenu/SideMenu";
 
 import Dashboard from './components/pages/Dashboard/Dashboard'
 import AllTransactions from './components/pages/Transactions/AllTransactions'
-import Transaction from './components/pages/Transaction/Transaction'
+
 import NewTransaction from "./components/pages/NewTransaction/NewTransaction";
 import UpdateTransaction from "./components/pages/UpdateTransaction/UpdateTransaction";
 import Categories from "./components/pages/Categories/Categories";
@@ -29,6 +29,7 @@ import jwt_decode from "jwt-decode";
 
 //Styles
 import useLocalStorage from 'use-local-storage'
+import ShowTransaction from "./components/pages/ShowTransaction/ShowTransaction";
 
 // import { ThemeProvider, useTheme, createTheme } from '@mui/material/styles';
 // import { amber, deepOrange, grey } from '@mui/material/colors';
@@ -119,7 +120,7 @@ function App() {
           <Route exact path="/transactions" element={userId?<AllTransactions userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/categories" element={userId?<Categories userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/categories/update/:id"element={userId?<UpdateCategory userId={userId}/>:<AuthenticationError/>} />
-          <Route exact path="/transactions/:id"element={userId?<Transaction userId={userId} theme={theme}/>:<AuthenticationError/>} />
+          <Route exact path="/transactions/:id"element={userId?<ShowTransaction userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/transactions/new"element={userId?<NewTransaction userId={userId} theme={theme}/>:<AuthenticationError/>} />
           <Route exact path="/transactions/update/:id"element={userId?<UpdateTransaction userId={userId}/>:<AuthenticationError/>} />
           <Route exact path="/profile"element={userId?<Profile userId={userId} theme={theme}/>:<AuthenticationError/>} />
