@@ -41,14 +41,13 @@ const Login = () => {
                 <div className={`${styles.box} ${styles.announce}`}>
                     <h2 className={styles.title}>Hello, Friend!</h2>
                     <p className={styles.paragraph}>Enter your personal details and start journey with us</p>
-                    {/* <button >SIGN UP</button> */}
                     <Link to="/register"className={`${styles.button}`}>SIGN UP</Link>
                 </div>
                 <div className={`${styles.box} ${styles.enter}`}>
                     <h2 className={styles.title}>Sign In</h2> 
                     <form onSubmit={login} className={styles.form}>
                         <div className={styles.control}>
-                            <EmailIcon  className={styles.icon} style={{fontSize:15}}/>
+                            <EmailIcon  className={styles.icon}/>
                             <input
                                 className={styles.input}
                                 type="email" 
@@ -58,8 +57,9 @@ const Login = () => {
                                 value={email} 
                                 onChange={(e) => setEmail(e.target.value)} />
                         </div>
+                        {/* {errors.email !== "" ? <span>{errors.email}</span> : null} */}
                         <div  className={styles.control}>
-                            <LockIcon  className={styles.icon} styles={{fontSize:"small"}}/>
+                            <LockIcon  className={styles.icon}/>
                             <input
                                 className={styles.input}
                                 type="password" 
@@ -69,15 +69,13 @@ const Login = () => {
                                 value={password} 
                                 onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <div>
-                            {errors !== "" ? <span>{errors}</span> : null}
-                        </div>
+                        {/* {errors.password !== "" ? <span>{errors.password}</span> : null} */}
+                        {errors !== "" ? <span className={styles.errors}>{errors}</span> : null}
                         <input 
                             type="submit" 
                             value="SIGN IN"
                             className={`${styles.button} ${styles.submit}`}/>
                     </form>
-                    {/* <p>You don't have an account?</p> */}
                 </div>
         </div>
         </div>

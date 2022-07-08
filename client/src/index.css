@@ -52,7 +52,7 @@ body {
   --color-popup-input:rgba(194, 250, 230, 0.205);
   --color-popup-input2:rgba(197, 213, 207, 0.244);
 
-  --color-component-hover:hsla(0, 7%, 94%, 0.651);
+  --color-component-hover:#f1efefa6;
   --color-input-focus:#c3bfbfa7;
 
   --color-error:#fe5b5b;

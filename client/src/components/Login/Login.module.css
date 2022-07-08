@@ -89,6 +89,7 @@
 .control {
   width: 100%;
   height: 25%;
+  padding-left: 2%;
   background-color: rgba(241, 239, 239, 0.6509803922);
   display: flex;
   justify-content: space-between;
@@ -113,4 +114,10 @@
 
 .submit {
   height: 25%;
+}
+
+.errors {
+  color: #fe5b5b;
+  font-size: var(--step--3);
+  font-weight: 500;
 }/*# sourceMappingURL=Login.module.css.map */

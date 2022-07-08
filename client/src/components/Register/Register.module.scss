@@ -1,0 +1,22 @@
+@use './../session';
+
+.form{
+    width:100%;
+    height: 70%;
+    // background-color: purple;
+}
+.control{
+    margin-bottom: 4%;
+}
+// .control{
+//     width: 100%;
+//     height: 15%;
+// }
+
+.errors{
+    // position: absolute;
+    // z-index: 2;
+    display: block;
+    font-size: var(--step--3);
+    // background-color: yellow;
+}
