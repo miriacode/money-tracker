@@ -61,7 +61,7 @@ const LastTransactions = ({userId, theme}) => {
     return (
         <div className={styles.lastTransactions}>
 
-            <h2 className={styles.lastTransactions__title}>LastTransactions</h2>
+            <h2 className={styles.lastTransactions__title}>Last Transactions</h2>
 
             <ul className={styles.lastTransactions__list}>
 
