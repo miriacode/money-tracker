@@ -32,8 +32,10 @@ const Register = () => {
             email:email,
             password:password,
             confirmPassword: confirmPassword,
-            profilePictureURL:"uploads/profilePictureDefault.jpg",
-            // categories:[],
+            profilePictureURL:"profilePictureDefault.jpg",
+            cellphone:"",
+            location:"",
+            postalCode:"",
             // transactions:[],
 
         }, {withCredentials: true})
