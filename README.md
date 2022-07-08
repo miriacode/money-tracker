@@ -9,10 +9,6 @@ Money Tracker App es una aplicación diseñada para ayudar a las personas a llev
 
 https://user-images.githubusercontent.com/82735526/178062238-6534e9cb-8e7b-4608-b96d-fb7f587916a3.mp4
 
-<!-- ![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-light.jpg) -->
-
-<!-- ![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/categories-light.jpg) -->
-
 
 ## Funcionalidades 🛠
 - Inicio de sesión y registro de usuario.
@@ -40,6 +36,7 @@ Este proyecto fue desarrollado utilizando las siguientes tecnologías:
 ## License 🗒
 This project is under the [MIT license](https://github.com/miriacode/money-tracker/blob/main/LICENSE)
 
+![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/signIn-light.jpg)
 
 ![banner](https://raw.githubusercontent.com/miriacode/money-tracker/main/project-images/allTransactions-light.jpg)
 
