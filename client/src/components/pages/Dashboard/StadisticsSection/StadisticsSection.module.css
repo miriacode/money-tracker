@@ -13,7 +13,7 @@
 }
 
 .stadistics__label {
-  width: 100%;
+  width: 101.5%;
   display: flex;
   justify-content: space-between;
 }
@@ -29,7 +29,7 @@
 }
 
 .stadistics__card {
-  width: 100%;
+  width: 105%;
   padding: 1rem;
   border-radius: 1.15rem;
   background-color: var(--color-component);
