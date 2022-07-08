@@ -74,10 +74,10 @@
 .pie {
   --percentage:20;
   --border:0.75rem;
-  --color:red;
+  --color:hsl(173, 100%, 32%);
   --view:100px;
-  --color-corner-start:blue;
-  --color-corner-end:green;
+  --color-corner-start:hsl(173, 100%, 32%);
+  --color-corner-end:hsl(173, 79%, 76%);
   width: var(--view);
   aspect-ratio: 1;
   position: relative;
@@ -98,7 +98,7 @@
 
 .pie:before {
   inset: 0;
-  background: radial-gradient(farthest-side, var(--color-corner-start) 98%, rgba(0, 0, 0, 0)) top/var(--border) var(--border) no-repeat, conic-gradient(var(--color), green calc(var(--percentage) * 1%), rgba(0, 0, 0, 0) 0);
+  background: radial-gradient(farthest-side, var(--color-corner-start) 98%, rgba(0, 0, 0, 0)) top/var(--border) var(--border) no-repeat, conic-gradient(var(--color), hsl(173deg, 79%, 76%) calc(var(--percentage) * 1%), rgba(0, 0, 0, 0) 0);
   -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--border)), #000 calc(100% - var(--border)));
   mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--border)), #000 calc(100% - var(--border)));
 }

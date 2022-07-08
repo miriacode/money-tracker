@@ -64,6 +64,7 @@
     border-radius: 6px;
     font-weight: bold;
     color: var(--color-primary);
+  
    }
    .react-calendar__tile--hasActive:enabled:hover,
    .react-calendar__tile--hasActive:enabled:focus {
@@ -74,6 +75,7 @@
     border-radius: 6px;
     font-weight: bold;
     color: white;
+    color:green;
    }
    .react-calendar__tile--active:enabled:hover,
    .react-calendar__tile--active:enabled:focus {

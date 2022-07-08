@@ -26,10 +26,19 @@ const LastTransactions = ({userId, theme}) => {
                 //     // setDate()
                 // })
                 // setLastTransactions(y)
-  
+               
             })
             .catch(error => console.log(error));
     }, [userId]);
+
+  //   useEffect(() =>{
+  //     axios.get("http://localhost:8000/api/transactions/"+id,{withCredentials: true})
+  //         .then(res => {
+  //             setTransaction(res.data)
+              
+  //         })
+  //         .catch(error => console.log(error));
+  // }, [id])
 
     let lightTheme = {
         blue:{
@@ -71,7 +80,7 @@ const LastTransactions = ({userId, theme}) => {
 
                     <div className={styles.transaction__middle}>
                         <span className={styles.transaction__title}>{transaction.title}</span>
-                        <span className={styles.transaction__date}>Jun 16, 2022</span>
+                        <span className={styles.transaction__date}>{transaction.date.split("T")[0]}</span>
                     </div>
                     <div className={styles.transaction__end}>
                         <span className={styles.transaction__amount}>${transaction.amount}</span>

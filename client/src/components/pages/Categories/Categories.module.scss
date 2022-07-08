@@ -62,7 +62,9 @@
     border-radius: .75rem;
 
     margin-bottom: 1.4rem;
-
+    font-family: var(--font-text-primary);
+    font-weight: 500;
+    font-size: var(--step--1);
     //Flex
     display: flex;
     flex-direction: row;

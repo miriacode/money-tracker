@@ -114,10 +114,10 @@
     --border:0.75rem;
     // --border-corner:0.7rem;
     //OJO
-    --color:red;
+    --color:hsl(173, 100%, 32%);
     --view:100px;
-    --color-corner-start:blue;
-    --color-corner-end:green;
+    --color-corner-start:hsl(173, 100%, 32%);
+    --color-corner-end:hsl(173, 79%, 76%);
     // background-color: aqua;
   
     width: var(--view);
@@ -141,7 +141,7 @@
     inset: 0;
     background:
       radial-gradient(farthest-side,var(--color-corner-start) 98%,#0000) top/var(--border) var(--border) no-repeat,
-      conic-gradient(var(--color), green calc(var(--percentage)*1%),#0000 0);
+      conic-gradient(var(--color), hsl(173, 79%, 76%) calc(var(--percentage)*1%),#0000 0);
     -webkit-mask: radial-gradient(farthest-side,#0000 calc(99% - var(--border)),#000 calc(100% - var(--border)));
             mask: radial-gradient(farthest-side,#0000 calc(99% - var(--border)),#000 calc(100% - var(--border)));
   }

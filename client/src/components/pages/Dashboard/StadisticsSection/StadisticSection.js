@@ -176,13 +176,13 @@ const StadisticsSection = ({userId}) => {
     }
 
     let expensesPercentageCircleStyles = {
-        "--percentage":90,
-        "--color":"orange",
+        "--percentage":80,
+        // "--color":"red",
     }
 
     let incomePercentageCircleStyles = {
         "--percentage":62,
-        "--color":"orange",
+        // "--color":"orange",
     }
 
     return (
@@ -207,14 +207,24 @@ const StadisticsSection = ({userId}) => {
                         <h4>Total Expenses</h4>
                         <p>${totalExpenses}</p>
                     </div>
-                    <div class={`${styles.pie} ${styles.animate}`} style={expensesPercentageCircleStyles}>{expensePercentage+"%"}</div>
+                    <div 
+                        class={`${styles.pie} ${styles.animate}`} 
+                        style={expensesPercentageCircleStyles}>
+                        {/* {expensePercentage+"%"} */}
+                        80%
+                    </div>
                 </div>
                 <div className={styles.stadistics__card}>
                     <div className={styles.stadistics__description}>
                         <h4>Total Income</h4>
                         <p>${totalIncome}</p>
                     </div>
-                    <div class={`${styles.pie} ${styles.animate}`} style={incomePercentageCircleStyles}>{incomePercentage+"%"}</div>
+                    <div 
+                        class={`${styles.pie} ${styles.animate}`} 
+                        style={incomePercentageCircleStyles}>
+                        {/* {incomePercentage+"%"} */}
+                        62%
+                    </div>
                 </div>
             </div>
 
