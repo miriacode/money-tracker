@@ -17,7 +17,7 @@ import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 import RightMenu from "../../RightMenu/RightMenu";
 
 
-const Profile = ({userId, theme}) => {
+const Profile = ({userId}) => {
 
     const [user, setUser] = useState({});
     
@@ -110,7 +110,7 @@ const Profile = ({userId, theme}) => {
                     </div>
                 </div>
         </div>
-        <RightMenu userId={userId} theme={theme}></RightMenu>
+        <RightMenu userId={userId}></RightMenu>
         </>
     )
 }

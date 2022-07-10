@@ -7,7 +7,11 @@ import styles from './NewTransaction.module.css'
 
 import RightMenu from '../../RightMenu/RightMenu'
 
-const NewTransaction = ({userId, theme}) => {
+//ConextAPI
+import { useContext } from "react";
+import ThemeContext from './../../../context/ThemeContext'
+
+const NewTransaction = ({userId}) => {
     const [type, setType] = useState("expense");
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -19,6 +23,7 @@ const NewTransaction = ({userId, theme}) => {
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
+    const { theme } = useContext(ThemeContext);
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/categories/find/"+userId,{withCredentials: true})

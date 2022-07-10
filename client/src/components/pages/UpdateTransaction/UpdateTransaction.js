@@ -7,7 +7,11 @@ import styles from './UpdateTransaction.module.css'
 
 import RightMenu from '../../RightMenu/RightMenu'
 
-const UpdateTransaction = ({userId, theme}) => {
+//ConextAPI
+import { useContext } from "react";
+import ThemeContext from './../../../context/ThemeContext'
+
+const UpdateTransaction = ({userId}) => {
     
     const {id} = useParams();
 
@@ -21,6 +25,8 @@ const UpdateTransaction = ({userId, theme}) => {
     const [categoryList, setCategoryList] = useState([]);
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+
+    const { theme } = useContext(ThemeContext);
 
     useEffect(() =>{
         axios.get("http://localhost:8000/api/transactions/"+id,{withCredentials: true})

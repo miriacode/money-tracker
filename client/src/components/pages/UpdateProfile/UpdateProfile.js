@@ -23,7 +23,7 @@ import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 import RightMenu from '../../RightMenu/RightMenu'
 
 
-const EditProfile = ({userId, theme}) => {
+const EditProfile = ({userId}) => {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -188,7 +188,7 @@ const EditProfile = ({userId, theme}) => {
             </div>
             
         </div>
-        <RightMenu userId={userId} theme={theme}></RightMenu>        
+        <RightMenu userId={userId}></RightMenu>        
         </>
     )
 }

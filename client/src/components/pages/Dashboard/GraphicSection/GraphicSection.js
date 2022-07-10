@@ -10,10 +10,16 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 //Helpers
 import { thisYear, thisMonth, nextMonth, thisMonday, nextMonday } from "../../../../helpers/dates";
 
+//ConextAPI
+import { useContext } from "react";
+import ThemeContext from './../../../../context/ThemeContext'
 
-const GraphicSection = ({userId, theme}) => {
+
+const GraphicSection = ({userId}) => {
 
     const [data, setData] = useState([])
+
+    const { theme } = useContext(ThemeContext);
     
     useEffect(() => {
         handleThisYearGraph()

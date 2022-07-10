@@ -7,13 +7,18 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 //Styles
 import styles from "./../LastTransactions/LastTransactions.module.css"
-import { makeStyles } from "@mui/material";
+// import { makeStyles } from "@mui/material";
 
+//ContextAPI
+import { useContext } from "react";
+import ThemeContext from './../../../context/ThemeContext'
 
-const LastTransactions = ({userId, theme}) => {
+const LastTransactions = ({userId}) => {
 
     const [lastTransactions, setLastTransactions] = useState([])
     const [date, setDate] = useState([]);
+
+    const { theme, handleTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/transactions/last5/find/"+userId,{withCredentials: true})

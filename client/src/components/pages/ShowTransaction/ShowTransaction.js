@@ -8,7 +8,7 @@ import styles from './ShowTransaction.module.css'
 
 import EditIcon from '@mui/icons-material/Edit';
 
-const ShowTransaction = ({userId, theme}) => {
+const ShowTransaction = ({userId}) => {
     
     const {id} = useParams();
     const [transaction, setTransaction] = useState({});
@@ -64,7 +64,7 @@ const ShowTransaction = ({userId, theme}) => {
                 </div>
                 
             </div>
-            <RightMenu userId={userId} theme={theme}></RightMenu>
+            <RightMenu userId={userId}></RightMenu>
         </>
     )
 }

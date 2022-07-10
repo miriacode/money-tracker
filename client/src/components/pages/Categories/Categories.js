@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 //Styles
 import styles from "./Categories.module.css";
@@ -17,7 +17,7 @@ import NewCategory from "../NewCategory/NewCategory";
 import UpdateCategory from "../UpdateCategory/UpdateCategory";
 import RightMenu from "../../RightMenu/RightMenu";
 
-const Categories = ({userId, theme}) => {
+const Categories = ({userId}) => {
 
     const [incomeCategoryList, setIncomeCategoryList] = useState([]);
     const [expensesCategoryList, setExpensesCategoryList] = useState([]);
@@ -168,7 +168,7 @@ const Categories = ({userId, theme}) => {
                 </div>           
             </div>
         </div>
-        <RightMenu userId={userId} theme={theme}></RightMenu>
+        <RightMenu userId={userId}></RightMenu>
 
         {newCategoryClicked?
             <NewCategory 

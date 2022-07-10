@@ -9,14 +9,21 @@ import styles from './SideMenu.module.scss'
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
+//ContextAPI
+import { useContext } from "react";
+import ThemeContext from './../../context/ThemeContext'
 
-const SideMenu = ({userId, switchTheme, theme}) => {
+const SideMenu = ({userId}) => {
+
+    const { theme, handleTheme } = useContext(ThemeContext);
+
     const [user, setUser] = useState({});
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/"+userId,{withCredentials: true})
             .then(res => {
                 setUser(res.data)
+                console.log(res.data)
             })
             .catch(error => console.log(error));
     }, [userId,user]);
@@ -24,8 +31,10 @@ const SideMenu = ({userId, switchTheme, theme}) => {
     return (
         <div className={styles.sidemenu}>
             <div className={styles.sidemenu__theme}>
-                <button onClick={switchTheme} className={styles.sidemenu__button}>
-                {theme === 'light'? <DarkModeIcon className={styles.sidemenu__icon}></DarkModeIcon> : <LightModeIcon className={styles.sidemenu__icon}></LightModeIcon>}
+                <button onClick={handleTheme} className={styles.sidemenu__button}>
+                {theme === 'light'? 
+                    <DarkModeIcon className={styles.sidemenu__icon}></DarkModeIcon> :
+                    <LightModeIcon className={styles.sidemenu__icon}></LightModeIcon>}
                 </button>
             </div>
             <div className={styles.sidemenu__user}>

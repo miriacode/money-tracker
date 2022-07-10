@@ -9,12 +9,11 @@ import styles from "./Transactions.module.scss"
 
 import AddIcon from '@mui/icons-material/Add';
 
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-
+// import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 //Theme
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { deepOrange } from "@mui/material/colors";
-import { style } from "@mui/system";
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import { deepOrange } from "@mui/material/colors";
+// import { style } from "@mui/system";
 // import { border } from "@mui/system";
 
 //import { deepOrange } from '@mui/material/colors';
@@ -154,7 +153,7 @@ import { style } from "@mui/system";
 //   ];
 
 
-const AllTransactions = ({userId, theme}) => {
+const AllTransactions = ({userId}) => {
     const [transactionList, setTransactionList] = useState([]);
 
     useEffect(() =>{
@@ -213,7 +212,6 @@ const AllTransactions = ({userId, theme}) => {
                             <TransactionRow
                                 key={transaction.id}
                                 transaction={transaction}
-                                theme={theme}
                                 // setDataToEdit={setDataToEdit}
                                 deleteTransaction={deleteTransaction}
                             />

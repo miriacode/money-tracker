@@ -12,9 +12,15 @@ import styles from "./TransactionRow.module.scss"
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
+//ContextAPI
+import { useContext } from "react";
+import ThemeContext from './../../../../context/ThemeContext'
 
-const TransactionRow = ({transaction, deleteTransaction, theme}) => {
-  let { _id, type, title, amount, category, date } = transaction;
+
+const TransactionRow = ({transaction, deleteTransaction}) => {
+  let { _id, type, title, amount, category, date } = transaction; 
+  
+  const { theme } = useContext(ThemeContext);
 
   let newDate = new Date(date).toUTCString().split(" ")
   date = `${newDate[2]} ${newDate[1]}, ${newDate[3]}`
@@ -50,6 +56,7 @@ const TransactionRow = ({transaction, deleteTransaction, theme}) => {
 
           if(theme==="light"){
             let newColor = defaultColor.slice(0,-5)+"40%)"
+            // setColor("red")
             setColor(newColor)
           }else{
             setColor(defaultColor)

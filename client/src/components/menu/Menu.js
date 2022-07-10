@@ -20,10 +20,17 @@ import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 
-const Menu = ({theme}) => {
+import { useContext } from "react";
+import ThemeContext from './../../context/ThemeContext'
+
+const Menu = () => {
+
+    const { theme } = useContext(ThemeContext);
     return (
+        
         <div className={styles.menu}>
             <div className={styles.menu__brand}>
+                <span>{theme}</span>
                 <img className={styles.menu__logo} src={theme==="light"?logoLight:logoDark}></img>
                 <h3 className={styles.menu__title}>MoneyTracker</h3> 
             </div>
