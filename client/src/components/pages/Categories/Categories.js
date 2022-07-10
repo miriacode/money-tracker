@@ -17,12 +17,18 @@ import NewCategory from "../NewCategory/NewCategory";
 import UpdateCategory from "../UpdateCategory/UpdateCategory";
 import RightMenu from "../../RightMenu/RightMenu";
 
-const Categories = ({userId}) => {
+//ContextAPI
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthContext";
+
+const Categories = () => {
 
     const [incomeCategoryList, setIncomeCategoryList] = useState([]);
     const [expensesCategoryList, setExpensesCategoryList] = useState([]);
 
     const[favoriteCategoryList, setFavoriteCategoryList] = useState([]);
+
+    const { userId } = useContext(AuthContext);
     
     useEffect(() =>{
         axios.get("http://localhost:8000/api/categories/find/"+userId,{withCredentials: true})
@@ -168,18 +174,16 @@ const Categories = ({userId}) => {
                 </div>           
             </div>
         </div>
-        <RightMenu userId={userId}></RightMenu>
+        <RightMenu></RightMenu>
 
         {newCategoryClicked?
             <NewCategory 
-                userId={userId} 
                 click={setNewCategoryClicked}>
             </NewCategory> 
         :null}
 
         {updateCategoryClicked?
             <UpdateCategory 
-                userId={userId}
                 categoryId={activeCategoryId}
                 click={setUpdateCategoryClicked}>
             </UpdateCategory> 

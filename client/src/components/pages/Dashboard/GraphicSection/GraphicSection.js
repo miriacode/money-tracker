@@ -12,14 +12,16 @@ import { thisYear, thisMonth, nextMonth, thisMonday, nextMonday } from "../../..
 
 //ConextAPI
 import { useContext } from "react";
-import ThemeContext from './../../../../context/ThemeContext'
+import ThemeContext from './../../../../context/ThemeContext';
+import AuthContext from "../../../../context/AuthContext";
 
 
-const GraphicSection = ({userId}) => {
+const GraphicSection = () => {
 
     const [data, setData] = useState([])
 
     const { theme } = useContext(ThemeContext);
+    const { userId } = useContext(AuthContext);
     
     useEffect(() => {
         handleThisYearGraph()

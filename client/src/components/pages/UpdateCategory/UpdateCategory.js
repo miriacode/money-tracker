@@ -7,7 +7,7 @@ import styles from "./UpdateCategory.module.css"
 //Material UI
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const UpdateCategory = ({userId, click, categoryId}) => {
+const UpdateCategory = ({click, categoryId}) => {
     
     // const {id} = useParams();
 

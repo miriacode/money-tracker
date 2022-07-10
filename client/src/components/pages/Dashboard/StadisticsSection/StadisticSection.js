@@ -2,10 +2,14 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 //Styles
-import styles from "./StadisticsSection.module.css"
+import styles from "./StadisticsSection.module.css";
 import Dropdown from "../Dropdown/Dropdown";
 
-const StadisticsSection = ({userId}) => {
+//ContextAPI
+import { useContext } from "react";
+import AuthContext from "../../../../context/AuthContext";
+
+const StadisticsSection = () => {
 
     const [totalIncome, setTotalIncome] = useState(0);
     const [totalExpenses, setTotalExpenses] = useState(0);
@@ -13,7 +17,7 @@ const StadisticsSection = ({userId}) => {
     const [incomePercentage, setIncomePercentage] = useState(0);
     const [expensePercentage, setExpensePercentage] = useState(0);
 
-
+    const { userId } = useContext(AuthContext);
 
     useEffect(() => {
         //By default: Yearly

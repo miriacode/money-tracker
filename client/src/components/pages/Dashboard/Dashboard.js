@@ -8,15 +8,15 @@ import RightMenu from "../../RightMenu/RightMenu";
 import styles from "./Dashboard.module.css"
 
 
-const Dashboard = ({userId}) => {
+const Dashboard = () => {
     return (
         <>
             <div className={styles.page}>
                 <h2 className={styles.page__title}>Dashboard</h2>
-                <StadisticSection userId={userId}/>
-                <GraphicSection userId={userId}></GraphicSection>
+                <StadisticSection/>
+                <GraphicSection></GraphicSection>
             </div> 
-            <RightMenu userId={userId}></RightMenu>
+            <RightMenu></RightMenu>
         </>
     )
 }

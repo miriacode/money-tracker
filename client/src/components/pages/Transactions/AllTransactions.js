@@ -152,9 +152,14 @@ import AddIcon from '@mui/icons-material/Add';
 //     { id: 12, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 //   ];
 
+//ContextAPI
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthContext";
 
-const AllTransactions = ({userId}) => {
+const AllTransactions = () => {
     const [transactionList, setTransactionList] = useState([]);
+
+    const { userId } = useContext(AuthContext);
 
     useEffect(() =>{
         axios.get("http://localhost:8000/api/transactions/find/"+userId,{withCredentials: true})

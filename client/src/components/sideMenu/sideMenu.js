@@ -11,13 +11,15 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 //ContextAPI
 import { useContext } from "react";
-import ThemeContext from './../../context/ThemeContext'
+import ThemeContext from './../../context/ThemeContext';
+import AuthContext from "../../context/AuthContext";
 
-const SideMenu = ({userId}) => {
+const SideMenu = () => {
 
     const { theme, handleTheme } = useContext(ThemeContext);
 
     const [user, setUser] = useState({});
+    const { userId } = useContext(AuthContext);
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/"+userId,{withCredentials: true})

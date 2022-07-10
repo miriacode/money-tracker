@@ -7,15 +7,23 @@ import styles from "./NewCategory.module.css"
 //Material UI
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
+//ContextAPI
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthContext";
+
 //Importing dependency
 const randomColor = require('randomcolor');
 
-const NewCategory = ({userId, click}) => {
+
+
+const NewCategory = ({click}) => {
     const [type, setType] = useState("expense");
     const [categoryName, setCategoryName] = useState("");
     const [color, setColor] = useState("")
 
     const [errors, setErrors] = useState({});
+
+    const { userId } = useContext(AuthContext);
 
     useEffect(() => {
         let randomColorr = randomColor({

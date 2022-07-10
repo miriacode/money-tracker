@@ -22,8 +22,12 @@ import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 
 import RightMenu from '../../RightMenu/RightMenu'
 
+//ContextAPI
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthContext";
 
-const EditProfile = ({userId}) => {
+
+const EditProfile = () => {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -36,6 +40,8 @@ const EditProfile = ({userId}) => {
     
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+
+    const { userId } = useContext(AuthContext);
 
 
     
@@ -188,7 +194,7 @@ const EditProfile = ({userId}) => {
             </div>
             
         </div>
-        <RightMenu userId={userId}></RightMenu>        
+        <RightMenu></RightMenu>        
         </>
     )
 }

@@ -16,10 +16,15 @@ import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 
 import RightMenu from "../../RightMenu/RightMenu";
 
+//ContextAPI
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthContext";
 
-const Profile = ({userId}) => {
+
+const Profile = () => {
 
     const [user, setUser] = useState({});
+    const { userId } = useContext(AuthContext);
     
     useEffect(() =>{
         axios.get("http://localhost:8000/api/users/"+userId,{withCredentials: true})
@@ -110,7 +115,7 @@ const Profile = ({userId}) => {
                     </div>
                 </div>
         </div>
-        <RightMenu userId={userId}></RightMenu>
+        <RightMenu></RightMenu>
         </>
     )
 }

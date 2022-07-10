@@ -9,9 +9,10 @@ import RightMenu from '../../RightMenu/RightMenu'
 
 //ConextAPI
 import { useContext } from "react";
-import ThemeContext from './../../../context/ThemeContext'
+import ThemeContext from './../../../context/ThemeContext';
+import AuthContext from "../../../context/AuthContext";
 
-const UpdateTransaction = ({userId}) => {
+const UpdateTransaction = () => {
     
     const {id} = useParams();
 
@@ -27,6 +28,7 @@ const UpdateTransaction = ({userId}) => {
     const navigate = useNavigate();
 
     const { theme } = useContext(ThemeContext);
+    const { userId } = useContext(AuthContext);
 
     useEffect(() =>{
         axios.get("http://localhost:8000/api/transactions/"+id,{withCredentials: true})
@@ -196,7 +198,7 @@ const UpdateTransaction = ({userId}) => {
 
             
         </div>
-        <RightMenu userId={userId}></RightMenu>
+        <RightMenu></RightMenu>
         </>
     )
 }

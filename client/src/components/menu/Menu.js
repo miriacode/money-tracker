@@ -21,7 +21,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 
 import { useContext } from "react";
-import ThemeContext from './../../context/ThemeContext'
+import ThemeContext from './../../context/ThemeContext';
 
 const Menu = () => {
 

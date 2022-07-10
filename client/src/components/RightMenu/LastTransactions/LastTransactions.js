@@ -11,14 +11,16 @@ import styles from "./../LastTransactions/LastTransactions.module.css"
 
 //ContextAPI
 import { useContext } from "react";
-import ThemeContext from './../../../context/ThemeContext'
+import ThemeContext from './../../../context/ThemeContext';
+import AuthContext from "../../../context/AuthContext";
 
-const LastTransactions = ({userId}) => {
+const LastTransactions = () => {
 
     const [lastTransactions, setLastTransactions] = useState([])
     const [date, setDate] = useState([]);
 
-    const { theme, handleTheme } = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
+    const { userId } = useContext(AuthContext);
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/transactions/last5/find/"+userId,{withCredentials: true})

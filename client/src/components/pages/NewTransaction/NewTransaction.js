@@ -3,15 +3,16 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
 //Styles
-import styles from './NewTransaction.module.css'
+import styles from './NewTransaction.module.css';
 
-import RightMenu from '../../RightMenu/RightMenu'
+import RightMenu from '../../RightMenu/RightMenu';
 
 //ConextAPI
 import { useContext } from "react";
-import ThemeContext from './../../../context/ThemeContext'
+import ThemeContext from './../../../context/ThemeContext';
+import AuthContext from "../../../context/AuthContext";
 
-const NewTransaction = ({userId}) => {
+const NewTransaction = () => {
     const [type, setType] = useState("expense");
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -24,6 +25,7 @@ const NewTransaction = ({userId}) => {
     const navigate = useNavigate();
 
     const { theme } = useContext(ThemeContext);
+    const { userId } = useContext(AuthContext);
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/categories/find/"+userId,{withCredentials: true})
@@ -175,7 +177,7 @@ const NewTransaction = ({userId}) => {
                 </div>
             </form>
         </div>
-        <RightMenu userId={userId}></RightMenu>
+        <RightMenu></RightMenu>
         </>
 
     )
